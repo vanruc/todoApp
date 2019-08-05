@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<view xmlns="http://www.skyve.org/xml/view" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="_projectInfo" title="Project" xsi:schemaLocation="http://www.skyve.org/xml/view ../../../../schemas/view.xsd">
+    <form responsiveWidth="12" percentageWidth="60" border="true" borderTitle="Project Info">
+        <column percentageWidth="30" responsiveWidth="4"/>
+        <column/>
+        <row>
+            <item>
+                <default binding="projectCode"/>
+            </item>
+        </row>
+        <row>
+            <item>
+                <default binding="projectName"/>
+            </item>
+        </row>
+        <row>
+            <item>
+                <default binding="projectDescription"/>
+            </item>
+        </row>
+        <row>
+            <item>
+                <default binding="startDate"/>
+            </item>
+        </row>
+        <row>
+            <item>
+                <default binding="endDate"/>
+            </item>
+        </row>
+	</form>
+</view>

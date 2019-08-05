@@ -1574,44 +1574,183 @@ We will go to add Staff Location to `Right Side` of screen.
 
 You can click to the right icon of `Staff Location` to set `Staff Location`.
 
+### Project Edit View
 
+In previouse section you already explore and practice on how to create an `edit view` and customize it to meet project requirement. Now it should be easier for you to create an `edit view` for `Project` document right?
 
+Let demostrate that our `project edit view` may be look like below:
 
+![](doc_img_src/projecteditview.png)
 
+It inlcude of 3 `components`:
+- Project Info: to show project information.
+- Project Owner Info: to show project owner information.
+- Project Operator: to show project operator information.
 
+There are some guideline for you to finish this edit view by your self.
+1. Run `Generate edit view` command to generate `Project edit view`
+2. Create `view components` for each section
+3. Combine `view components` together.
+4. Run `Generate Domain` command and Redeploy applicaion.
+5. Adjust your view if required.
 
+You may stop continue reading for 10 to 20 minute in order to try to complete it by yourself before and then after you done by your self you can compare it with our work.
 
+#### Project Edit View Solution
+##### Project Info Component
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<view xmlns="http://www.skyve.org/xml/view" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="_projectInfo" title="Project" xsi:schemaLocation="http://www.skyve.org/xml/view ../../../../schemas/view.xsd">
+    <form responsiveWidth="12" percentageWidth="60" border="true" borderTitle="Project Info">
+        <column percentageWidth="30" responsiveWidth="4"/>
+        <column/>
+        <row>
+            <item>
+                <default binding="projectCode"/>
+            </item>
+        </row>
+        <row>
+            <item>
+                <default binding="projectName"/>
+            </item>
+        </row>
+        <row>
+            <item>
+                <default binding="projectDescription"/>
+            </item>
+        </row>
+        <row>
+            <item>
+                <default binding="startDate"/>
+            </item>
+        </row>
+        <row>
+            <item>
+                <default binding="endDate"/>
+            </item>
+        </row>
+	</form>
+</view>
+```
+##### Project Owner Info Component
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<view xmlns="http://www.skyve.org/xml/view" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="_projectOwnerInfo" title="Project" xsi:schemaLocation="http://www.skyve.org/xml/view ../../../../schemas/view.xsd">
+    <form responsiveWidth="12" percentageWidth="60" border="true" borderTitle="Project Owner Info">
+        <column percentageWidth="30" responsiveWidth="4"/>
+        <column/>       
+        <row>
+            <item>
+                <default binding="projectOwner"/>
+            </item>
+        </row>
+        
+        <row>
+        	<item>
+        		<default binding="projectOwner.name"/>
+        	</item>
+        </row>
+        <row>
+        	<item>
+        		<default binding="projectOwner.email1"/>
+        	</item>
+        </row>
+        <row>
+        	<item>
+        		<default binding="projectOwner.mobile"/>
+        	</item>
+        </row>
+        
+        <row>
+        	<item>
+				<spacer />
+			</item>
+			<item showLabel="false">
+				<contentImage binding="projectOwner.image" pixelWidth="200" pixelHeight="200" />
+			</item>
+        </row>
+    </form>
+</view>
+```
+#### Project Operator Component
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<view xmlns="http://www.skyve.org/xml/view" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="_projectOperator" title="Project" xsi:schemaLocation="http://www.skyve.org/xml/view ../../../../schemas/view.xsd">
+    <form responsiveWidth="12" percentageWidth="60" border="true" borderTitle="Project Operator">
+        <column percentageWidth="30" responsiveWidth="4"/>
+        <column/>
+        
+        <row>
+            <item>
+                <default binding="projectManager"/>
+            </item>
+        </row>
+        <row>
+            <item>
+                <default binding="projectManager.user.contact.email1"/>
+            </item>
+        </row>
+        <row>
+            <item>
+                <default binding="projectManager.user.contact.mobile"/>
+            </item>
+        </row>
+        <row>
+        	<item>
+				<spacer />
+			</item>
+			<item showLabel="false">
+				<contentImage binding="projectManager.user.contact.image" pixelWidth="200" pixelHeight="200" />
+			</item>
+        </row>
+        <row>
+            <item>
+                <default binding="projectCoordinator"/>
+            </item>
+        </row>
+        <row>
+            <item>
+                <default binding="projectCoordinator.user.contact.email1"/>
+            </item>
+        </row>
+        <row>
+            <item>
+                <default binding="projectCoordinator.user.contact.mobile"/>
+            </item>
+        </row>
+        <row>
+        	<item>
+				<spacer />
+			</item>
+			<item showLabel="false">
+				<contentImage binding="projectCoordinator.user.contact.image" pixelWidth="200" pixelHeight="200" />
+			</item>
+        </row>
+        <row>
+        	<item colspan="2">
+				<spacer />
+			</item>
+        </row>
+    </form>
+</view>
+```
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#### Combine components in edit view
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<view xmlns="http://www.skyve.org/xml/view" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="edit" title="Project" xsi:schemaLocation="http://www.skyve.org/xml/view ../../../../schemas/view.xsd">
+    <hbox border="true">
+    	<vbox responsiveWidth="6" percentageWidth="50">
+    		<component name="_projectInfo" />
+    		<component name="_projectOwnerInfo" />
+    	</vbox>
+    	<vbox responsiveWidth="6" percentageWidth="50">
+    		<component name="_projectOperator" />
+    	</vbox>
+    </hbox>
+    <actions>
+        <defaults/>
+    </actions>
+    <newParameters/>
+</view>
+```

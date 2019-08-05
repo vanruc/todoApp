@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<view xmlns="http://www.skyve.org/xml/view" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="_projectOperator" title="Project" xsi:schemaLocation="http://www.skyve.org/xml/view ../../../../schemas/view.xsd">
+    <form responsiveWidth="12" percentageWidth="60" border="true" borderTitle="Project Operator">
+        <column percentageWidth="30" responsiveWidth="4"/>
+        <column/>
+        
+        <row>
+            <item>
+                <default binding="projectManager"/>
+            </item>
+        </row>
+        <row>
+            <item>
+                <default binding="projectManager.user.contact.email1"/>
+            </item>
+        </row>
+        <row>
+            <item>
+                <default binding="projectManager.user.contact.mobile"/>
+            </item>
+        </row>
+        <row>
+        	<item>
+				<spacer />
+			</item>
+			<item showLabel="false">
+				<contentImage binding="projectManager.user.contact.image" pixelWidth="200" pixelHeight="200" />
+			</item>
+        </row>
+        <row>
+            <item>
+                <default binding="projectCoordinator"/>
+            </item>
+        </row>
+        <row>
+            <item>
+                <default binding="projectCoordinator.user.contact.email1"/>
+            </item>
+        </row>
+        <row>
+            <item>
+                <default binding="projectCoordinator.user.contact.mobile"/>
+            </item>
+        </row>
+        <row>
+        	<item>
+				<spacer />
+			</item>
+			<item showLabel="false">
+				<contentImage binding="projectCoordinator.user.contact.image" pixelWidth="200" pixelHeight="200" />
+			</item>
+        </row>
+        <row>
+        	<item colspan="2">
+				<spacer />
+			</item>
+        </row>
+    </form>
+</view>
