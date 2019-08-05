@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datasources>
+	<datasource jndi-name="java:/todoAppDB" pool-name="todoApp" enabled="true" jta="true" use-ccm="false">
+		<connection-url>jdbc:mysql://todoApp_db:3306/todoApp?useCursorFetch=true&amp;defaultFetchSize=100</connection-url>
+		<driver>mysql</driver>
+		<pool>
+			<min-pool-size>5</min-pool-size>
+			<max-pool-size>10</max-pool-size>
+		</pool>
+		<security>
+			<user-name>sa</user-name>
+			<password>sa</password>
+		</security>
+	</datasource>
+</datasources>

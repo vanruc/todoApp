@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<document name="Todo"
+				xmlns="http://www.skyve.org/xml/document"
+				xsi:schemaLocation="http://www.skyve.org/xml/document ../../../schemas/document.xsd"
+				xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<persistent name="Todo_Todo" />
+	<singularAlias>Todo</singularAlias>
+	<pluralAlias>Todo</pluralAlias>
+	<iconStyleClass>fa fa-tasks</iconStyleClass>
+	<bizKey expression="{taskID}"/>
+	
+	<attributes>
+		<text name="taskID" required="true">
+			<displayName>Task ID</displayName>
+			<length>20</length>
+		</text>
+		<enum name="priorityLevel">
+			<displayName>Priority Level</displayName>
+			<defaultValue>medium</defaultValue>
+			<values>
+				<value code="med" name="medium" description="Medium"/>
+				<value code="urg" name="urg" description="Urgent"/>
+				<value code="low" name="low" description="Low Priority"/>
+			</values>
+		</enum>
+		<association type="composition" name="project" required="true">
+			<displayName>Project</displayName>
+			<documentName>Project</documentName>
+		</association>
+		<association type="composition" name="createdBy" required="true">
+			<displayName>Created By</displayName>
+			<documentName>Staff</documentName>
+		</association>
+		<dateTime name="recordedDateTime" required="true">
+			<displayName>Recorded Date Time</displayName>
+		</dateTime>
+		<dateTime name="startDate">
+			<displayName>Start Date</displayName>
+		</dateTime>
+		<dateTime name="targetDate">
+			<displayName>Target Date</displayName>
+		</dateTime>
+		<dateTime name="actualStartDate">
+			<displayName>Actual Start Date</displayName>
+		</dateTime>
+		<dateTime name="actualFinishDate">
+			<displayName>Actual Finish Date</displayName>
+		</dateTime>
+		<enum name="taskStatus">
+			<displayName>Task Status</displayName>
+			<defaultValue>defined</defaultValue>
+			<values>
+				<value code="defined" name="defined" description="Defined"/>
+				<value code="pending" name="pending" description="Pending" />
+				<value code="assign" name="assigned" description="Assigned"/>
+				<value code="inprogress" name="inprogress" description="In Progress" />
+				<value code="review" name="review" description="Review" />
+				<value code="uat" name="uat" description="UAT"/>
+				<value code="kiv" name="kiv" description="KIV"/>
+				<value code="completed" name="completed" description="Completed"/>
+			</values>
+		</enum>
+		<memo name="taskDescription">
+			<displayName>Task Description</displayName>
+			<description>Task Description</description>
+		</memo>
+		<association type="composition" name="assignTo" required="true">
+			<displayName>Assign To</displayName>
+			<documentName>Staff</documentName>
+		</association>
+	</attributes>
+</document>

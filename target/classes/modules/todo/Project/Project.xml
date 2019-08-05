@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<document name="Project"
+				xmlns="http://www.skyve.org/xml/document"
+				xsi:schemaLocation="http://www.skyve.org/xml/document ../../../schemas/document.xsd"
+				xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<persistent name="Todo_Project" />
+	<singularAlias>Project</singularAlias>
+	<pluralAlias>Projects</pluralAlias>
+	<iconStyleClass>fa fa-briefcase</iconStyleClass>
+	<bizKey expression="{projectCode} - {projectName}"/>
+	<attributes>
+		<text name="projectCode" required="true">
+			<displayName>Project Code</displayName>
+			<length>50</length>
+		</text>
+		<text name="projectName" required="true">
+			<displayName>Project Name</displayName>
+			<length>100</length>
+		</text>
+		<memo name="projectDescription">
+			<displayName>Project Description</displayName>
+			<description>Project Description</description>
+		</memo>
+		<association type="composition" name="projectOwner" required="true">
+			<displayName>Project Owner</displayName>
+			<documentName>Contact</documentName>
+		</association>
+		<date name="startDate" required="true">
+			<displayName>Start Date</displayName>
+		</date>
+		<date name="endDate" required="true">
+			<displayName>End Date</displayName>
+		</date>
+		<association type="composition" name="projectManager" required="true">
+			<displayName>Project Manager</displayName>
+			<documentName>Staff</documentName>
+		</association>
+		<association type="composition" name="projectCoordinator" required="true">
+			<displayName>Project Coordinator</displayName>
+			<documentName>Staff</documentName>
+		</association>		
+	</attributes>
+	
+</document>

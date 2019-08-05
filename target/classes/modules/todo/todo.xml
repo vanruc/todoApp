@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<module name="todo" title="Todo Module" xmlns="http://www.skyve.org/xml/module" xsi:schemaLocation="http://www.skyve.org/xml/module ../../schemas/module.xsd"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<homeRef>edit</homeRef>
+	<homeDocument>Todo</homeDocument>
+	
+	<documents>
+		<document ref="Project"  defaultQueryName="qProject"/>
+		<document ref="Todo" defaultQueryName="qTodo"/>
+		<document ref="Staff" defaultQueryName="qStaff"/>
+		
+		<document ref="User" moduleRef="admin" />
+		<document ref="Contact" moduleRef="admin" />
+	</documents>
+	
+	<roles>
+		<role name="StaffManager">
+			<description>Staff Manager - who are able to manage Staffs</description>
+			<privileges>
+				<document permission="CRUDC" name="Staff" />
+			</privileges>
+		</role>
+		<role name="ProjectManager">
+			<description>Project Manager - who are able to manage projects and create tasks for projects.</description>
+			<privileges>
+				<document permission="CRUDC" name="Project" />
+				<document permission="CRUDC" name="Todo" />
+			</privileges>
+		</role>
+		<role name="ProjectMember">
+			<description>Project Member - who are not able to create project, tasks but will work with tasks to finish projects.</description>
+			<privileges>
+				<document permission="_RU_C" name="Todo" />
+			</privileges>
+		</role>
+	</roles>
+	
+	<menu>
+		<list document="Staff" name="Staff">
+			<role name="StaffManager" />
+		</list>
+		<list document="Project" name="Project">
+			<role name="ProjectManager" />
+			<role name="ProjectMember" />
+		</list>
+		<list document="Todo" name="To Do">
+			<role name="ProjectManager" />
+			<role name="ProjectMember" />
+		</list>
+	</menu>
+	
+	<queries>
+		<query documentName="Staff" name="qStaff">
+			<description>All Staff</description>
+			<columns>
+				<content display="thumbnail" binding="user.contact.image" pixelHeight="60" pixelWidth="60" />
+				<column binding="user.contact.name" sortOrder="ascending" />
+				<column binding="user.contact.mobile" sortOrder="ascending" />
+				<column binding="dateOfBirth" sortOrder="ascending" />
+				<column binding="idCardNo" sortOrder="ascending" />
+				<column binding="dept" sortOrder="ascending" />
+				<column binding="bu" sortOrder="ascending" />
+				<column binding="jobTitle" sortOrder="ascending" />
+				<column binding="startDate" sortOrder="ascending" />
+			</columns>
+		</query>
+		
+		<query documentName="Project" name="qProject">
+			<description>All Project</description>
+			<columns>
+				<column binding="projectCode" sortOrder="ascending" />
+				<column binding="projectName" />
+				<column binding="projectDescription" />
+				<column binding="projectOwner.name" displayName="Project Owner"/>
+				<column binding="startDate" />
+				<column binding="endDate" />
+				<column binding="projectManager.user.contact.name" displayName="Project Manager" />
+				<column binding="projectCoordinator.user.contact.name" displayName="Project Coordinator"/>
+			</columns>
+		</query>
+		
+		<query documentName="Todo" name="qTodo">
+			<description>All Todo</description>
+			<columns>
+				<column binding="taskID" sortOrder="ascending" />
+				<column binding="priorityLevel" />
+				<column binding="project.projectCode" />
+				<column binding="createdBy.user.contact.name" displayName="Created By"/>
+				<column binding="recordedDateTime" />
+				<column binding="startDate" />
+				<column binding="targetDate" />
+				<column binding="taskStatus" />
+				<column binding="taskDescription" />
+				<column binding="assignTo.user.contact.name" displayName="Assign To"/>
+			</columns>
+		</query>
+	</queries>	
+</module>

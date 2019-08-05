@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<document name="Staff"
+				xmlns="http://www.skyve.org/xml/document"
+				xsi:schemaLocation="http://www.skyve.org/xml/document ../../../schemas/document.xsd"
+				xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<persistent name="Todo_Staff" />
+	<singularAlias>Staff</singularAlias>
+	<pluralAlias>Staffs</pluralAlias>
+	<iconStyleClass>fa fa-users</iconStyleClass>
+	<bizKey expression="{user.contact.name}"/>
+	<attributes>
+		<association name="user" type="composition" required="true">
+			<displayName>User</displayName>
+			<documentName>User</documentName>
+		</association>
+		
+		<enum name="socialTitle">
+			<displayName>Social Title</displayName>
+			<defaultValue>mr</defaultValue>
+			<values>
+				<value code="mr" name="mr" description="Mr" />
+				<value code="ms" name="ms" description="Ms" />
+				<value code="mrs" name="mrs" description="Mrs" />
+				<value code="dr" name="dr" description ="Dr"/>
+			</values>
+		</enum>
+		<!-- Contact Info will be loaded from Contact Document -->
+		
+		<date name="dateOfBirth" required="true">
+			<displayName>Date Of Birth</displayName>
+		</date>
+		
+		<text name="idCardNo" required="true">
+			<displayName>ID Card Number</displayName>
+			<length>20</length>
+		</text>
+		
+		<date name="issuedDate">
+			<displayName>Issued Date</displayName>
+		</date>
+		
+		<date name="expiredDate">
+			<displayName>Expired Date</displayName>
+		</date>
+		
+		<memo name="bio">
+			<displayName>BIO</displayName>
+			<description>Brief BIO info</description>
+		</memo>
+		
+		<geometry name='staffLocation'>
+			<displayName>Staff Location</displayName>
+		</geometry>
+		
+		<text name="dept">
+			<displayName>Department</displayName>
+			<length>50</length>
+		</text>
+		
+		<text name="bu">
+			<displayName>Business Unit</displayName>
+			<length>50</length>
+		</text>
+		
+		<text name="jobTitle">
+			<displayName>Job Title</displayName>
+			<length>100</length>
+		</text>
+		
+		<date name="startDate">
+			<displayName>Start Date</displayName>
+		</date>	
+		
+	</attributes>
+	
+</document>

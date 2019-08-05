@@ -1,0 +1,37 @@
+# Creates a mysql database and wildfly instance
+# Usage: docker-compose up
+version: '2.0'
+services:
+  todoApp_db:
+    container_name: todoApp_mysql_db
+    image: 'mysql'
+    restart: always
+    ports:
+      - '3307:3306'
+    expose:
+      - '3306'
+    environment:
+      MYSQL_ROOT_PASSWORD: 'sa'
+      MYSQL_DATABASE: 'todoApp'
+      MYSQL_USER: 'sa'
+      MYSQL_PASSWORD: 'sa'
+  todoApp_wildfly:
+    container_name: todoApp_wildfly_mysql
+    image: 'todoapp-mysql'
+    ports:
+      - '8081:8080'
+      - '9991:9990'
+      - '8788:8787'
+    environment:
+      JAVA_OPTS: '-Xmx2g -Xms64m -XX:MetaspaceSize=96M -XX:MaxMetaspaceSize=2g'
+      SKYVE_CONTENT: '/content/'
+      SKYVE_DATASTORE_DIALECT: 'org.skyve.impl.persistence.hibernate.dialect.MySQL56InnoDBSpatialDialect'
+      SKYVE_HOSTNAME: 'localhost'
+      SKYVE_PORT: '8081'
+      DATABASE_URL: 'todoApp_db'
+      DATABASE_PORT: '3306'
+      SKYVE_SECURITY_DOMAIN_NAME: 'todoApp'
+      SKYVE_JNDI_NAME: 'todoAppDB'
+    volumes:
+      - '../deployments:/opt/jboss/wildfly/standalone/deployments/'
+      - './content:/content'

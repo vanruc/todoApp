@@ -1,0 +1,133 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping default-access="field">
+
+	<typedef name="OptimisticLock" class="org.skyve.impl.domain.types.OptimisticLockUserType" />
+	<typedef name="Decimal2" class="org.skyve.impl.domain.types.Decimal2UserType" />
+	<typedef name="Decimal5" class="org.skyve.impl.domain.types.Decimal5UserType" />
+	<typedef name="Decimal10" class="org.skyve.impl.domain.types.Decimal10UserType" />
+	<typedef name="DateOnly" class="org.skyve.impl.domain.types.DateOnlyUserType" />
+	<typedef name="DateTime" class="org.skyve.impl.domain.types.DateTimeUserType" />
+	<typedef name="TimeOnly" class="org.skyve.impl.domain.types.TimeOnlyUserType" />
+	<typedef name="Timestamp" class="org.skyve.impl.domain.types.TimestampUserType" />
+	<typedef name="Enum" class="org.skyve.impl.domain.types.EnumUserType" />
+	<class name="modules.todo.domain.Project" table="Todo_Project" entity-name="todoProject">
+		<id name="bizId" length="36" />
+		<version name="bizVersion" unsaved-value="null" />
+		<property name="bizLock" type="OptimisticLock" length="271" not-null="true" />
+		<property name="bizKey" length="1024" index="IDX_bizKey" not-null="true" />
+		<property name="bizCustomer" length="50" index="IDX_bizCustomer" not-null="true" />
+		<property name="bizFlagComment" length="1024" />
+		<property name="bizDataGroupId" length="36" />
+		<property name="bizUserId" length="36" index="IDX_bizUserId" not-null="true" />
+		<property name="projectCode" length="50" />
+		<property name="projectName" length="100" />
+		<property name="projectDescription" type="text" />
+		<many-to-one name="projectOwner" entity-name="adminContact" column="projectOwner_id" unique="true" cascade="persist,save-update,refresh,delete-orphan,merge" unique-key="UK_projectOwner" index="IDX_projectOwner" foreign-key="FK_Todo_Project_projectOwner" />
+		<property name="startDate" type="DateOnly" />
+		<property name="endDate" type="DateOnly" />
+		<many-to-one name="projectManager" entity-name="todoStaff" column="projectManager_id" unique="true" cascade="persist,save-update,refresh,delete-orphan,merge" unique-key="UK_projectManager" index="IDX_projectManager" foreign-key="FK_Todo_Project_projectManager" />
+		<many-to-one name="projectCoordinator" entity-name="todoStaff" column="projectCoordinator_id" unique="true" cascade="persist,save-update,refresh,delete-orphan,merge" unique-key="UK_projectCoordinator" index="IDX_projectCoordinator" foreign-key="FK_Todo_Project_projectCoordinator" />
+		<filter name="todoProjectNoneFilter" condition="1=0"/>
+		<filter name="todoProjectCustomerFilter" condition="bizCustomer=:customerParam"/>
+		<filter name="todoProjectDataGroupIdFilter" condition="bizDataGroupId=:dataGroupIdParam"/>
+		<filter name="todoProjectUserIdFilter" condition="bizUserId=:userIdParam"/>
+	</class>
+
+	<class name="modules.todo.domain.Staff" table="Todo_Staff" entity-name="todoStaff">
+		<id name="bizId" length="36" />
+		<version name="bizVersion" unsaved-value="null" />
+		<property name="bizLock" type="OptimisticLock" length="271" not-null="true" />
+		<property name="bizKey" length="1024" index="IDX_bizKey" not-null="true" />
+		<property name="bizCustomer" length="50" index="IDX_bizCustomer" not-null="true" />
+		<property name="bizFlagComment" length="1024" />
+		<property name="bizDataGroupId" length="36" />
+		<property name="bizUserId" length="36" index="IDX_bizUserId" not-null="true" />
+		<many-to-one name="user" entity-name="adminUser" column="user_id" unique="true" cascade="persist,save-update,refresh,delete-orphan,merge" unique-key="UK_user" index="IDX_user" foreign-key="FK_Todo_Staff_user" />
+		<property name="socialTitle" length="3">
+			<type name="Enum">
+				<param name="enumClass">modules.todo.domain.Staff$SocialTitle</param>
+			</type>
+		</property>
+		<property name="dateOfBirth" type="DateOnly" />
+		<property name="idCardNo" length="20" />
+		<property name="issuedDate" type="DateOnly" />
+		<property name="expiredDate" type="DateOnly" />
+		<property name="bio" type="text" />
+		<property name="staffLocation" />
+		<property name="dept" length="50" />
+		<property name="bu" length="50" />
+		<property name="jobTitle" length="100" />
+		<property name="startDate" type="DateOnly" />
+		<filter name="todoStaffNoneFilter" condition="1=0"/>
+		<filter name="todoStaffCustomerFilter" condition="bizCustomer=:customerParam"/>
+		<filter name="todoStaffDataGroupIdFilter" condition="bizDataGroupId=:dataGroupIdParam"/>
+		<filter name="todoStaffUserIdFilter" condition="bizUserId=:userIdParam"/>
+	</class>
+
+	<class name="modules.todo.domain.Todo" table="Todo_Todo" entity-name="todoTodo">
+		<id name="bizId" length="36" />
+		<version name="bizVersion" unsaved-value="null" />
+		<property name="bizLock" type="OptimisticLock" length="271" not-null="true" />
+		<property name="bizKey" length="1024" index="IDX_bizKey" not-null="true" />
+		<property name="bizCustomer" length="50" index="IDX_bizCustomer" not-null="true" />
+		<property name="bizFlagComment" length="1024" />
+		<property name="bizDataGroupId" length="36" />
+		<property name="bizUserId" length="36" index="IDX_bizUserId" not-null="true" />
+		<property name="taskID" length="20" />
+		<property name="priorityLevel" length="3">
+			<type name="Enum">
+				<param name="enumClass">modules.todo.domain.Todo$PriorityLevel</param>
+			</type>
+		</property>
+		<many-to-one name="project" entity-name="todoProject" column="project_id" unique="true" cascade="persist,save-update,refresh,delete-orphan,merge" unique-key="UK_project" index="IDX_project" foreign-key="FK_Todo_Todo_project" />
+		<many-to-one name="createdBy" entity-name="todoStaff" column="createdBy_id" unique="true" cascade="persist,save-update,refresh,delete-orphan,merge" unique-key="UK_createdBy" index="IDX_createdBy" foreign-key="FK_Todo_Todo_createdBy" />
+		<property name="recordedDateTime" type="DateTime" />
+		<property name="startDate" type="DateTime" />
+		<property name="targetDate" type="DateTime" />
+		<property name="actualStartDate" type="DateTime" />
+		<property name="actualFinishDate" type="DateTime" />
+		<property name="taskStatus" length="10">
+			<type name="Enum">
+				<param name="enumClass">modules.todo.domain.Todo$TaskStatus</param>
+			</type>
+		</property>
+		<property name="taskDescription" type="text" />
+		<many-to-one name="assignTo" entity-name="todoStaff" column="assignTo_id" unique="true" cascade="persist,save-update,refresh,delete-orphan,merge" unique-key="UK_assignTo" index="IDX_assignTo" foreign-key="FK_Todo_Todo_assignTo" />
+		<filter name="todoTodoNoneFilter" condition="1=0"/>
+		<filter name="todoTodoCustomerFilter" condition="bizCustomer=:customerParam"/>
+		<filter name="todoTodoDataGroupIdFilter" condition="bizDataGroupId=:dataGroupIdParam"/>
+		<filter name="todoTodoUserIdFilter" condition="bizUserId=:userIdParam"/>
+	</class>
+
+	<filter-def name="todoProjectNoneFilter" />
+	<filter-def name="todoProjectCustomerFilter">
+		<filter-param name="customerParam" type="string"/>
+	</filter-def>
+	<filter-def name="todoProjectDataGroupIdFilter">
+		<filter-param name="dataGroupIdParam" type="string"/>
+	</filter-def>
+	<filter-def name="todoProjectUserIdFilter">
+		<filter-param name="userIdParam" type="string"/>
+	</filter-def>
+	<filter-def name="todoStaffNoneFilter" />
+	<filter-def name="todoStaffCustomerFilter">
+		<filter-param name="customerParam" type="string"/>
+	</filter-def>
+	<filter-def name="todoStaffDataGroupIdFilter">
+		<filter-param name="dataGroupIdParam" type="string"/>
+	</filter-def>
+	<filter-def name="todoStaffUserIdFilter">
+		<filter-param name="userIdParam" type="string"/>
+	</filter-def>
+	<filter-def name="todoTodoNoneFilter" />
+	<filter-def name="todoTodoCustomerFilter">
+		<filter-param name="customerParam" type="string"/>
+	</filter-def>
+	<filter-def name="todoTodoDataGroupIdFilter">
+		<filter-param name="dataGroupIdParam" type="string"/>
+	</filter-def>
+	<filter-def name="todoTodoUserIdFilter">
+		<filter-param name="userIdParam" type="string"/>
+	</filter-def>
+</hibernate-mapping>
