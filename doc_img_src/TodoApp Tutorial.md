@@ -1,4 +1,4 @@
-## Install and Configure WildFly Server
+﻿## Install and Configure WildFly Server
 To run our **TodoApp** we will need to install and configure for [WildFly](https://wildfly.org) Server.
 Skyve work well on WildFly version 13+ (we tested and run well on **WildFly 16** - count to date of Tutorial)
 ### Install WildFly Server
@@ -7,31 +7,31 @@ Skyve work well on WildFly version 13+ (we tested and run well on **WildFly 16**
 Before install WildFly Server, make sure **JBoss Tools** installed on your system.
 To check if it installed properly, go to Eclipse Marketplace.
 
-![](doc_img_src/eclipse%20marketplace%20menu.png)
+![](eclipse%20marketplace%20menu.png)
 
 Searching with JBoss keyword
 
-![](doc_img_src/install%20jboss.png)
+![](install%20jboss.png)
 
 After **JBoss Tools** was installed properly, follow these steps to install WildFly Server.
 1. Open Server Window
-![](doc_img_src/server%20window.png)
+![](server%20window.png)
 2. Click to the link ***No Servers are available. Click this link to create a new server...*** in Server Window.
 3. **New Server** windows will open, looking for **WildFly 16** then click Next button.
-![](doc_img_src/new%20server%20window.png)
+![](new%20server%20window.png)
 4. Click to the Next button.
-![](doc_img_src/new%20server%20adapter.png)
+![](new%20server%20adapter.png)
 5. Click to the Download and install runtime... link.
-![](doc_img_src/download%20environment.png)
+![](download%20environment.png)
 6. Select WildFly 16, then click to Next button
-![](doc_img_src/wildfly%2016%20install.png)
+![](wildfly%2016%20install.png)
 7. Accept the terms of license agreement and click Next button.
-![](doc_img_src/wildfly%2016%20terms.png)
+![](wildfly%2016%20terms.png)
 8. Click to Finish button to finish the installation.
-![](doc_img_src/wildfly%2016%20finish.png)
+![](wildfly%2016%20finish.png)
 
 9. Wait Eclipse to Download and Install process finish before move to next step.
-![](doc_img_src/wildfly%20download%20and%20install.png)
+![](wildfly%20download%20and%20install.png)
 
 ### Configure Wildfly datasource to support MySQL
 
@@ -48,10 +48,10 @@ Visit [MySQL Connector JDBC page](https://dev.mysql.com/downloads/connector/j/)
 
 At this moment - when we introduce this Tutorial. JDBC 8 connector is not supported yet. So we will go with the previous General Available version.
 
-![](doc_img_src/jdbc%20previouse%20GA%20version.png)
+![](jdbc%20previouse%20GA%20version.png)
 
 Select Platform Independent for Operating System
-![](doc_img_src/previouse%20ga%20jdbc%20download.png)
+![](previouse%20ga%20jdbc%20download.png)
 
 Download suitable version for your operating system. I am using Windows Operating System, so I go to download **Platform Independent (Architecture Independent), ZIP Archive**
 
@@ -61,7 +61,7 @@ Navigate to the directory ***$WILDFLYHOME/modules/system/layers/base/com***
 
 3. Create mysql/main directory
 4. Navigate to main directory and copy MySQL JDBC driver's jar there
-![](doc_img_src/mysql%20connector%20j%20main.png)
+![](mysql%20connector%20j%20main.png)
 
 5. Create a module.xml file with the content below:
 ```xml
@@ -133,20 +133,20 @@ Next, we will go to deploy our TodoApp to WildFly Server, configure Database for
 Its very easy to deploy [Skyve](https://skyve.org) to WildFly Server.
 1. Open WildFly deployments folder.
 Right click on the Server and click to Show In -> File Browser.
-![](doc_img_src/wildfly%20show%20in%20folder.png)
+![](wildfly%20show%20in%20folder.png)
 2. Expand TodoApp Project, you will see deployments folder.
-![](doc_img_src/project%20deployments.png)
+![](project%20deployments.png)
 3. Copy todoApp.json and todoApp-ds.xml to WildFly deployments folder.
-![](doc_img_src/deployment%20copy.png)
+![](deployment%20copy.png)
 4. Add TodoApp project to Wildfly Server.
 
 Right click to the WildFly 16 at localhost then click Add and Remove... menu.
 
-![](doc_img_src/add%20or%20remove.png)
+![](add%20or%20remove.png)
 
 Select todoApp from Available part -> Click Add button -> Click Finish button.
 
-![](doc_img_src/add%20todo%20app.png)
+![](add%20todo%20app.png)
 
 ### Configure Skyve Project
 We will need to do some configuration to run our project.
@@ -155,7 +155,7 @@ We will need to do some configuration to run our project.
 Change the content settings
 
 Open your Eclipse Workspace folder and create content folder.
-![](doc_img_src/workspace%20content%20folder.png)
+![](workspace%20content%20folder.png)
 
 Open todoApp.json and looking for Content settings.
 ```json
@@ -287,25 +287,25 @@ For security reason, we strongly recommend you to create account for each applic
 Before run project, we will need to generate domain class first.
 
 1. Right click to the todoApp on Projects Explorer and choose Run As -> Run Configurations...
-![](doc_img_src/run%20as%20configurations.png)
+![](run%20as%20configurations.png)
 
 2. Looking for Maven Build > todoApp Generate Domain then click Run
-![](doc_img_src/maven%20build.png)
+![](maven%20build.png)
 
 * Wait for few seconds(maybe take more time to run first time), Once the process done you will see the result on Console Windows like below;
-* ![](doc_img_src/build%20success.png)
+* ![](build%20success.png)
    
 3. On Servers Windows, right click to the server and choose Start.
-![](doc_img_src/runserver.png)
+![](runserver.png)
 
 4. When you see below info on Consoles Window, mean todoApp was deployed and run properly on your localhost.
-![](doc_img_src/run%20properly.png)
+![](run%20properly.png)
 
 If not, you may try to check and debug by yourself or [Join Us On Slack](https://join.slack.com/t/skyveframework/shared_invite/enQtNDMwNTcyNzE0NzI2LWNjMTBlMTMzNTA4YzBlMzFhYzE0ZmRhOWIzMWViODY4ZTE1N2QzYWM1MTdlMTliNDIyYTBkOWZhZDAxOGQyYjQ) and question there. You will get supported from [Skyve](https://skyve.org) team or any community team member.
 
 5. Access TodoApp from Web Browser at [http://localhost:8080/todoApp](http://localhost:8080/todoApp)
 
-![](doc_img_src/run%20todo%20app%20on%20browser.png)
+![](run%20todo%20app%20on%20browser.png)
 
 6. You can login with your Bootstrap user info, by default:
 
@@ -315,7 +315,7 @@ Password: setup
 
 7. After you login successfully, you will see something like this.
 
-![](doc_img_src/login%20success.png)
+![](login%20success.png)
 
 By default, Skyve goes with Admin module, the Admin module with quite a lot of useful functions which are ready for you to try and evaluate [Skyve Framework](https://skyve.org).
 
@@ -474,7 +474,7 @@ The application menu is declared in terms of groups and items. A menu group is a
 	</menu>
 </module>
 ```
-![](doc_img_src/define%20menu.png)
+![](define%20menu.png)
 
 ### Define Documents
 Skyve uses the term document to indicate the business-focused nature of application objects. You can find more detail about Skyve Documents by follow this link https://skyvers.github.io/skyve-dev-guide/documents/
@@ -487,7 +487,7 @@ In this tutorial we will define three Documents Staff, Project and Todo(task).
 #### Staff Document
 In side our `Todo` module, create a new `Staff` package.
 
-![](doc_img_src/StaffPackage.png)
+![](StaffPackage.png)
 
 Inside the document package, the `document.xml` file defines aspects of a document, including(bold items are compulsory):
 * **document metadata (name, description, aliases),**
@@ -776,10 +776,10 @@ To work with our defined documents we must run `generate domain` command.
 Because we already run `generate domain` before then this time it will be more easier.
 
 Click to the button right after `Run as button`
-![](doc_img_src/right%20run%20as%20button.png)
+![](right%20run%20as%20button.png)
 
 Then choose `todoApp - Generate Domain`
-![](doc_img_src/generate%20todo%20domain.png)
+![](generate%20todo%20domain.png)
 
 ### Start server and have a look on Todo Module
 After `Generate Domain` run successful, we will go to start server to see our `Todo App` result.
@@ -790,16 +790,16 @@ To access to `Todo` module links you will need to set `roles` for user.
 For example I go to set full `roles` for my `setup` user.
 
 1. Go to `User` link on `Security Admin`, then click to setup user.
-![](doc_img_src/user-setup.png)
+![](user-setup.png)
 
 2. Open `Roles` tab and click to the `Add` button.
-![](doc_img_src/role%20add.png)
+![](role%20add.png)
 
 3. Scroll down to very bottom you will see our `todo` roles. Choose which role you want to assign to user. In this case I assign all related `todo` roles for my `setup` user. We need to select one by one then click `Zoom Out` button and click `Add` button and repeat until all `roles` was assigned properly.
-![](doc_img_src/todo%20roles.png)
+![](todo%20roles.png)
 
 4. Once done with `roles` setup, click `Save` button to apply your changes.
-![](doc_img_src/saveroles.png)
+![](saveroles.png)
 
 After finish with `roles` setup, you will need to `re-login` to see affect.
 
@@ -807,7 +807,7 @@ After finish with `roles` setup, you will need to `re-login` to see affect.
 
 Now on the left menu we see our `todo` module and its links.
 
-![](doc_img_src/todomenu.png)
+![](todomenu.png)
 
 >***To take note:***
 
@@ -826,7 +826,7 @@ List views are based on queries which generally include only key document attrib
 To learn more about queries, please follow this link https://skyvers.github.io/skyve-dev-guide/modules/#queries
 
 ### Staff List
-![](doc_img_src/staff%20list.png)
+![](staff%20list.png)
 
 Let see our `Staff` List. Currently, Staff list show all information which we defined in the document's attributes section. However, since `Staff` document is related to `Contact` document, so we expect to show some contact information in the `Staff` list too, let's say we will go to show `Staff Image`, `Staff Name`, `Staff Mobile Phone Number`, and we also will hide some information from Staff list, for example `Issued Date`, `Expired Date`, `BIO`.
 
@@ -870,10 +870,10 @@ To apply the change, Stop `WildFly` Server and run `Generate Domain` command, th
 Tara!!! Amazing!!!
 
 This the result after our changes, look it very nice right!
-![](doc_img_src/stafflist%20after%20done.png)
+![](stafflist%20after%20done.png)
 
 ### Project List
-![](doc_img_src/project%20list.png)
+![](project%20list.png)
 
 As you can see our Project list need some enhancement too. We will go to show `Project Owver`, `Project Manager` and `Project Cooridinator` as well as we will hide `Project Description` from our `Project List`.
 
@@ -895,10 +895,10 @@ You may spend few minutes to complete it by your-self then compare with my decla
 </query>
 ```
 
-![](doc_img_src/project%20list%20after%20done.png)
+![](project%20list%20after%20done.png)
 
 ### Todo List 
-![](doc_img_src/todolist.png)
+![](todolist.png)
 
 As you can see our `Todo List` is not showing `Created By` and `Assign To` columns yet, and we also do not want to show `Actual Start Date` and `Actual Finish Date` columns.
 
@@ -924,7 +924,7 @@ Once you done with your query declaration you can compare with my query below:
 ```
 
 And this is the `Todo List` which we have
-![](doc_img_src/todolist%20after.png)
+![](todolist%20after.png)
 
 ***Tara!!!*** 
 
@@ -943,28 +943,28 @@ So to create our Staff `edit view` we will go through below steps:
 
 #### Create edit view
 1. Right click to your `Project Name` on `Project Explorer` window -> Run As -> Run Configurations
-![](doc_img_src/staffcreateeditview.png)
+![](staffcreateeditview.png)
 2. The `Run Configuration` window appears, looking on `Maven Build` then click `todoApp - Generate Edit View` option, then click to `Run` button.
-![](doc_img_src/runstaffeditview.png)
+![](runstaffeditview.png)
 3. Take a look on the `Console` window. It will ask you for `module name` and `document name`. I will input `todo` as the `module name` and `Staff` as the `document name`.
-![](doc_img_src/entertodoandstaff.png)
+![](entertodoandstaff.png)
 
 It will run and create an `edit` view for us automatically.
 
 Now, Take a look on your `Staff` package, you will see a `views` package was created. Expand the `view` package we will see the `generatedEdit.xml` file.
-![](doc_img_src/staffGeneratedEditXml.png)
+![](staffGeneratedEditXml.png)
 
 To get it work, we will need to rename the xml file to `edit.xml`.
 
 Aha, now we will go to add something to the edit view for testing purpose.
 
 I will add "This is my edit view" to the view for testing, like below:
-![](doc_img_src/thisIsMyEditView.png)
+![](thisIsMyEditView.png)
 
 ***Note that: After generate each view, you will need to Re-deploy your application to take affect. After redeploy any change on the view except for condition, we no need to Run Configuration and Re-deploy Application. Just change and refresh your Browser, it will take affect immediately.***
 
 After refresh browser we will see the text we was added to `edit view` like below:
-![](doc_img_src/thisIsMyEditViewResult.png)
+![](thisIsMyEditViewResult.png)
 
 Tara!!! It work like a charm!!!
 #### Enhance edit view
@@ -983,7 +983,7 @@ After read through the Skyve Containers, may you already guess how to split our 
 Yes, `hbox` container will help us on this.
 
 We will try and test our `hbox` to see how it works.
-![](doc_img_src/staff%20editview%20leftandside.png)
+![](staff%20editview%20leftandside.png)
 
 I will explain in further:
 - Line 3: We go to define a `hbox` container. `border=true` to allow us show border for horizontal box.
@@ -994,7 +994,7 @@ I will explain in further:
 - Line 11 to Line 13 to define an `item`. By default, an item will take 2 columns to display, 1 for label and another one for `input` data.
 
 And after done above definition, we will have bellow screen.
-![](doc_img_src/staff%20leftandrightside.png).
+![](staff%20leftandrightside.png).
 
 Now we will put Contact Image on the right hand side and all Staff Data to the Left hand side.
 
@@ -1090,7 +1090,7 @@ Now we will put Contact Image on the right hand side and all Staff Data to the L
 </view>
 ```
 After done above definition, we will have a view like this.
-![](doc_img_src/staffeditview1.png)
+![](staffeditview1.png)
 
 It look better like before right. However we still need some more improve here.
 
@@ -1118,7 +1118,7 @@ Todo that, right after Social Title, we add below rows:
 ```
 
 And we will get the result like below:
-![](doc_img_src/staffeditview2.png)
+![](staffeditview2.png)
 
 Next, we will group related information together to make it easier to manage.
 
@@ -1248,13 +1248,13 @@ So for this case, I will have 3 forms, one for `Contact Info`, one for `Personal
 </view>
 ```
 After done above definition, I have the view like below:
-![](doc_img_src/staffeditview3.png)
+![](staffeditview3.png)
 
 Hmm, look the right part is too empty when only have the staff image. So maybe we move the `BIO` to right part to see how.
 
 I guess you know how to do already right.
 So after we move BIO from `Personal Info` to the right part. We will have the view like below:
-![](doc_img_src/staffeditview4.png)
+![](staffeditview4.png)
 
 I can said that we already done very good view for Staff. However, I also want to introduce `View Components` to you.
 
@@ -1436,7 +1436,7 @@ Change `edit.xml` view like below:
 
 We will go to Re-deploy our application to take affect.
 After Re-deploy and re-login to the system. We will have similar view like our original before:
-![](doc_img_src/staffeditview5.png)
+![](staffeditview5.png)
 
 In the next section we will reuse our view component to create different layout for desktop screen.
 ##### Create edit view for desktop
@@ -1480,11 +1480,11 @@ we will change layout of desktop view to make left and right part to have same w
 
 Login to the application.
 Then switch to desktop screen by click to the `Switch` button on the top right corner. 
-![](doc_img_src/switch%20button.png)
+![](switch%20button.png)
 
 
 Go to our `Staff`, then we will see different from `desktop` and our normal view.
-![](doc_img_src/staffeditview6.png)
+![](staffeditview6.png)
 
 
 ###### Add Staff location which use `Geometry` data
@@ -1498,13 +1498,13 @@ After you have the key, you will need to set it on APIs section of `todoApp.json
 
 At `Servers` window, right click to `WildFly 16 at localhost` and choose `Show in`, then select `File Browser`.
 
-![](doc_img_src/wfshowinbrowser.png)
+![](wfshowinbrowser.png)
 
 Find for `todoApp.json` file and open it in your code editor.
 
 Looking for 'API Settings', and set your `googleMapsV3Key` with `key` you have.
 
-![](doc_img_src/googlemapapi.png)
+![](googlemapapi.png)
 
 Now, we will go to add `Staff Location` to our `Staff Document`.
 
@@ -1548,7 +1548,7 @@ We will go to add Staff Location to `Right Side` of screen.
 </vbox>
 ```
 
-![](doc_img_src/staffeditview7.png)
+![](staffeditview7.png)
 
 `Staff Desktop View`
 
@@ -1570,7 +1570,7 @@ We will go to add Staff Location to `Right Side` of screen.
 </vbox>
 ```
 
-![](doc_img_src/staffeditview8.png)
+![](staffeditview8.png)
 
 You can click to the right icon of `Staff Location` to set `Staff Location`.
 
