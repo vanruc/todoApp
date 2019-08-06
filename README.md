@@ -1601,7 +1601,7 @@ You may stop continue reading for 10 to 20 minute in order to try to complete it
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <view xmlns="http://www.skyve.org/xml/view" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="_projectInfo" title="Project" xsi:schemaLocation="http://www.skyve.org/xml/view ../../../../schemas/view.xsd">
-    <form responsiveWidth="12" percentageWidth="60" border="true" borderTitle="Project Info">
+    <form border="true" borderTitle="Project Info">
         <column percentageWidth="30" responsiveWidth="4"/>
         <column/>
         <row>
@@ -1636,7 +1636,7 @@ You may stop continue reading for 10 to 20 minute in order to try to complete it
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <view xmlns="http://www.skyve.org/xml/view" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="_projectOwnerInfo" title="Project" xsi:schemaLocation="http://www.skyve.org/xml/view ../../../../schemas/view.xsd">
-    <form responsiveWidth="12" percentageWidth="60" border="true" borderTitle="Project Owner Info">
+    <form border="true" borderTitle="Project Owner Info">
         <column percentageWidth="30" responsiveWidth="4"/>
         <column/>       
         <row>
@@ -1676,7 +1676,7 @@ You may stop continue reading for 10 to 20 minute in order to try to complete it
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <view xmlns="http://www.skyve.org/xml/view" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="_projectOperator" title="Project" xsi:schemaLocation="http://www.skyve.org/xml/view ../../../../schemas/view.xsd">
-    <form responsiveWidth="12" percentageWidth="60" border="true" borderTitle="Project Operator">
+    <form border="true" borderTitle="Project Operator">
         <column percentageWidth="30" responsiveWidth="4"/>
         <column/>
         
