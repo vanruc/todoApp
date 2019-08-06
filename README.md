@@ -1754,3 +1754,125 @@ You may stop continue reading for 10 to 20 minute in order to try to complete it
     <newParameters/>
 </view>
 ```
+### Todo Edit View
+In the previous section we already finish the `project edit view`. We will go to create out final view for `Todo Edit view`.
+
+`Todo Edit view` may have interface like below:
+![](doc_img_src/todoeditview.png)
+
+It included 2 parts:
+1. General Information
+2. Process
+
+You can scroll up a bit to read the guildline about how to create `Project edit view` and apply to create `Todo edit view`.
+
+Stop reading for awhile and finish your `Todo edit view` before compare with my definition below.
+
+#### General Information Component
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<view xmlns="http://www.skyve.org/xml/view" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="_generalInfo" title="Todo" xsi:schemaLocation="http://www.skyve.org/xml/view ../../../../schemas/view.xsd">
+    <form border="true" borderTitle="General Info">
+        <column percentageWidth="40" responsiveWidth="5"/>
+        <column/>
+        <row>
+            <item>
+                <default binding="taskID"/>
+            </item>
+        </row>
+        <row>
+            <item>
+                <default binding="priorityLevel"/>
+            </item>
+        </row>
+        <row>
+            <item>
+                <default binding="project"/>
+            </item>
+        </row>
+        <row>
+            <item>
+                <default binding="createdBy"/>
+            </item>
+        </row>        
+        <row>
+            <item>
+                <default binding="taskDescription"/>
+            </item>
+        </row>
+        <row>
+            <item colspan="2">
+                <spacer />
+            </item>
+        </row>
+        
+    </form>
+</view>
+```
+#### Process Component
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<view xmlns="http://www.skyve.org/xml/view" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="_process" title="Todo" xsi:schemaLocation="http://www.skyve.org/xml/view ../../../../schemas/view.xsd">
+    <form border="true" borderTitle="Todo Process">
+        <column percentageWidth="40" responsiveWidth="5"/>
+        <column/>
+        
+        <row>
+            <item>
+                <default binding="assignTo"/>
+            </item>
+        </row>
+        <row>
+            <item>
+                <default binding="recordedDateTime"/>
+            </item>
+        </row>
+        <row>
+            <item>
+                <default binding="startDate"/>
+            </item>
+        </row>
+        <row>
+            <item>
+                <default binding="targetDate"/>
+            </item>
+        </row>
+        <row>
+            <item>
+                <default binding="taskStatus"/>
+            </item>
+        </row>
+        <row>
+            <item>
+                <default binding="actualStartDate"/>
+            </item>
+        </row>
+        <row>
+            <item>
+                <default binding="actualFinishDate"/>
+            </item>
+        </row>
+    </form>
+</view>
+```
+#### Combine components in edit view
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<view xmlns="http://www.skyve.org/xml/view" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="edit" title="Todo" xsi:schemaLocation="http://www.skyve.org/xml/view ../../../../schemas/view.xsd">
+    <hbox>
+    	<vbox responsiveWidth="6" percentageWidth="50">
+    		<component name="_generalInfo" />
+    	</vbox>
+    	
+    	<vbox responsiveWidth="6" percentageWidth="50">
+    		<component name="_process" />
+    	</vbox>
+    </hbox>
+    <actions>
+        <defaults/>
+    </actions>
+    <newParameters/>
+</view>
+```
+We've already finish our views. In the next section we will cover some advance concept like condition, action and event handler. To apply these concept our Application will be more logical, reach to production grade of an application.
