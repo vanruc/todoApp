@@ -1876,3 +1876,102 @@ Stop reading for awhile and finish your `Todo edit view` before compare with my 
 </view>
 ```
 We've already finish our views. In the next section we will cover some advance concept like condition, action and event handler. To apply these concept our Application will be more logical, reach to production grade of an application.
+
+## Advance Enhancements
+In this section we will go to update our `Todo` application to make it more powerfull and close to the production grade of Application.
+
+In this section we wil go through and apply some concept like `condition`, `filter`, `action` and we also will touch to the `bizlet and extension class` - `Bizlet` is a class related to a document which extends default bean behaviours.
+
+
+### Staff
+
+Firstly we will go to enhance the `Staff` document first, to see how we can apply above concepts to our document.
+
+1. Add `My Staff Information` menu item to `Project Member`
+2. Only allow `Staff Manager` to select `User`.
+3. When Staff Manager select User from dropdown box, it will auto update contact information and contact image.
+4. `User` dropbox should not show user which associate with another `Staff`
+5. Only allow `Staff Manager` to update `Work Info` data
+6. Allow `Project Member` to update `Contact Info` and `Personal Info` only.
+
+### Add `My Staff Information` menu item.
+I will login to the application by using a `Project Member` user account.
+I can easily know which user under `Project Member` group by open `Admin > Security Admin > Groups` and open `Project Member` group.
+
+![](doc_img_src/projectmembergroup.png)
+
+There are `Users in Group` tab, it showes all users under this group.
+
+So I will login with one of these users account.
+
+![](doc_img_src/projectmemberlogin.png)
+
+Please take a look at `Todo Module`. I dont want `Project Member` to see detail of `Project` because there are `Project Owner` information what we should not let `Project Memember User` to know.
+
+Open `todo.xml` and looking for `menu` definition section.
+
+```xml
+<menu>
+	<list document="Staff" name="Staff">
+		<role name="StaffManager" />
+	</list>
+	<list document="Project" name="Project">
+		<role name="ProjectManager" />
+		<role name="ProjectMember" />
+	</list>
+	<list document="Todo" name="To Do">
+		<role name="ProjectManager" />
+		<role name="ProjectMember" />
+	</list>
+</menu>
+```
+
+We will remove role `ProjectMember` from `Project`
+
+```xml
+<menu>
+	<list document="Staff" name="Staff">
+		<role name="StaffManager" />
+	</list>
+	<list document="Project" name="Project">
+		<role name="ProjectManager" />
+	</list>
+	<list document="Todo" name="To Do">
+		<role name="ProjectManager" />
+		<role name="ProjectMember" />
+	</list>
+</menu>
+```
+
+I also go to create `My Staff Information` for `Project Member` show they can see and update their information from here.
+```xml
+<menu>
+	<list document="Staff" name="Staff">
+		<role name="StaffManager" />
+	</list>
+	<edit document="Staff" name="My Staff Information">
+		<role name="ProjectMember" />
+	</edit>
+	<list document="Project" name="Project">
+		<role name="ProjectManager" />
+	</list>
+	<list document="Todo" name="To Do">
+		<role name="ProjectManager" />
+		<role name="ProjectMember" />
+	</list>
+</menu>
+```
+
+Another task we need to do is amend `Project Member` role to allow `Project Member` `Read` and `Update` their own record.
+
+```xml
+<role name="ProjectMember">
+	<description>Project Member - who are not able to create project, tasks but will work with tasks to finish projects.</description>
+	<privileges>
+		<document permission="_RU_C" name="Todo" />
+		<document permission="_RU_U" name="Staff" />
+	</privileges>
+</role>
+```
+
+After done above tasks, we will need to Run `Generate Domain` and `Redeploy` our application.

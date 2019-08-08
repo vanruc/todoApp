@@ -31,6 +31,7 @@
 			<description>Project Member - who are not able to create project, tasks but will work with tasks to finish projects.</description>
 			<privileges>
 				<document permission="_RU_C" name="Todo" />
+				<document permission="_RU_U" name="Staff" />
 			</privileges>
 		</role>
 	</roles>
@@ -39,9 +40,11 @@
 		<list document="Staff" name="Staff">
 			<role name="StaffManager" />
 		</list>
+		<edit document="Staff" name="My Staff Information">
+			<role name="ProjectMember" />
+		</edit>
 		<list document="Project" name="Project">
 			<role name="ProjectManager" />
-			<role name="ProjectMember" />
 		</list>
 		<list document="Todo" name="To Do">
 			<role name="ProjectManager" />
