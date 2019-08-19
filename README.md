@@ -1975,3 +1975,19 @@ Another task we need to do is amend `Project Member` role to allow `Project Memb
 ```
 
 After done above tasks, we will need to Run `Generate Domain` and `Redeploy` our application.
+
+Now, we will login as a `Project Member` to see the change.
+
+![](doc_img_src/mystaffinfomenu.png)
+
+However it not done yet, when you click to the menu link, it will show a new blank `Staff` document.
+
+![](doc_img_src/staffeditview9.png)
+
+We will have to change a little bit here. When load `My Staff Information` we will check if any `Staff` associate with current user or not, if yes then we will load it.
+
+To do above requirement we will need to create a `bizLet` for `Staff` document and override the `newInstance` method.
+
+To learn more about `bizLet` you can read at https://skyvers.github.io/skyve-dev-guide/bizlets/
+
+Now let me to show you how we can create `StaffBizLet` to customize the document as we want.
