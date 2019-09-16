@@ -1,3 +1,64 @@
+# Todo Application Tutorial
+Let's learn by example.
+
+Throughout this tutorial, we will walk you through creating an advanced Todo Application by using the awesome Enterprise Application Framework - [Skyve](https://skyve.org/) .
+
+This Todo Application will assign and manage tasks needed to be done for our project. We also try to put some effort in to create a Report by using Jaspersoft BI tools which is embedded in the Skyve Framework.
+
+In this project, we will try to cover as much of the Skyve Development Process and its concepts as possible.
+
+***This tutorial assumes familiarity with Web technology and architecture, Java EE concepts, the Java language and the use of common development tools like Eclipse.***
+
+## Getting started
+Before continuing with our tutorial, there are some pages you may want to visit
+
+* [What is Skyve?](https://skyve.org/what-is-skyve) - Will help answer what [Skyve](https://skyve.org) is, and how it will be useful in your Enterprise Application Development.
+
+* [Getting Started](https://skyve.org/getting-started) - Will help give you some ideas on how to start with our [Skyve](https://skyve.org) Framework.
+
+* [Dev Guide](https://skyvers.github.io/skyve-dev-guide/) - Will help you learn and understand about our development. It also covers most [Skyve Framework](https://skyve.org) elements and concepts. There are many real examples for you to refer to also.
+
+* [Join Us On Slack](https://join.slack.com/t/skyveframework/shared_invite/enQtNDMwNTcyNzE0NzI2LWNjMTBlMTMzNTA4YzBlMzFhYzE0ZmRhOWIzMWViODY4ZTE1N2QzYWM1MTdlMTliNDIyYTBkOWZhZDAxOGQyYjQ) - If you get stuck, feel free to ask the team some questions on the Skyve Slack server.
+
+Now, moving on to the next stage to learn how to create an application with [Skyve Framework](https://skyve.org) .
+## Create TodoApp Project
+To create a new [Skyve](https://skyve.org) Project, you can go to the [Getting Started](https://skyve.org/getting-started) page, then scroll down to the **Skyve For Developers**  section, and click the **Create** button.
+![](create%20skyve%20project.png)
+***We recommend you watch the video guide first***
+
+Or, you can go directly to the [Skyve Project Creator](https://foundry.skyve.org/foundry/project.xhtml).
+
+On the Skyve Project Creation page, fill in the below information:
+* ***Email address***: A valid email address that you will be using to receive the download link from [Skyve](https://skyve.org)
+* ***Project Name***: Your project name
+* ***Customer Name***: Your customer name
+* ***Database Dialect***: Select your Database Engine
+* ***Skyve Script***: This field is optional - we will refer to Skyve Script later in this course
+![](create%20skyve%20form.png)
+
+Finally, click the **Create Project** button.
+
+Now, check your email inbox to find your Project Download Link. Download the project and extract it to your workspace.
+## Import TodoApp Project
+Now we will import the project to Eclipse.
+
+Once in Eclipse, right-click on the Project Explorer window, and click the **Import** option, like below:
+![](import%20menu.png)
+
+Select Import Existing Maven Project from import wizard window, like below
+
+![](existing%20maven.png)
+
+Then click **Next** button.
+
+Next step is browse your root project folder([Skyve Project](https://skyve.org) which you extracted before).
+
+![](browse%20project%20folder.png)
+
+Then click to **Finish** button.
+
+Wait for Eclipse Import Wizard finish the importing process and re-index your project.
+Then we can go to next page to install [WildFly](https://wildfly.org/) Server to run our Application.
 ## Install and Configure WildFly Server
 To run our **TodoApp** we will need to install and configure for [WildFly](https://wildfly.org) Server.
 Skyve work well on WildFly version 13+ (we tested and run well on **WildFly 16** - count to date of Tutorial)
