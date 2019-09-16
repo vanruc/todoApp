@@ -31,7 +31,7 @@
 			<description>Project Member - who are not able to create project, tasks but will work with tasks to finish projects.</description>
 			<privileges>
 				<document permission="_RU_C" name="Todo" />
-				<document permission="_RU_U" name="Staff" />
+				<document permission="CRU_C" name="Staff" />
 			</privileges>
 		</role>
 	</roles>

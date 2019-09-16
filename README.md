@@ -2023,14 +2023,14 @@ I also go to create `My Staff Information` for `Project Member` show they can se
 </menu>
 ```
 
-Another task we need to do is amend `Project Member` role to allow `Project Member` `Read` and `Update` their own record.
+Let say we want to allow `Project Member` to create or update their Staff Information, however their Staff Information was created by Staff Manager before. So in this case we will need to allow `Project Member` to `Create`,`Read`,`Update` Staff document on Customer scope. But we will restrict to show their own staff record only.
 
 ```xml
 <role name="ProjectMember">
 	<description>Project Member - who are not able to create project, tasks but will work with tasks to finish projects.</description>
 	<privileges>
 		<document permission="_RU_C" name="Todo" />
-		<document permission="_RU_U" name="Staff" />
+		<document permission="CRU_C" name="Staff" />
 	</privileges>
 </role>
 ```
@@ -2052,3 +2052,58 @@ To do above requirement we will need to create a `bizLet` for `Staff` document a
 To learn more about `bizLet` you can read at https://skyvers.github.io/skyve-dev-guide/bizlets/
 
 Now let me to show you how we can create `StaffBizLet` to customize the document as we want.
+
+Right Click to the `Staff` package and select `New` then Select `Class` in the sub-menu.
+
+The new Class window will appear like below:
+
+![](doc_img_src/create_staffbizlet.png)
+
+- Name: set class name to StaffBizlet
+- Superclass: click to Browser to and select BizLet<Staff> as Superclass.
+
+Then click Finish.
+
+The `StaffBizlet` class was created, however we will need some change here.
+
+![](doc_img_src/staffbizlet_1.png)
+
+We will fix these 2 issues by using Eclip Quick Fix suggestion.
+
+![](doc_img_src/staffbizlet_2.png)
+
+![](doc_img_src/staffbizlet_3.png)
+
+All right, we've fixed above 2 issues.
+
+Next, we will override `newInstance` method to read `Staff information` if it already created before.
+
+![](doc_img_src/staffbizlet_4.png)
+![](doc_img_src/staffbizlet_5.png)
+
+Eclipse will generate `newInstance` method and override anotation for us. We will need to update the method like below:
+```java
+@Override
+public Staff newInstance(Staff bean) throws Exception {
+	// Create Document Query for Staff Document
+	DocumentQuery dq = CORE.getPersistence().newDocumentQuery(Staff.MODULE_NAME, Staff.DOCUMENT_NAME);
+	
+	dq.getFilter().addEquals(Staff.userPropertyName, ModulesUtil.currentAdminUser());
+	
+	// Create staff from dq bean result
+	Staff staff = dq.beanResult();
+	
+	// in case of staff is null, we will return an empty bean with User and Contact Information
+	if (staff == null) {
+		bean.setUser(ModulesUtil.currentAdminUser());
+		return bean;
+	}
+	// else return staff
+	return staff;
+}
+```
+Save the `StaffBizlet` class and run `Generate Domain` command then Redeploy Application to your server.
+
+Once done, login to application as a `Project Member` and click to `My Staff Information` link, now we can see the data loaded properly.
+
+![](doc_img_src/staffbizlet_6.png)
