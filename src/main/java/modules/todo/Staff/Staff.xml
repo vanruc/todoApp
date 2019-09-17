@@ -72,5 +72,10 @@
 		</date>	
 		
 	</attributes>
+	<conditions>
+		<condition name="staffManager">
+			<expression><![CDATA[isUserInRole("todo","StaffManager")]]></expression>
+		</condition>
+	</conditions>   
 	
 </document>

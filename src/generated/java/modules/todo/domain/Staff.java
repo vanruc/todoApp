@@ -463,4 +463,23 @@ public class Staff extends AbstractPersistentBean {
 		preset(startDatePropertyName, startDate);
 		this.startDate = startDate;
 	}
+
+	/**
+	 * staffManager
+	 *
+	 * @return The condition
+	 */
+	@XmlTransient
+	public boolean isStaffManager() {
+		return (isUserInRole("todo","StaffManager"));
+	}
+
+	/**
+	 * {@link #isStaffManager} negation.
+	 *
+	 * @return The negated condition
+	 */
+	public boolean isNotStaffManager() {
+		return (! isStaffManager());
+	}
 }

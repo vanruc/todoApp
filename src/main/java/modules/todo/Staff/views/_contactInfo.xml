@@ -6,7 +6,7 @@
         
         <row>
             <item>
-                <default binding="user"/>
+            	<lookupDescription descriptionBinding="bizKey" binding="user" visible="staffManager"/>
             </item>
         </row>
         <row>

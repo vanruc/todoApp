@@ -3,7 +3,7 @@
 	<hbox border="true">
 		<!-- left side -->
 		<vbox responsiveWidth="8" percentageWidth="60">
- 			<component name="_contactInfo" />
+ 			<component name="_contactInfo"/>
  			<component name="_personalInfo" />
  			<component name="_workInfo" />      
 		</vbox>

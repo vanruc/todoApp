@@ -2139,3 +2139,50 @@ Save the `StaffBizlet` class and run `Generate Domain` command then Redeploy App
 Once done, login to application as a `Project Member` and click to `My Staff Information` link, now we can see the data loaded properly.
 
 ![](doc_img_src/staffbizlet_6.png)
+
+### Only allow Staff Manager to select User
+As you can see, when we login to the application as a `Project` member I also can see the `User` select box. This is not good practice in production applicatio. So in this section we will enhance our application to make sure this `User` select box is visible for `Staff Manager` only.
+![](doc_img_src/staff_info_1.png)
+
+To archive our purpose, we will work with `condition`.
+
+huh, what is the Document Condition?
+
+Quick answer is as below:
+
+- Document conditions are code snippets which return a Java boolean value, and which can be used by view declarations.
+
+- By restricting client-side view conditions to server-side compiled code rather than client-side Javascript (or other client script), the risks of developer bugs is significantly reduced. Only the result of the condition is passed to the client, so the chance of an invalid or unintended result is minimised. This also means that client interactions can have access to the results of the full breadth of the server-side code base, utilities and libraries, while all code is maintained in one central location. The additional benefit is that all application code is in one language.
+
+Sound right for us right?
+
+So how we can apply this to our case.
+
+Let we define it first.
+
+Let open `Staff.xml` file, scroll down to very bottom. Right after attributes definition we will add conditions definition like below:
+
+```xml
+<conditions>
+	<condition name="staffManager">
+		<expression><![CDATA[isUserInRole("todo","StaffManager")]]></expression>
+	</condition>
+</conditions>
+```
+This condition will check if loged in user's role is Staff Manager or not.
+
+Then apply it to `Staff` view.
+
+Open `_contactInfo.xml` and change `user` binding like below:
+```xml
+<row>
+	<item>
+		<lookupDescription descriptionBinding="bizKey" binding="user" visible="staffManager"/>
+	</item>
+</row>
+```
+Once done, save the file, run `Generate Domain` command and re-deploy your application to apply the condition.
+
+Now when we loged in as a `Project Member` the `User` dropdowbox will disappear.
+
+![](doc_img_src/staff_info_2.png)
