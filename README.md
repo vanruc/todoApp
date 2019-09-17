@@ -1,7 +1,7 @@
 # Todo Application Tutorial
 Let's learn by example.
 
-Throughout this tutorial, we will walk you through creating an advanced Todo Application by using the awesome Enterprise Application Framework - [Skyve](https://skyve.org/) .
+Throughout this tutorial, we will walk you through creating an advanced Todo Application by using the awesome Enterprise Application Framework - [Skyve](https://skyve.org/).
 
 This Todo Application will assign and manage tasks needed to be done for our project. We also try to put some effort in to create a Report by using Jaspersoft BI tools which is embedded in the Skyve Framework.
 
@@ -46,7 +46,7 @@ Once in Eclipse, right-click in the Project Explorer window, and choose **Import
 ![](doc_img_src/ImportingMavenProjectEclipse1Guide.PNG)
 
 Click the Maven dropdown box and select Existing Maven Projects
-Then click the **Next** button.
+Then click the **Next** button
 
 ![](doc_img_src/ImportingMavenProjectEclipse2Guide.PNG)
 
@@ -54,7 +54,7 @@ The next step is to browse for your root project folder ([Skyve Project](https:/
 
 ![](doc_img_src/ImportingMavenProjectEclipse3Guide.PNG)
 
-Finally, click the **Finish** button.
+Finally, click the **Finish** button
 
 ![](doc_img_src/ImportingMavenProjectEclipse4Guide.PNG)
 
@@ -62,7 +62,7 @@ Wait for the Eclipse Import Wizard to finish the importing process and re-index 
 Now we can continue to the next page to install and configure [WildFly](https://wildfly.org/) Server to run our application.
 ## Install and Configure WildFly Server
 To run our **TodoApp** we will need to install and configure for [WildFly](https://wildfly.org) Server.
-Skyve works well on WildFly version 13+ (tested and runs smoothly on **WildFly 17** - count to date of Tutorial)
+Skyve works well on WildFly version 13+ (tested and runs smoothly on **WildFly 17** - count to date of Tutorial).
 ### Installing WildFly Server
 *You can skip this step if WildFly Server is already installed on your system.*
 
@@ -101,24 +101,24 @@ After **JBoss Tools** was installed properly, follow these steps to install Wild
 
 ![](doc_img_src/InstallingWildflyEclipse3Guide.PNG)
 
-4. Once more, click the Next button.
+4. Once more, click the Next button
 
 ![](doc_img_src/InstallingWildflyEclipse4Guide.PNG)
 
-5. Click on the Download and install runtime link.
+5. Click on the Download and install runtime link
 
 ![](doc_img_src/InstallingWildflyEclipse5Guide.PNG)
 
-6. Select the latest version of WildFly, then click Next.
+6. Select the latest version of WildFly, then click Next
 
 ![](doc_img_src/InstallingWildflyEclipse6Guide.PNG)
 
-7. Once you have read the terms of the licence agreement, check the box to accept the terms, and click Next.
+7. Once you have read the terms of the licence agreement, check the box to accept the terms, and click Next
 
 ![](doc_img_src/InstallingWildflyEclipse7Guide.PNG)
 
 8. Finally, select the path for where you wish your download and install locations to be found, then click Finish to complete the
-installation. 
+installation.
 
 ![](doc_img_src/InstallingWildflyEclipse8Guide.PNG)
 
