@@ -23,7 +23,7 @@ Before continuing with our tutorial, there are some pages you may want to visit
 Now, moving on to the next stage to learn how to create an application with [Skyve Framework](https://skyve.org) .
 ## Create TodoApp Project
 To create a new [Skyve](https://skyve.org) Project, you can go to the [Getting Started](https://skyve.org/getting-started) page, then scroll down to the **Skyve For Developers**  section, and click the **Create** button.
-![](create%20skyve%20project.png)
+![](doc_img_src/create%20skyve%20project.png)
 ***We recommend you watch the video guide first***
 
 Or, you can go directly to the [Skyve Project Creator](https://foundry.skyve.org/foundry/project.xhtml).
@@ -34,7 +34,7 @@ On the Skyve Project Creation page, fill in the below information:
 * ***Customer Name***: Your customer name
 * ***Database Dialect***: Select your Database Engine
 * ***Skyve Script***: This field is optional - we will refer to Skyve Script later in this course
-![](create%20skyve%20form.png)
+![](doc_img_src/create%20skyve%20form.png)
 
 Finally, click the **Create Project** button.
 
@@ -42,56 +42,88 @@ Now, check your email inbox to find your Project Download Link. Download the pro
 ## Import TodoApp Project
 Now we will import the project to Eclipse.
 
-Once in Eclipse, right-click on the Project Explorer window, and click the **Import** option, like below:
-![](import%20menu.png)
+Once in Eclipse, right-click in the Project Explorer window, and choose **Import**
+![](doc_img_src/ImportingMavenProjectEclipse1Guide.PNG)
 
-Select Import Existing Maven Project from import wizard window, like below
+Click the Maven dropdown box and select Existing Maven Projects
+Then click the **Next** button.
 
-![](existing%20maven.png)
+![](doc_img_src/ImportingMavenProjectEclipse2Guide.PNG)
 
-Then click **Next** button.
+The next step is to browse for your root project folder ([Skyve Project](https://skyve.org) which you extracted in the last step of this guide), and select it
 
-Next step is browse your root project folder([Skyve Project](https://skyve.org) which you extracted before).
+![](doc_img_src/ImportingMavenProjectEclipse3Guide.PNG)
 
-![](browse%20project%20folder.png)
+Finally, click the **Finish** button.
 
-Then click to **Finish** button.
+![](doc_img_src/ImportingMavenProjectEclipse4Guide.PNG)
 
-Wait for Eclipse Import Wizard finish the importing process and re-index your project.
-Then we can go to next page to install [WildFly](https://wildfly.org/) Server to run our Application.
+Wait for the Eclipse Import Wizard to finish the importing process and re-index your project.
+Now we can continue to the next page to install and configure [WildFly](https://wildfly.org/) Server to run our application.
 ## Install and Configure WildFly Server
 To run our **TodoApp** we will need to install and configure for [WildFly](https://wildfly.org) Server.
-Skyve work well on WildFly version 13+ (we tested and run well on **WildFly 16** - count to date of Tutorial)
-### Install WildFly Server
-*You can skip this step if WildFly server is already installed on your system.*
+Skyve works well on WildFly version 13+ (tested and runs smoothly on **WildFly 17** - count to date of Tutorial)
+### Installing WildFly Server
+*You can skip this step if WildFly Server is already installed on your system.*
 
-Before install WildFly Server, make sure **JBoss Tools** installed on your system.
-To check if it installed properly, go to Eclipse Marketplace.
+Before installing WildFly Server, make sure **JBoss Tools** is installed on your system.
 
-![](doc_img_src/eclipse%20marketplace%20menu.png)
+To install JBoss Tools, click on Help, then click Eclipse Marketplace
 
-Searching with JBoss keyword
+![](doc_img_src/InstallingJBossEclipse1Guide.PNG)
 
-![](doc_img_src/install%20jboss.png)
+In the searchbar, type 'jboss' and search
+
+Select the JBoss Tools version that the search returns, and click Install
+
+![](doc_img_src/FindingJBossEclipse2Guide.PNG)
+
+To check if JBoss Tools is installed properly, click on Help, then click Eclipse Marketplace
+
+![](doc_img_src/FindingJBossEclipse1Guide.PNG)
+
+Click Installed
+
+If the JBoss Tools plugin is present, you are ready to continue
+
+![](doc_img_src/FindingJBossEclipse2Guide.PNG)
 
 After **JBoss Tools** was installed properly, follow these steps to install WildFly Server.
-1. Open Server Window
-![](doc_img_src/server%20window.png)
-2. Click to the link ***No Servers are available. Click this link to create a new server...*** in Server Window.
-3. **New Server** windows will open, looking for **WildFly 16** then click Next button.
-![](doc_img_src/new%20server%20window.png)
-4. Click to the Next button.
-![](doc_img_src/new%20server%20adapter.png)
-5. Click to the Download and install runtime... link.
-![](doc_img_src/download%20environment.png)
-6. Select WildFly 16, then click to Next button
-![](doc_img_src/wildfly%2016%20install.png)
-7. Accept the terms of license agreement and click Next button.
-![](doc_img_src/wildfly%2016%20terms.png)
-8. Click to Finish button to finish the installation.
-![](doc_img_src/wildfly%2016%20finish.png)
+1. Once Eclipse is opened, right-click under the Package Explorer tab and highlight New, then from the pop-out, click on Server
 
-9. Wait Eclipse to Download and Install process finish before move to next step.
+![](doc_img_src/InstallingWildflyEclipse1Guide.PNG)
+
+2. Select WildFly 15 and click Next
+
+![](doc_img_src/InstallingWildflyEclipse2Guide.PNG)
+
+3. Click Next again
+
+![](doc_img_src/InstallingWildflyEclipse3Guide.PNG)
+
+4. Once more, click the Next button.
+
+![](doc_img_src/InstallingWildflyEclipse4Guide.PNG)
+
+5. Click on the Download and install runtime link.
+
+![](doc_img_src/InstallingWildflyEclipse5Guide.PNG)
+
+6. Select the latest version of WildFly, then click Next.
+
+![](doc_img_src/InstallingWildflyEclipse6Guide.PNG)
+
+7. Once you have read the terms of the licence agreement, check the box to accept the terms, and click Next.
+
+![](doc_img_src/InstallingWildflyEclipse7Guide.PNG)
+
+8. Finally, select the path for where you wish your download and install locations to be found, then click Finish to complete the
+installation. 
+
+![](doc_img_src/InstallingWildflyEclipse8Guide.PNG)
+
+9. Wait for Eclipse to complete the download and installation process before moving on to the next step
+
 ![](doc_img_src/wildfly%20download%20and%20install.png)
 
 ### Configure Wildfly datasource to support MySQL
