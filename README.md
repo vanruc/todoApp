@@ -128,32 +128,33 @@ installation.
 
 ### Configure Wildfly datasource to support MySQL
 
-It is easier to start Skyve Application with H2 Database, it does not require any extra of configurations. However in this tutorial I want to place you on the real world of Enterprise Application Development by using MySQL Database.
+It is easier to start your Skyve Application with H2 Database, it does not require any extra configurations. However, in this tutorial I want to place you on the real world of Enterprise Application Development by using MySQL Database.
 
-You can check if MySQL installed on your system, if not you can go to [MySQL Download](https://dev.mysql.com/downloads/mysql/) choose right version for your system, and install MySQL on your system.
+You can check if MySQL installed on your system, if not you can go to [MySQL Download](https://dev.mysql.com/downloads/mysql/), choose the right version for your system, and install MySQL on your system.
 
-You may also need a SQL Client to working with your data, [MySQL Workbench](https://www.mysql.com/products/workbench/) is perfect for it, however you may use any tools which you familiar with.
+You may also need a SQL Client to work with your data, [MySQL Workbench](https://www.mysql.com/products/workbench/) is perfect for it, however you may use any tools which you are familiar with.
 
-Once MySQL is ready on your system, let configure WildFly datasource to support MySQL Engine.
+Once MySQL is ready on your system, let us configure WildFly datasource to support MySQL Engine.
 
 1. Download MySQL JDBC Driver
 Visit [MySQL Connector JDBC page](https://dev.mysql.com/downloads/connector/j/)
 
-At this moment - when we introduce this Tutorial. JDBC 8 connector is not supported yet. So we will go with the previous General Available version.
+At this moment, JDBC 8 connector is not supported. So we will go with the previous Generally Available (GA) release.
 
 ![](doc_img_src/jdbc%20previouse%20GA%20version.png)
 
-Select Platform Independent for Operating System
+Select the Operating System that you are creating your toDoApp on
 ![](doc_img_src/previouse%20ga%20jdbc%20download.png)
 
-Download suitable version for your operating system. I am using Windows Operating System, so I go to download **Platform Independent (Architecture Independent), ZIP Archive**
+Download a suitable version for your Operating System. In this tutorial I am using Windows Operating System, so I go to download **Platform Independent (Architecture Independent), ZIP Archive**
 
-2. Deploy MySQl JDBC Driver.
+2. Deploy MySQL JDBC Driver.
 Navigate to the directory ***$WILDFLYHOME/modules/system/layers/base/com***
 ***($WILDFLYHOME - Is the Root Folder, which you selected when you install WildFly Server - For example: D:\JavaPrograms\EclipseWorkSpace\wildfly-16.0.0.Final)***
 
 3. Create mysql/main directory
-4. Navigate to main directory and copy MySQL JDBC driver's jar there
+
+4. Navigate to the main directory you just created and copy MySQL JDBC driver's jar there
 ![](doc_img_src/mysql%20connector%20j%20main.png)
 
 5. Create a module.xml file with the content below:
@@ -171,9 +172,10 @@ Navigate to the directory ***$WILDFLYHOME/modules/system/layers/base/com***
     </dependencies>
 </module>
 ```
-Replace [VERSION] by your JDBC Connector Version.
+Replace [VERSION] with your JDBC Connector Version.
 
-6. Navigate to the directory  ***$WILDFLYHOME/standalone/configuration***, open the ***standalone.xml*** file. Looking for datasources.
+6. Navigate to the directory  ***$WILDFLYHOME/standalone/configuration***, and open the ***standalone.xml*** file. 
+Look for datasources.
 ```xml
 <subsystem xmlns="urn:jboss:domain:datasources:5.0">
     <datasources>
@@ -194,7 +196,7 @@ Replace [VERSION] by your JDBC Connector Version.
 </subsystem>
 ```
 
-And define mysql driver here.
+And define MySQL driver here.
 
 ```xml
 <subsystem xmlns="urn:jboss:domain:datasources:5.0">
@@ -218,26 +220,26 @@ And define mysql driver here.
 ```
 
 
-So far we have done for initial configuration step.
-Next, we will go to deploy our TodoApp to WildFly Server, configure Database for TodoApp and try to run it as first time.
+So far we have done the initial configuration step.
+Next, we will go to deploy our TodoApp to WildFly Server, then configure our Database for TodoApp and run it for the first time.
 
 ## Deploy and Configure Skyve Project
 ### Deploy Skyve Project
 Its very easy to deploy [Skyve](https://skyve.org) to WildFly Server.
 1. Open WildFly deployments folder.
-Right click on the Server and click to Show In -> File Browser.
+Right click on the Server and click on Show In, then click on File Browser.
 ![](doc_img_src/wildfly%20show%20in%20folder.png)
-2. Expand TodoApp Project, you will see deployments folder.
+2. Expand TodoApp Project, you will see the deployments folder.
 ![](doc_img_src/project%20deployments.png)
-3. Copy todoApp.json and todoApp-ds.xml to WildFly deployments folder.
+3. Copy todoApp.json and todoApp-ds.xml to the WildFly deployments folder.
 ![](doc_img_src/deployment%20copy.png)
 4. Add TodoApp project to Wildfly Server.
 
-Right click to the WildFly 16 at localhost then click Add and Remove... menu.
+Right click to the WildFly 16 at localhost then click Add and Remove.
 
 ![](doc_img_src/add%20or%20remove.png)
 
-Select todoApp from Available part -> Click Add button -> Click Finish button.
+Select todoApp from Available -> Click Add button -> Click Finish button.
 
 ![](doc_img_src/add%20todo%20app.png)
 
