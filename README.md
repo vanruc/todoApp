@@ -50,7 +50,7 @@ Then click the **Next** button
 
 ![](doc_img_src/ImportingMavenProjectEclipse2Guide.PNG)
 
-The next step is to browse for your root project folder ([Skyve Project](https://skyve.org) which you extracted in the last step of this guide), and select it
+The next step is to browse for your root project folder ([Skyve Project](https://skyve.org) (which you extracted in the last section of this guide), and select it
 
 ![](doc_img_src/ImportingMavenProjectEclipse3Guide.PNG)
 
@@ -76,7 +76,7 @@ In the searchbar, type 'jboss' and search
 
 Select the JBoss Tools version that the search returns, and click Install
 
-![](doc_img_src/FindingJBossEclipse2Guide.PNG)
+![](doc_img_src/InstallingJBossEclipse2Guide.PNG)
 
 To check if JBoss Tools is installed properly, click on Help, then click Eclipse Marketplace
 
@@ -128,7 +128,7 @@ installation.
 
 ### Configure Wildfly datasource to support MySQL
 
-It is easier to start your Skyve Application with H2 Database, it does not require any extra configurations. However, in this tutorial I want to place you on the real world of Enterprise Application Development by using MySQL Database.
+It is easier to start your Skyve Application with H2 Database as it does not require any extra configurations. However, in this tutorial I want to place you on the real world of Enterprise Application Development by using MySQL Database.
 
 You can check if MySQL installed on your system, if not you can go to [MySQL Download](https://dev.mysql.com/downloads/mysql/), choose the right version for your system, and install MySQL on your system.
 
@@ -150,7 +150,7 @@ Download a suitable version for your Operating System. In this tutorial I am usi
 
 2. Deploy MySQL JDBC Driver.
 Navigate to the directory ***$WILDFLYHOME/modules/system/layers/base/com***
-***($WILDFLYHOME - Is the Root Folder, which you selected when you install WildFly Server - For example: D:\JavaPrograms\EclipseWorkSpace\wildfly-16.0.0.Final)***
+***($WILDFLYHOME - the Root Folder, which you selected when you install WildFly Server - For example: D:\JavaPrograms\EclipseWorkSpace\wildfly-16.0.0.Final)***
 
 3. Create mysql/main directory
 
@@ -225,21 +225,21 @@ Next, we will go to deploy our TodoApp to WildFly Server, then configure our Dat
 
 ## Deploy and Configure Skyve Project
 ### Deploy Skyve Project
-Its very easy to deploy [Skyve](https://skyve.org) to WildFly Server.
+Its easy to deploy [Skyve](https://skyve.org) to WildFly Server.
 1. Open WildFly deployments folder.
 Right click on the Server and click on Show In, then click on File Browser.
 ![](doc_img_src/wildfly%20show%20in%20folder.png)
 2. Expand TodoApp Project, you will see the deployments folder.
 ![](doc_img_src/project%20deployments.png)
-3. Copy todoApp.json and todoApp-ds.xml to the WildFly deployments folder.
+3. Copy todoApp.json and todoApp-ds.xml from the todoApp deployments folder to the WildFly deployments folder.
 ![](doc_img_src/deployment%20copy.png)
 4. Add TodoApp project to Wildfly Server.
 
-Right click to the WildFly 16 at localhost then click Add and Remove.
+Right click on your WildFly server (Wildfly 16 at localhost, in this case) then click Add and Remove.
 
 ![](doc_img_src/add%20or%20remove.png)
 
-Select todoApp from Available -> Click Add button -> Click Finish button.
+Select todoApp from Available, then click 'Add >', and lastly Click the Finish button.
 
 ![](doc_img_src/add%20todo%20app.png)
 
@@ -265,7 +265,7 @@ Open todoApp.json and looking for Content settings.
 	},
 ```
 
-Change value for directory to your content folder. It will become something like below:
+Change the directory path to your content folder. It will become something similar to below:
 ```json
 // Content settings
 	content: {
@@ -300,9 +300,9 @@ By default, [Skyve](https://skyve.org) was setting as production mode. So we wil
         supportEmailAddress: "rucvan.pr@gmail.com"
 	},
 ```
-We will need to change identifier to dev.
+We will need to change the identifier to dev.
 
-One more concept we need to take note. In the todoApp.json defined a ***bootstrap user settings***, later we will use this user information to login to our todoApp.
+One more concept we need to take note of; In todoApp.json, define your ***bootstrap user settings***, later we will use this user information to login to our todoApp.
 ```json
 // bootstrap user settings - creates a user with all customer roles assigned, if the user does not already exist
 	bootstrap: {
@@ -313,9 +313,9 @@ One more concept we need to take note. In the todoApp.json defined a ***bootstra
 	}
 ```
 
-We have done the basic and needed configuration to make sure our project can run.
+We have done the basic configurations to make sure our project can run.
 
-Now we will moving on MySQL Data Source configuration.
+Now we will move on to MySQL Data Source configuration.
 
 #### Configure todoApp-ds.xml
 ```json
@@ -336,7 +336,7 @@ Now we will moving on MySQL Data Source configuration.
 </datasources>
 ```
 
-For example: my database is todoApp and was deploy on my local computer at port 3306.
+For example: my database is todoApp and it will deploy on my local computer at port 3306.
 
 Then I will need to change the connection-url like below:
 ```xml
@@ -357,9 +357,9 @@ Then I will need to change the connection-url like below:
 </datasources>
 ```
 
-Another change need to be done is the security, you will need provide valid authentication to connect to your database.
+Another change needed to be done is the security, you will need provide valid authentication to connect to your database.
 
-For security reason, we strongly recommend you to create account for each application, so it was not affected to other application if one of the application connection was revealed. It is good practice to use strong password for your application. If it is hard for you to think for a strong password, you can use this web application to generate very strong password https://passwordsgenerator.net/
+For security reason, we strongly recommend you to create an account for each application, so each are not affected by other applications if one of the application connections was revealed. It is good practice to use strong password for your application. If it is hard for you to think up a strong password, you can use this web application to generate a strong, secure password https://passwordsgenerator.net/
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <datasources>
@@ -379,24 +379,24 @@ For security reason, we strongly recommend you to create account for each applic
 ```
 ## Run TodoApp
 
-Before run project, we will need to generate domain class first.
+Before running your project, we will need to generate the domain class first.
 
-1. Right click to the todoApp on Projects Explorer and choose Run As -> Run Configurations...
+1. Right click on the todoApp in the Project Explorer and click Run As, then click on Run Configurations
 ![](doc_img_src/run%20as%20configurations.png)
 
-2. Looking for Maven Build > todoApp Generate Domain then click Run
+2. Select the Maven Build dropdown, then click on todoApp Generate Domain then click Run
 ![](doc_img_src/maven%20build.png)
 
-* Wait for few seconds(maybe take more time to run first time), Once the process done you will see the result on Console Windows like below;
+* Wait for a few seconds (this may take longer to run for the first time), once the process is complete you will see the result on the Console Window like below;
 * ![](doc_img_src/build%20success.png)
    
-3. On Servers Windows, right click to the server and choose Start.
+3. In the Servers Window, right click on the server and click Start.
 ![](doc_img_src/runserver.png)
 
-4. When you see below info on Consoles Window, mean todoApp was deployed and run properly on your localhost.
+4. When you see the below info on your Console Window, todoApp was deployed and runs properly on your localhost.
 ![](doc_img_src/run%20properly.png)
 
-If not, you may try to check and debug by yourself or [Join Us On Slack](https://join.slack.com/t/skyveframework/shared_invite/enQtNDMwNTcyNzE0NzI2LWNjMTBlMTMzNTA4YzBlMzFhYzE0ZmRhOWIzMWViODY4ZTE1N2QzYWM1MTdlMTliNDIyYTBkOWZhZDAxOGQyYjQ) and question there. You will get supported from [Skyve](https://skyve.org) team or any community team member.
+If not, you may try to check and debug by yourself or [Join Us On Slack](https://join.slack.com/t/skyveframework/shared_invite/enQtNDMwNTcyNzE0NzI2LWNjMTBlMTMzNTA4YzBlMzFhYzE0ZmRhOWIzMWViODY4ZTE1N2QzYWM1MTdlMTliNDIyYTBkOWZhZDAxOGQyYjQ) and ask any questions there. You will get support from the [Skyve](https://skyve.org) team or any community team member.
 
 5. Access TodoApp from Web Browser at [http://localhost:8080/todoApp](http://localhost:8080/todoApp)
 
