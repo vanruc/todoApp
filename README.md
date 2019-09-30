@@ -190,6 +190,7 @@ Check the box to Create XML file from an XML template, and again, click Next
 ![](doc_img_src/ConfigureWildFlyForMySQL5Guide.PNG)
 
 Finally, click Finish
+
 ![](doc_img_src/ConfigureWildFlyForMySQL6Guide.PNG)
 
 6. Navigate to the directory  ***$WILDFLYHOME/standalone/configuration***, and open the ***standalone.xml*** file. 
