@@ -144,7 +144,7 @@ At this moment, JDBC 8 connector is not supported. So we will go with the previo
 ![](doc_img_src/jdbc%20previouse%20GA%20version.png)
 
 Select the Operating System that you are creating your toDoApp on
-![](doc_img_src/previouse%20ga%20jdbc%20download.png)
+![](doc_img_src/ConfigureWildFlyForMySQL1Guide.PNG)
 
 Download a suitable version for your Operating System. In this tutorial I am using Windows Operating System, so I go to download **Platform Independent (Architecture Independent), ZIP Archive**
 
@@ -173,6 +173,24 @@ Navigate to the directory ***$WILDFLYHOME/modules/system/layers/base/com***
 </module>
 ```
 Replace [VERSION] with your JDBC Connector Version.
+
+### Creating an xml file
+(If you already know how to create an xml file, continue on to Step 6 of Configuring Wildfly datasource to support MySQL)
+
+To create an xml file, click on File, then select New, and click Other
+![](doc_img_src/ConfigureWildFlyForMySQL2Guide.PNG)
+
+Scroll down and click the XML dropdown box, then select XML File, then click Next
+![](doc_img_src/ConfigureWildFlyForMySQL3Guide.PNG)
+
+Select RemoteSystemsTempFiles, then rename the file to 'module.xml', and click Next
+![](doc_img_src/ConfigureWildFlyForMySQL4Guide.PNG)
+
+Check the box to Create XML file from an XML template, and again, click Next
+![](doc_img_src/ConfigureWildFlyForMySQL5Guide.PNG)
+
+Finally, click Finish
+![](doc_img_src/ConfigureWildFlyForMySQL6Guide.PNG)
 
 6. Navigate to the directory  ***$WILDFLYHOME/standalone/configuration***, and open the ***standalone.xml*** file. 
 Look for datasources.
