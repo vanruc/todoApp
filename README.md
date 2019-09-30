@@ -244,23 +244,17 @@ Next, we will go to deploy our TodoApp to WildFly Server, then configure our Dat
 
 ## Deploy and Configure Skyve Project
 ### Deploy Skyve Project
-Its easy to deploy [Skyve](https://skyve.org) to WildFly Server.
+Its easy to deploy [Skyve](https://skyve.org) to your WildFly Server.
 1. Open WildFly deployments folder.
 Right click on the Server and click on Show In, then click on File Browser.
-![](doc_img_src/wildfly%20show%20in%20folder.png)
+![](doc_img_src/DeployingSkyveProject1Guide.PNG)
 2. Expand TodoApp Project, you will see the deployments folder.
-![](doc_img_src/project%20deployments.png)
-3. Copy todoApp.json and todoApp-ds.xml from the todoApp deployments folder to the WildFly deployments folder.
-![](doc_img_src/deployment%20copy.png)
-4. Add TodoApp project to Wildfly Server.
-
-Right click on your WildFly server (Wildfly 16 at localhost, in this case) then click Add and Remove.
-
-![](doc_img_src/add%20or%20remove.png)
-
-Select todoApp from Available, then click 'Add >', and lastly Click the Finish button.
-
-![](doc_img_src/add%20todo%20app.png)
+Copy todoApp.json and todoApp-ds.xml from the todoApp deployments folder to the WildFly deployments folder that you opened in the previous step.
+![](doc_img_src/DeployingSkyveProject2Guide.PNG)
+3. Add TodoApp project to Wildfly Server by right-clicking on your server, and clicking Add and Remove.
+![](doc_img_src/DeployingSkyveProject3Guide.PNG)
+4. Select todoApp from Available, then click 'Add >', and lastly Click the Finish button.
+![](doc_img_src/DeployingSkyveProject4Guide.PNG)
 
 ### Configure Skyve Project
 We will need to do some configuration to run our project.
@@ -268,7 +262,7 @@ We will need to do some configuration to run our project.
 #### Configure todoApp.json
 Change the content settings
 
-Open your Eclipse Workspace folder and create content folder.
+Open your Eclipse Workspace folder and create a content folder called 'content'.
 ![](doc_img_src/workspace%20content%20folder.png)
 
 Open todoApp.json and looking for Content settings.
@@ -285,6 +279,7 @@ Open todoApp.json and looking for Content settings.
 ```
 
 Change the directory path to your content folder. It will become something similar to below:
+
 ```json
 // Content settings
 	content: {
@@ -376,9 +371,9 @@ Then I will need to change the connection-url like below:
 </datasources>
 ```
 
-Another change needed to be done is the security, you will need provide valid authentication to connect to your database.
+Another change needed to be applied is the security, you will need provide valid authentication to connect to your database.
 
-For security reason, we strongly recommend you to create an account for each application, so each are not affected by other applications if one of the application connections was revealed. It is good practice to use strong password for your application. If it is hard for you to think up a strong password, you can use this web application to generate a strong, secure password https://passwordsgenerator.net/
+For security reason, we strongly recommend you to create an account for each application, so each application is not affected by other applications if one of the connections was revealed. It is good practice to use strong password for your application. If it is hard for you to think up a strong password, you can use this web application to generate a strong, secure password https://passwordsgenerator.net/
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <datasources>
@@ -400,19 +395,19 @@ For security reason, we strongly recommend you to create an account for each app
 
 Before running your project, we will need to generate the domain class first.
 
-1. Right click on the todoApp in the Project Explorer and click Run As, then click on Run Configurations
-![](doc_img_src/run%20as%20configurations.png)
+1. Click on the dropdown for your todoApp in the Project Explorer and click Run As, then click on Run Configurations
+![](doc_img_src/RunToDoApp1Guide.PNG)
 
-2. Select the Maven Build dropdown, then click on todoApp Generate Domain then click Run
-![](doc_img_src/maven%20build.png)
+2. Select the Maven Build dropdown, then click on todoApp - Generate Domain, then click Run
+![](doc_img_src/RunToDoApp2Guide.PNG)
 
-* Wait for a few seconds (this may take longer to run for the first time), once the process is complete you will see the result on the Console Window like below;
-* ![](doc_img_src/build%20success.png)
+* Wait for a few seconds (this may take longer to run for the first time), once the process is complete you will see the result in the Console Window like below;
+![](doc_img_src/build%20success.png)
    
 3. In the Servers Window, right click on the server and click Start.
-![](doc_img_src/runserver.png)
+![](doc_img_src/RunToDoApp3Guide.PNG)
 
-4. When you see the below info on your Console Window, todoApp was deployed and runs properly on your localhost.
+4. When you see the below info in your Console Window, todoApp was deployed and is running on your localhost server.
 ![](doc_img_src/run%20properly.png)
 
 If not, you may try to check and debug by yourself or [Join Us On Slack](https://join.slack.com/t/skyveframework/shared_invite/enQtNDMwNTcyNzE0NzI2LWNjMTBlMTMzNTA4YzBlMzFhYzE0ZmRhOWIzMWViODY4ZTE1N2QzYWM1MTdlMTliNDIyYTBkOWZhZDAxOGQyYjQ) and ask any questions there. You will get support from the [Skyve](https://skyve.org) team or any community team member.
@@ -431,13 +426,13 @@ Password: setup
 
 ![](doc_img_src/login%20success.png)
 
-By default, Skyve goes with Admin module, the Admin module with quite a lot of useful functions which are ready for you to try and evaluate [Skyve Framework](https://skyve.org).
+By default, Skyve opens with the Admin module, the Admin module holds quite a lot of useful functions which are ready for you to evaluate [Skyve Framework](https://skyve.org).
 
 The user guide is available at https://skyvers.github.io/skyve-user-guide/. The user guide is for end users of Skyve applications and describes how to navigate around the user interface and make use of the built in functions that ship with Skyve.
 
 ## Build TodoApp Module
-Module concept and module components was defined at https://skyvers.github.io/skyve-dev-guide/modules/
-so in this tutorial We will not repeat it again.
+Module concept and module components are defined at https://skyvers.github.io/skyve-dev-guide/modules/
+so in this tutorial so we will not repeat it here.
 
 ### Create `todo.xml` file
 Inside the `todo` package, create an xml file named `todo.xml`
