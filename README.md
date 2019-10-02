@@ -437,7 +437,7 @@ so in this tutorial so we will not repeat it here.
 ### Create `todo.xml` file
 Inside the `todo` package, create an xml file named `todo.xml`
 
-`todoxml` file will have below components:
+`todo.xml` file will have below components:
 #### Module header
 ```xml
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -452,12 +452,12 @@ Inside the `todo` package, create an xml file named `todo.xml`
 #### Documents
 Skyve uses the term document to indicate the business-focused nature of application objects.
 
-In this tutorial we suppose that will have below documents - objects involved. 
-1. Staffs - who will create the tasks, assign tasks and also doing tasks.
-2. Projects - each project may contain multiple tasks base on customer requirements.
-3. Todo - task need to be done for each project
+In this tutorial we assume the app will have the below documents - objects involved 
+1. Staff - who will create, assign, and complete tasks.
+2. Projects - each project may contain multiple tasks, based on customer requirements.
+3. Todo - task needed to be done for each project
 
-So let go to define above documents inside our `todo.xml`
+So lets go define above documents inside our `todo.xml`
 
 ```xml
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -481,12 +481,12 @@ In this example, we defined document `User`, and `Contact` as referent from `adm
 #### Roles
 Each role specifies the privilege levels for documents the role will access (and associated actions). The role name is the name displayed when assigning roles to user security groups in the admin.
 
-For each document, the privilege level is specified in terms of C (Create) R (Read) U (Update) D (Delete) and the document scope access level, either G, C, D or U. The underscore character (_) means no permission is granted.
+For each document, the privilege level is specified in terms of C (Create) R (Read) U (Update) D (Delete) and the document scope access level, either G (Global), C (Customer), D (Data Group) or U (User). The underscore character (_) means no permission is granted.
 
 In our `Todo App`, we will define below roles:
-1. Staff Manager - who are able to manage Staffs
-2. Project Manager - to grand to Project Manager who are able to create projects, tasks
-3. Project Member - to grand to Project Team Memeber who are not able to create project, tasks but will work with tasks to finish projects.
+1. Staff Manager - who are able to manage Staff
+2. Project Manager - to grant to Project Managers who are able to create projects & tasks
+3. Project Member - to grant to Project Team Memebers who are not able to create projects or tasks, but will work on tasks to finish projects
 ```xml
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <module name="todo" title="Todo Module" xmlns="http://www.skyve.org/xml/module" xsi:schemaLocation="http://www.skyve.org/xml/module ../../schemas/module.xsd"
@@ -586,9 +586,9 @@ The application menu is declared in terms of groups and items. A menu group is a
 ![](doc_img_src/define%20menu.png)
 
 ### Define Documents
-Skyve uses the term document to indicate the business-focused nature of application objects. You can find more detail about Skyve Documents by follow this link https://skyvers.github.io/skyve-dev-guide/documents/
+Skyve uses the term document to indicate the business-focused nature of application objects. You can find more detail about Skyve Documents by following this link https://skyvers.github.io/skyve-dev-guide/documents/
 
-Within the application file structure, each document is assigned a package. For example package `Staff` will be assign to `Staff` document, `Project` package will be assign to `Project` document... etc.
+Within the application file structure, each document is assigned a package. For example package `Staff` will be assigned to the `Staff` document, `Project` package will be assign to the `Project` document... etc.
 
 The document package includes declarations of actions, reports, views and the associated Bizlet file. The Bizlet file contains document-specific behaviours including overrides of default action behaviours and document bean lifecycle events (e.g. newInstance, preSave, etc.).
 
@@ -606,7 +606,7 @@ Inside the document package, the `document.xml` file defines aspects of a docume
 * constraints, and
 * documentation (doc).
 
-So, to define `Staff` document we will need to create `Staff.xml` file under `Staff` document package with definition of `document metadata`, `bizkey`, and `attributes`
+To define the `Staff` document we will need to create a `Staff.xml` file under the `Staff` document package with definition of `document metadata`, `bizkey`, and `attributes`
 ##### Document meta data
 ```xml
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -623,9 +623,9 @@ So, to define `Staff` document we will need to create `Staff.xml` file under `St
 - `persistent` : name of document's database table.
 - `singularAlias`: Singular Alias
 - `pluralAlias`: Plural Alias
-- `iconStyleClass`: document icon on the menu. [Skyve](https://skyve.org) use `fontawesome` as icons resource. You can looking for any icon by this link https://fontawesome.com/icons. Please take note about `fontawesome` version to find correct icons.
+- `iconStyleClass`: document icon on the menu. [Skyve](https://skyve.org) uses `fontawesome` as an icons resource. You can look for any icon by following this link https://fontawesome.com/icons. Please take note about `fontawesome` version to find correct icons.
 
-In some case, may you need to define your own custom icons. [Skyve](https://skyve.org) support 16 and 32 pixel icons and you can refer `admin` -> `contact` document.
+In some cases, may you need to define your own custom icons. [Skyve](https://skyve.org) support 16 and 32 pixel icons and you can refer to them through the `admin` -> `contact` document.
 
 ##### bizKey
 To enable the application to display references simply, each document must define a business key (bizKey) definition (similar to a Java toString() method for the document). The bizKey is the default representation of the entire document instance.
@@ -642,10 +642,10 @@ bizKey was defined like below:
 	<iconStyleClass>fa fa-users</iconStyleClass>
 	<bizKey expression="{user.contact.name}"/>
 ```
-##### attributes
-Each document normally has multiple attributes, they can be different data type, and how it gendered in the view also can different in some way. Please refer to this link https://skyvers.github.io/skyve-dev-guide/documents/#attributes to understand about attribute type.
+##### Attributes
+Each document normally has multiple attributes, which can be of different data types, and how it renders in the view can also be different. Please refer to this link https://skyvers.github.io/skyve-dev-guide/documents/#attributes to understand about attribute types.
 
-In this Tutorial, for `Staff` document we will have the attributes like below:
+In this Tutorial, for the `Staff` document we will have the attributes below:
 
 | Attribute name | Data Type - length | Description                   |
 |----------------|--------------------|-------------------------------|
@@ -727,7 +727,7 @@ To define above attributes, follow this definition:
 </attributes>
 ```
 #### Project document
-After you done with Staff document, you will be familiar with document definition. So create `Project document` should be easy game for you.
+After you are done with the Staff document, you will be familiar with document definition. So creating a `Project document` should be easy game for you.
 
 Please go ahead and create Project document with below attributes:
 
@@ -789,7 +789,7 @@ Please go ahead and create Project document with below attributes:
 </document>
 ```
 #### Todo Document
-Next, we will go to create `Todo` document. This document will present for task in project which staff have to do.
+Next, we will go to create `Todo` document. This document will present the tasks in a project which staff are to do.
 
 In this tutorial, `Todo` document will have following attributes:
 
@@ -880,9 +880,9 @@ In this tutorial, `Todo` document will have following attributes:
 ```
 We already done for our documents definition. Next we will need to generate domain classes from our defined documents.
 ### Generate domain
-To work with our defined documents we must run `generate domain` command.
+To work with our defined documents we must run the `generate domain` command.
 
-Because we already run `generate domain` before then this time it will be more easier.
+Because we have already run `generate domain` previously, this time it will be faster.
 
 Click to the button right after `Run as button`
 ![](doc_img_src/right%20run%20as%20button.png)
@@ -891,28 +891,28 @@ Then choose `todoApp - Generate Domain`
 ![](doc_img_src/generate%20todo%20domain.png)
 
 ### Start server and have a look on Todo Module
-After `Generate Domain` run successful, we will go to start server to see our `Todo App` result.
+After `Generate Domain` runs successful, we will go to start server to see our `Todo App` result.
 
-After server run successfully, open your web browser, access to address [https://localhost:8080/todoApp](https://localhost:8080/todoApp) log-in with your `setup` user info.
+After the server runs successfully, open your web browser, access the address [https://localhost:8080/todoApp](https://localhost:8080/todoApp) and log-in with your `setup` user info.
 
-To access to `Todo` module links you will need to set `roles` for user.
-For example I go to set full `roles` for my `setup` user.
+To access the `Todo` module links you will need to set `roles` for user.
+For example, I go to set full `roles` for my `setup` user.
 
-1. Go to `User` link on `Security Admin`, then click to setup user.
+1. Go to the `User` link on `Security Admin`, then click setup user.
 ![](doc_img_src/user-setup.png)
 
-2. Open `Roles` tab and click to the `Add` button.
+2. Open the `Roles` tab and click the `Add` button.
 ![](doc_img_src/role%20add.png)
 
-3. Scroll down to very bottom you will see our `todo` roles. Choose which role you want to assign to user. In this case I assign all related `todo` roles for my `setup` user. We need to select one by one then click `Zoom Out` button and click `Add` button and repeat until all `roles` was assigned properly.
+3. Scroll down to the very bottom, you will see our `todo` roles. Choose which role you want to assign to user. In this case I assign all related `todo` roles for my `setup` user. We need to select roles one by one then click the `Zoom Out` button and click `Add` button and repeat until all `roles` are assigned properly.
 ![](doc_img_src/todo%20roles.png)
 
-4. Once done with `roles` setup, click `Save` button to apply your changes.
+4. Once done with `roles` setup, click `Save` to apply your changes.
 ![](doc_img_src/saveroles.png)
 
-After finish with `roles` setup, you will need to `re-login` to see affect.
+After finishing with `roles` setup, you will need to `re-login` to see the effect.
 
-**Tara!! Surprise!!**
+**Ta-da!! Surprise!!**
 
 Now on the left menu we see our `todo` module and its links.
 
@@ -920,7 +920,7 @@ Now on the left menu we see our `todo` module and its links.
 
 >***To take note:***
 
-> When you go to setup `roles` for `user` you was worked with very important concept in [Skyve](https://skyve.org) which we call `Zoom`. To get more detail about this concept please send two minutes to ready from this link https://skyvers.github.io/skyve-dev-guide/concepts/#zoom
+> When you go to setup `roles` for `user` you worked with a very important concept in [Skyve](https://skyve.org) which we call `Zoom`. To get more detail about this concept please send two minutes to read from this link https://skyvers.github.io/skyve-dev-guide/concepts/#zoom
 
 # Enhancements
 ## List View
