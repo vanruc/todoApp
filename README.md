@@ -733,7 +733,10 @@ To define above attributes, follow this definition:
 	
 </attributes>
 ```
-And don't forget to close off the .xml file with </module>
+And don't forget to close off the .xml file with 
+```xml
+</module>
+```
 
 #### Project document
 After you are done with the Staff document, you will be familiar with document definition. So creating a `Project document` should be easy game for you.
