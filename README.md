@@ -434,6 +434,13 @@ The user guide is available at https://skyvers.github.io/skyve-user-guide/. The 
 Module concept and module components are defined at https://skyvers.github.io/skyve-dev-guide/modules/
 so in this tutorial so we will not repeat it here.
 
+### Create 'todo' module
+To create the todo module, click the dropdowns in the photo below to access the src/main/java folder, then right-click and add a new package
+![](doc_img_src/BuildToDoAppModule1Guide.PNG)
+
+Rename the module to 'todo' and click Finish
+![](doc_img_src/BuildToDoAppModule2GuideV3.PNG)
+
 ### Create `todo.xml` file
 Inside the `todo` package, create an xml file named `todo.xml`
 
@@ -476,7 +483,7 @@ So lets go define above documents inside our `todo.xml`
 	</documents>
 </module>
 ```
-In this example, we defined document `User`, and `Contact` as referent from `admin` module because each user in our application will associate with one staff.
+In this example, we defined document `User`, and `Contact` as referent from the `admin` module because each user in our application will associate with one staff.
 
 #### Roles
 Each role specifies the privilege levels for documents the role will access (and associated actions). The role name is the name displayed when assigning roles to user security groups in the admin.
@@ -505,13 +512,13 @@ In our `Todo App`, we will define below roles:
 	
 	<roles>
 		<role name="StaffManager">
-			<description>Staff Manager - who are able to manage Staffs</description>
+			<description>Staff Manager - who are able to manage Staff</description>
 			<privileges>
 				<document permission="CRUDC" name="Staff" />
 			</privileges>
 		</role>
 		<role name="ProjectManager">
-			<description>Project Manager - who are able to manage projects and create tasks for projects.</description>
+			<description>Project Manager - who are able to manage and create tasks for projects.</description>
 			<privileges>
 				<document permission="CRUDC" name="Project" />
 				<document permission="CRUDC" name="Todo" />
@@ -586,17 +593,17 @@ The application menu is declared in terms of groups and items. A menu group is a
 ![](doc_img_src/define%20menu.png)
 
 ### Define Documents
-Skyve uses the term document to indicate the business-focused nature of application objects. You can find more detail about Skyve Documents by following this link https://skyvers.github.io/skyve-dev-guide/documents/
+Skyve uses the term document to indicate the business-focused nature of application objects. You can find more details about Skyve Documents by following this link https://skyvers.github.io/skyve-dev-guide/documents/
 
-Within the application file structure, each document is assigned a package. For example package `Staff` will be assigned to the `Staff` document, `Project` package will be assign to the `Project` document... etc.
+Within the application file structure, each document is assigned a package. For example the `Staff` package will be assigned to the `Staff` document, the `Project` package will be assigned to the `Project` document... etc.
 
-The document package includes declarations of actions, reports, views and the associated Bizlet file. The Bizlet file contains document-specific behaviours including overrides of default action behaviours and document bean lifecycle events (e.g. newInstance, preSave, etc.).
+The `document` package includes declarations of actions, reports, views and the associated Bizlet file. The Bizlet file contains document-specific behaviours including overrides of default action behaviours and document bean lifecycle events (e.g. newInstance, preSave, etc.).
 
-In this tutorial we will define three Documents Staff, Project and Todo(task).
+In this tutorial we will define three Documents; Staff, Project and Todo(task).
 #### Staff Document
-In side our `Todo` module, create a new `Staff` package.
+Inside our `todo` module, create a new `Staff` package.
 
-![](doc_img_src/StaffPackage.png)
+![](doc_img_src/BuildToDoAppModule3Guide.PNG)
 
 Inside the document package, the `document.xml` file defines aspects of a document, including(bold items are compulsory):
 * **document metadata (name, description, aliases),**
@@ -726,6 +733,8 @@ To define above attributes, follow this definition:
 	
 </attributes>
 ```
+And don't forget to close off the .xml file with </module>
+
 #### Project document
 After you are done with the Staff document, you will be familiar with document definition. So creating a `Project document` should be easy game for you.
 
@@ -799,9 +808,9 @@ In this tutorial, `Todo` document will have following attributes:
 | priorityLevel    | Enum               | Priority Level of the task         |
 | project          | Association - Project            | Project which task is belong       |
 | createdBy        | Association - Staff              | Staff, who create the task         |
-| recordedDateTime | DateTime           | When task was recoreded            |
+| recordedDateTime | DateTime           | When task was recorded            |
 | startDate        | DateTime           | When task was started              |
-| targetDate       | DateTime           | When task was expected to complete |
+| targetDate       | DateTime           | When task was expected to be complete |
 | actualStartDate  | DateTime           | Actual Start Date                  |
 | actualFinishDate | DateTime           | Actual Finish Date                 |
 | taskStatus       | Enum               | Status of task                     |
