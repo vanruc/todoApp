@@ -652,7 +652,7 @@ bizKey was defined like below:
 ##### Attributes
 Each document normally has multiple attributes, which can be of different data types, and how it renders in the view can also be different. Please refer to this link https://skyvers.github.io/skyve-dev-guide/documents/#attributes to understand about attribute types.
 
-In this Tutorial, for the `Staff` document we will have the attributes below:
+In this Tutorial, the `Staff` document will have the attributes below:
 
 | Attribute name | Data Type - length | Description                   |
 |----------------|--------------------|-------------------------------|
@@ -661,7 +661,7 @@ In this Tutorial, for the `Staff` document we will have the attributes below:
 | dateOfBirth    | Date               | Date Of Birth                 |
 | idCardNo       | String - 20        | ID Card Number                |
 | issuedDate     | Date               | ID Card issued date           |
-| expiredDate    | Date               | ID Card expired date          |
+| expiryDate     | Date               | ID Card expiry date           |
 | bio            | Text               | Brief description about staff |
 | dept           | String - 50        | Departure                     |
 | bu             | String - 50        | Business Unit                 |
@@ -741,7 +741,7 @@ And don't forget to close off the .xml file with
 #### Project document
 After you are done with the Staff document, you will be familiar with document definition. So creating a `Project document` should be easy game for you.
 
-Please go ahead and create Project document with below attributes:
+Please go ahead and create the Project document with below attributes:
 
 | Attribute name     | Data Type - length | Description         |
 |--------------------|--------------------|---------------------|
@@ -801,15 +801,15 @@ Please go ahead and create Project document with below attributes:
 </document>
 ```
 #### Todo Document
-Next, we will go to create `Todo` document. This document will present the tasks in a project which staff are to do.
+Next, we will go to create the `Todo` document. This document will present the tasks in a project which staff are to do.
 
-In this tutorial, `Todo` document will have following attributes:
+In this tutorial, `Todo` document will have the following attributes:
 
 | Attribute name   | Data Type - length | Description                        |
 |------------------|--------------------|------------------------------------|
 | taskID           | String - 20        | Task ID Number                     |
 | priorityLevel    | Enum               | Priority Level of the task         |
-| project          | Association - Project            | Project which task is belong       |
+| project          | Association - Project            | Project that the task belongs to       |
 | createdBy        | Association - Staff              | Staff, who create the task         |
 | recordedDateTime | DateTime           | When task was recorded            |
 | startDate        | DateTime           | When task was started              |
@@ -818,7 +818,7 @@ In this tutorial, `Todo` document will have following attributes:
 | actualFinishDate | DateTime           | Actual Finish Date                 |
 | taskStatus       | Enum               | Status of task                     |
 | Task Description       | Text               | Task Description                     |
-| staff            | Association - Staff              | Who involved to the task           |
+| staff            | Association - Staff              | Who is involved in the task           |
 
 ```xml
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -902,10 +902,10 @@ Click to the button right after `Run as button`
 Then choose `todoApp - Generate Domain`
 ![](doc_img_src/generate%20todo%20domain.png)
 
-### Start server and have a look on Todo Module
-After `Generate Domain` runs successful, we will go to start server to see our `Todo App` result.
+### Start server and have a look at the Todo Module
+After `Generate Domain` runs successfully, we will start the server to see our `Todo App` result.
 
-After the server runs successfully, open your web browser, access the address [https://localhost:8080/todoApp](https://localhost:8080/todoApp) and log-in with your `setup` user info.
+After the server runs successfully, open your web browser and access the address [https://localhost:8080/todoApp](https://localhost:8080/todoApp) and log-in with your `setup` user info.
 
 To access the `Todo` module links you will need to set `roles` for user.
 For example, I go to set full `roles` for my `setup` user.
@@ -932,7 +932,7 @@ Now on the left menu we see our `todo` module and its links.
 
 >***To take note:***
 
-> When you go to setup `roles` for `user` you worked with a very important concept in [Skyve](https://skyve.org) which we call `Zoom`. To get more detail about this concept please send two minutes to read from this link https://skyvers.github.io/skyve-dev-guide/concepts/#zoom
+> When you go to set up `roles` for `user`, you worked with a very important concept in [Skyve](https://skyve.org) which we call `Zoom`. To get more detail about this concept, please send two minutes to read from this link https://skyvers.github.io/skyve-dev-guide/concepts/#zoom
 
 # Enhancements
 ## List View
@@ -949,11 +949,11 @@ To learn more about queries, please follow this link https://skyvers.github.io/s
 ### Staff List
 ![](doc_img_src/staff%20list.png)
 
-Let see our `Staff` List. Currently, Staff list show all information which we defined in the document's attributes section. However, since `Staff` document is related to `Contact` document, so we expect to show some contact information in the `Staff` list too, let's say we will go to show `Staff Image`, `Staff Name`, `Staff Mobile Phone Number`, and we also will hide some information from Staff list, for example `Issued Date`, `Expired Date`, `BIO`.
+Let see our `Staff` list. Currently, Staff list show all information which we defined in the document's attributes section. However, since `Staff` document is related to `Contact` document, we expect to show some contact information in the `Staff` list too. Let's say we will show `Staff Image`, `Staff Name`, `Staff Mobile Phone Number`, and we also will hide some information from Staff list, for example `Issued Date`, `Expired Date`, `BIO`.
 
-Because we did not defined query for `Staff document` yet, so it is showing all columns by default. So we have to open `todo.xml` file to declare query for `Staff`.
+Because we did not define the query for `Staff document` yet, it is showing all columns by default. So we have to open `todo.xml` file to declare the query for `Staff`.
 
-Right after `Menu` declaration, we will declare `Queries` like below:
+Right after the `Menu` declaration, we will declare `Queries` like below:
 ```xml
 <queries>
 	<query documentName="Staff" name="qStaff">
@@ -988,17 +988,17 @@ Then you will need to provide `defaultQueryName` attribute to your `Staff` docum
 
 To apply the change, Stop `WildFly` Server and run `Generate Domain` command, then start `WildFly` Server again.
 
-Tara!!! Amazing!!!
+Ta-da!!! Amazing!!!
 
-This the result after our changes, look it very nice right!
+This the result after our changes, looks nice right!
 ![](doc_img_src/stafflist%20after%20done.png)
 
 ### Project List
 ![](doc_img_src/project%20list.png)
 
-As you can see our Project list need some enhancement too. We will go to show `Project Owver`, `Project Manager` and `Project Cooridinator` as well as we will hide `Project Description` from our `Project List`.
+As you can see our Project list needs some enhancement too. We will go to show `Project Owner`, `Project Manager` and `Project Coordinator` as well as hide `Project Description` from our `Project List`.
 
-You may spend few minutes to complete it by your-self then compare with my declaration.
+You may spend few minutes to complete it by yourself then compare with my declaration.
 
 ```xml
 <query documentName="Project" name="qProject">
@@ -1023,9 +1023,10 @@ You may spend few minutes to complete it by your-self then compare with my decla
 
 As you can see our `Todo List` is not showing `Created By` and `Assign To` columns yet, and we also do not want to show `Actual Start Date` and `Actual Finish Date` columns.
 
-You can absolute complete it by your self right!
+You can absolute complete it by yourself!
 
 Once you done with your query declaration you can compare with my query below:
+
 ```xml
 <query documentName="Todo" name="qTodo">
 	<description>All Todo</description>
@@ -1047,44 +1048,44 @@ Once you done with your query declaration you can compare with my query below:
 And this is the `Todo List` which we have
 ![](doc_img_src/todolist%20after.png)
 
-***Tara!!!*** 
+***Ta-da!!!*** 
 
-We already done all `List Main` for our `Todo` module. We will cover ***Views, widgets and layout*** in next section
+We already completed `List Main` for our `Todo` module. We will cover ***Views, widgets and layout*** in next section
 
 ## Views, widgets and layout
-In this section we will go to override the default detail view which generated by Skyve.
+In this section we will go to override the default detail view which is generated by Skyve.
 
 ### Staff Edit View
-Skyve provide us very useful function to create default `edit view` base on our document attributes and attributes type, default widget will be apply for each attribute type.
+Skyve provide us very useful function to create default `edit view` based on our document attributes and attributes type, the default widget will be applied for each attribute type.
 
-So to create our Staff `edit view` we will go through below steps:
+So to create our Staff `edit view`, we will go through below steps:
 
-1. create `edit view`
-2. customize `edit view` to match with our requirements.
+1. Create `edit view`
+2. Customize `edit view` to match our requirements.
 
 #### Create edit view
-1. Right click to your `Project Name` on `Project Explorer` window -> Run As -> Run Configurations
+1. Right click to your `Project Name` in the `Project Explorer` window -> Run As -> Run Configurations
 ![](doc_img_src/staffcreateeditview.png)
-2. The `Run Configuration` window appears, looking on `Maven Build` then click `todoApp - Generate Edit View` option, then click to `Run` button.
+2. The `Run Configuration` window appears, looking at `Maven Build` then click `todoApp - Generate Edit View` option, then click the `Run` button.
 ![](doc_img_src/runstaffeditview.png)
 3. Take a look on the `Console` window. It will ask you for `module name` and `document name`. I will input `todo` as the `module name` and `Staff` as the `document name`.
 ![](doc_img_src/entertodoandstaff.png)
 
 It will run and create an `edit` view for us automatically.
 
-Now, Take a look on your `Staff` package, you will see a `views` package was created. Expand the `view` package we will see the `generatedEdit.xml` file.
+Now, Take a look in your `Staff` package, you will see a `views` package was created. Expand the `view` package and we will see the `generatedEdit.xml` file.
 ![](doc_img_src/staffGeneratedEditXml.png)
 
-To get it work, we will need to rename the xml file to `edit.xml`.
+To get it to work, we will need to rename the xml file to `edit.xml`.
 
-Aha, now we will go to add something to the edit view for testing purpose.
+A-ha, now we will add something to the edit view for testing purpose.
 
 I will add "This is my edit view" to the view for testing, like below:
 ![](doc_img_src/thisIsMyEditView.png)
 
-***Note that: After generate each view, you will need to Re-deploy your application to take affect. After redeploy any change on the view except for condition, we no need to Run Configuration and Re-deploy Application. Just change and refresh your Browser, it will take affect immediately.***
+***Note that: After generating each view, you will need to re-deploy your application for the changes to take affect. After re-deploying any change on the view, except for condition, we do not need to Run Configuration and re-deploy Application. Just change and refresh your browser, it will take effect immediately.***
 
-After refresh browser we will see the text we was added to `edit view` like below:
+After refreshing browser we will see the text we was added to `edit view` like below:
 ![](doc_img_src/thisIsMyEditViewResult.png)
 
 Tara!!! It work like a charm!!!
