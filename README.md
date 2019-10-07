@@ -890,7 +890,18 @@ In this tutorial, `Todo` document will have the following attributes:
 	</attributes>
 </document>
 ```
-We already done for our documents definition. Next we will need to generate domain classes from our defined documents.
+
+Now, just one final step before generating our domain!
+
+In your customerName.xml file, customerName will be whatever you set your Customer Name as when you first built your project at the [Skyve Project Creator](https://foundry.skyve.org/foundry/project.xhtml).
+
+In the case of this tutorial, the Customer Name is 'tutorial'
+
+Once you have located your customerName.xml file, you'll need to include your todo module in your project
+
+![](doc_img_src/ConfigureCustomerxXML1Guide.PNG)
+
+We are now done with our documents definition. Next we will need to generate domain classes from our defined documents.
 ### Generate domain
 To work with our defined documents we must run the `generate domain` command.
 
