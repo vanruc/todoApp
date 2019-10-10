@@ -964,7 +964,7 @@ To learn more about queries, please follow this link https://skyvers.github.io/s
 ### Staff List
 ![](doc_img_src/staff%20list.png)
 
-Lets see our `Staff` list. Currently, Staff list shows all information which we defined in the document's attributes section. However, since the `Staff` document is related to `Contact` document, we expect to show some contact information in the `Staff` list too. Let's say we will show `Staff Image`, `Staff Name`, `Staff Mobile Phone Number`, and we also will hide some information from Staff list, for example `Issued Date`, `Expired Date`, `BIO`.
+Lets see our `Staff` list. Currently, Staff list shows all the information which we defined in the document's attributes section. However, since the `Staff` document is related to `Contact` document, we expect to show some contact information in the `Staff` list too. Let's say we will show `Staff Image`, `Staff Name`, `Staff Mobile Phone Number`, and we also will hide some information from Staff list, for example `Issued Date`, `Expired Date`, `BIO`.
 
 Because we did not define the query for `Staff document` yet, it is showing all columns by default. So we have to open `todo.xml` file to declare the query for `Staff`.
 
@@ -1105,35 +1105,35 @@ After refreshing the browser we will see the text we have added to `edit view` l
 
 Ta-da!!! It works like a charm!!!
 #### Enhance edit view
-At previous step we already know how to generate an edit view by using generate edit view function. Now we will go to enhance our edit view to make it more nicer.
+In the previous step we generated an edit view by using the `Generate Edit View` function. Now we will enhance our `edit view` to make it more visually appealing.
 
-As now, Staff attributes show one by one from top to bottom. We will go to enhance the view by:
-1. Get and show more contact information: Name, Email, Mobile Number, and Contact Image.
+As of now, Staff attributes show one by one from top to bottom. We will enhance the view by:
+1. Getting and showing more contact information: Name, Email, Mobile Number, and Contact Image.
 2. Group related information together: Contact Info, Personal Info, Work Info.
 
-We will plan to split our view into 2 part: `left` and `right`. We will show `Staff information` on the left part. The `Staff Image` will be show on the right part.
+We will plan to split our view into 2 parts: `left` and `right`. We will show `Staff information` on the left part. The `Staff Image` will be shown on the right part.
 
 To do that, we will need to understand about Skyve Containers - https://skyvers.github.io/skyve-dev-guide/views/#containers
 
-After read through the Skyve Containers, may you already guess how to split our view to 2 part: left and right.
+After reading through the Skyve Containers, you may have already guessed how to split our view into 2 parts: left and right.
 
 Yes, `hbox` container will help us on this.
 
 We will try and test our `hbox` to see how it works.
 ![](doc_img_src/staff%20editview%20leftandside.png)
 
-I will explain in further:
-- Line 3: We go to define a `hbox` container. `border=true` to allow us show border for horizontal box.
-- Line 5: We go to define `vbox` to hold our Staff Data later. `vbox` has `responsiveWidth` and `perscentageWidth` to allow us to set width. `responsiveWidth` can be set from 1 to 12, and will be used for normal - responsive screen, while `percentageWidth` can be set from 1 to 100, and will be used on `desktop` screen.
-- Line 6: We go to define a form. Forms will be used to hold Data Fields.
-- Line 7 and line 8: we go to define `column`. To make it responsive we should not declare width for the last column(as line 8).
-- Line 10: We go to define a `row`
-- Line 11 to Line 13 to define an `item`. By default, an item will take 2 columns to display, 1 for label and another one for `input` data.
+I will explain further:
+- Line 3: We go to define a `hbox` container. `border=true` allows us show the border for our horizontal boxes.
+- Line 5: We go to define `vbox` to hold our Staff Data later. `vbox` has `responsiveWidth` and `perscentageWidth` to allow us to set width. `percentageWidth` can be set from 1 to 100, and will be used on `desktop` screens, while `responsiveWidth` can be set from 1 to 12 and will be used for responsive screens.
+- Line 6: We define a form. Forms will be used to hold Data Fields.
+- Line 7 and line 8: we define `column`. To make it responsive we should not declare width for the last column.
+- Line 10: We define a `row`.
+- Line 11 to Line 13 define an `item`. By default, an item will take 2 columns to display, 1 for label and another one for `input` data.
 
-And after done above definition, we will have bellow screen.
+And after the above definition, we will have the resultant screen below.
 ![](doc_img_src/staff%20leftandrightside.png).
 
-Now we will put Contact Image on the right hand side and all Staff Data to the Left hand side.
+Now we will put Contact Image on the right hand side and all Staff Data to the left hand side.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -1226,14 +1226,14 @@ Now we will put Contact Image on the right hand side and all Staff Data to the L
     <newParameters/>
 </view>
 ```
-After done above definition, we will have a view like this.
+After we're finished with the above definition, we will have a view like this.
 ![](doc_img_src/staffeditview1.png)
 
-It look better like before right. However we still need some more improve here.
+It look better than before right? However there are still some improvements to be made here.
 
-We want to get contact info(Name, Email, Phone Number) from `Contact` to show here.
+We want to get contact info(Name, Email, Phone Number) from `Contacts` to show here.
 
-Todo that, right after Social Title, we add below rows:
+To do that, right after Social Title, we add the below rows:
 ```xml
 <row>
     <item>
@@ -1254,14 +1254,14 @@ Todo that, right after Social Title, we add below rows:
 </row>
 ```
 
-And we will get the result like below:
+And we will get the result below:
 ![](doc_img_src/staffeditview2.png)
 
 Next, we will group related information together to make it easier to manage.
 
-The easiest way is to use `border` and `borderTitle` attribute of `Form` Container.
+The easiest way is to use `border` and `borderTitle` attributes of the `Form` Container.
 
-Note that: `form` just play role as a container, which have row and column for us to put attributes, not play as `HTML Form`. So feel free to have more than one form in your view. It will have you to manage the look of the view easier.
+Note that: `Form` just plays a role as a container, which have rows and columns for us to place attributes, not as `HTML Form`. So feel free to have more than one form in your view. It will help you to manage the look of the view easier.
 
 So for this case, I will have 3 forms, one for `Contact Info`, one for `Personal Info`, and another one for `Work Info`.
 
@@ -1384,23 +1384,23 @@ So for this case, I will have 3 forms, one for `Contact Info`, one for `Personal
     <newParameters/>
 </view>
 ```
-After done above definition, I have the view like below:
+After finishing the above definition, I have a view like below:
 ![](doc_img_src/staffeditview3.png)
 
-Hmm, look the right part is too empty when only have the staff image. So maybe we move the `BIO` to right part to see how.
+Hmm, looks like the right part is too empty when we only have the staff image. So we will move the `BIO` to the right part to see how it looks.
 
-I guess you know how to do already right.
-So after we move BIO from `Personal Info` to the right part. We will have the view like below:
+I guess you know how to do already right?
+So after we move BIO from `Personal Info` to the right part. We will have the view below:
 ![](doc_img_src/staffeditview4.png)
 
-I can said that we already done very good view for Staff. However, I also want to introduce `View Components` to you.
+We can say that we have already made a good view for Staff. However, I also want to introduce `View Components` to you.
 
-So, What is the `View Components` is?
+So, what is `View Components`?
 
-Let imagine that your view is very complex, a lot of section and these section can be reuse in different views.
+Lets imagine that your view is very complex, lots of sections and these sections can be reused in different views.
 Skyve allows for reuse of view sections via the `component widget`.
 
-To demonstrate how to re-use components, we will split our view to for components:
+To demonstrate how to re-use components, we will split our view into four components:
 1. Contact Info
 2. Personal Info
 3. Work Info
@@ -1571,26 +1571,26 @@ Change `edit.xml` view like below:
 </view>
 ```
 
-We will go to Re-deploy our application to take affect.
-After Re-deploy and re-login to the system. We will have similar view like our original before:
+We will re-deploy our application to take affect.
+After re-deployment and re-login to the system. We will have the same view as our original before:
 ![](doc_img_src/staffeditview5.png)
 
-In the next section we will reuse our view component to create different layout for desktop screen.
+In the next section we will reuse our view component to create a different layout for desktop screens.
 ##### Create edit view for desktop
-Desktop provide a good end user experience, and there are some feature which only available on Desktop but not available on other devices like tablet, or mobile.
+Desktop provides a good end user experience, and there are some features which are only available on desktop but not available on other devices such as tablet, or mobile.
 
-To demonstrate for desktop view, we will go to:
+To demonstrate for desktop view, we will:
 1. Create view for desktop
-2. Change the layout to make left and right part are same with
+2. Change the layout to make left and right parts the same width
 3. Add Staff location which use `Geometry` data.
 
 ###### Create edit view
-- Create new package named `desktop` inside `views` package of Staff Document.
+- Create a new package named `desktop` inside the `views` package of Staff Document.
 - Copy `edit.xml` file from `views` package to `views.desktop` package.
 - Re-deploy the application to take effect.
 
 ###### Change the layout for desktop view
-we will change layout of desktop view to make left and right part to have same width.
+We will change the layout of desktop view to make left and right part to have same width.
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <view xmlns="http://www.skyve.org/xml/view" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="edit" title="Staff" xsi:schemaLocation="http://www.skyve.org/xml/view ../../../../schemas/view.xsd">
@@ -1624,26 +1624,26 @@ Go to our `Staff`, then we will see different from `desktop` and our normal view
 ![](doc_img_src/staffeditview6.png)
 
 
-###### Add Staff location which use `Geometry` data
-Skyve provides a Google maps API by default, however it is your responsibility to consider usage, licencing and billing implications when used in your application. Refer to [Google](https://cloud.google.com/maps-platform/terms/) terms.
+###### Add Staff location which uses `Geometry` data
+Skyve provides a Google maps API by default, however it is your responsibility to consider usage, licencing and billing implications when used in your application. Refer to [Google](https://cloud.google.com/maps-platform/terms/) terms to find out more.
 
 Skyve applications can take advantage of other map APIs (for example Leaflet, OpenStreetMap etc) however these APIs are not included in the open-source Skyve distribution. For assistance, contact us at skyve.org to discuss detailed steps for other integration options.
 
-And in this section we will go to use `Geometry` with Google Map. So you will need to have a `Google Map API V3 key`. You can follow this link https://developers.google.com/maps/documentation/javascript/get-api-key to get it.
+In this section we will use `Geometry` with Google Maps. So you will need to have a `Google Map API V3 key`. You can follow this link https://developers.google.com/maps/documentation/javascript/get-api-key to get one.
 
-After you have the key, you will need to set it on APIs section of `todoApp.json`, hopefully you still remember it.
+After you have the key, you will need to set it in the APIs section of `todoApp.json`, hopefully you still remember it.
 
-At `Servers` window, right click to `WildFly 16 at localhost` and choose `Show in`, then select `File Browser`.
+In the `Servers` window, right click on your Wildfly server and choose `Show in`, then select `File Browser`.
 
 ![](doc_img_src/wfshowinbrowser.png)
 
-Find for `todoApp.json` file and open it in your code editor.
+Search for the `todoApp.json` file and open it in your code editor.
 
-Looking for 'API Settings', and set your `googleMapsV3Key` with `key` you have.
+Look for 'API Settings', and set your `googleMapsV3Key` with the `key` you have.
 
 ![](doc_img_src/googlemapapi.png)
 
-Now, we will go to add `Staff Location` to our `Staff Document`.
+Now, we will add `Staff Location` to our `Staff Document`.
 
 ```xml
 <geometry name='staffLocation'>
@@ -1651,16 +1651,16 @@ Now, we will go to add `Staff Location` to our `Staff Document`.
 </geometry>
 ```
 
-Add this definition right after BIO definition.
+Add this definition right after the BIO definition.
 
-After add `Staff Location` attribute, we must Run `Generate Domain`.
+After adding the `Staff Location` attribute, we must Run `Generate Domain`.
 
-Once, `Generate Domain` command run successfully, We will go to amend our views.
+Once, the `Generate Domain` command runs successfully, we will go to amend our views.
 
-`Geometry` not yet supported on responsive mode yet, so in this view, we will show a text to instruct user to go to `desktop` mode to use `Geometry` feature.
+`Geometry` is not yet supported on responsive mode yet, so in this view, we will show a text to instruct user to go to `desktop` mode to use `Geometry` feature.
 
 
-We will go to add Staff Location to `Right Side` of screen.
+We will add Staff Location to `right side` of the screen.
 
 `Staff Responsive View`.
 
@@ -1713,25 +1713,25 @@ You can click to the right icon of `Staff Location` to set `Staff Location`.
 
 ### Project Edit View
 
-In previouse section you already explore and practice on how to create an `edit view` and customize it to meet project requirement. Now it should be easier for you to create an `edit view` for `Project` document right?
+In the previous section you already explore and practice on how to create an `edit view` and customize it to meet project requirements. Now it should be easier for you to create an `edit view` for your `Project` document right?
 
-Let demostrate that our `project edit view` may be look like below:
+Let demonstrate that our `project edit view` may look like below:
 
 ![](doc_img_src/projecteditview.png)
 
-It inlcude of 3 `components`:
+It includes 3 `components`:
 - Project Info: to show project information.
 - Project Owner Info: to show project owner information.
 - Project Operator: to show project operator information.
 
-There are some guideline for you to finish this edit view by your self.
+Here are some guidelines for you to finish this edit view by your self.
 1. Run `Generate edit view` command to generate `Project edit view`
 2. Create `view components` for each section
 3. Combine `view components` together.
-4. Run `Generate Domain` command and Redeploy applicaion.
+4. Run `Generate Domain` command and Redeploy application.
 5. Adjust your view if required.
 
-You may stop continue reading for 10 to 20 minute in order to try to complete it by yourself before and then after you done by your self you can compare it with our work.
+You may choose to stop reading through this tutorial for 10 to 20 minute in order to try to complete it by yourself before and then after you done by your self you can compare it with our work.
 
 #### Project Edit View Solution
 ##### Project Info Component
@@ -1777,9 +1777,9 @@ You may stop continue reading for 10 to 20 minute in order to try to complete it
         <column percentageWidth="30" responsiveWidth="4"/>
         <column/>       
         <row>
-            <item>
-                <default binding="projectOwner"/>
-            </item>
+        	<item>
+                	<default binding="projectOwner"/>
+        	</item>
         </row>
         
         <row>
@@ -1800,11 +1800,11 @@ You may stop continue reading for 10 to 20 minute in order to try to complete it
         
         <row>
         	<item>
-				<spacer />
-			</item>
-			<item showLabel="false">
-				<contentImage binding="projectOwner.image" pixelWidth="200" pixelHeight="200" />
-			</item>
+			<spacer />
+		</item>
+		<item showLabel="false">
+			<contentImage binding="projectOwner.image" pixelWidth="200" pixelHeight="200" />
+		</item>
         </row>
     </form>
 </view>
@@ -1818,55 +1818,55 @@ You may stop continue reading for 10 to 20 minute in order to try to complete it
         <column/>
         
         <row>
-            <item>
-                <default binding="projectManager"/>
-            </item>
-        </row>
-        <row>
-            <item>
-                <default binding="projectManager.user.contact.email1"/>
-            </item>
-        </row>
-        <row>
-            <item>
-                <default binding="projectManager.user.contact.mobile"/>
-            </item>
+        	<item>
+                	<default binding="projectManager"/>
+        	</item>
         </row>
         <row>
         	<item>
-				<spacer />
-			</item>
-			<item showLabel="false">
-				<contentImage binding="projectManager.user.contact.image" pixelWidth="200" pixelHeight="200" />
-			</item>
-        </row>
-        <row>
-            <item>
-                <default binding="projectCoordinator"/>
-            </item>
-        </row>
-        <row>
-            <item>
-                <default binding="projectCoordinator.user.contact.email1"/>
-            </item>
-        </row>
-        <row>
-            <item>
-                <default binding="projectCoordinator.user.contact.mobile"/>
-            </item>
+                	<default binding="projectManager.user.contact.email1"/>
+        	</item>
         </row>
         <row>
         	<item>
-				<spacer />
-			</item>
+                	<default binding="projectManager.user.contact.mobile"/>
+        	</item>
+        </row>
+        <row>
+        	<item>
+			<spacer />
+		</item>
+		<item showLabel="false">
+			<contentImage binding="projectManager.user.contact.image" pixelWidth="200" pixelHeight="200" />
+		</item>
+        </row>
+        <row>
+        	<item>
+                	<default binding="projectCoordinator"/>
+        	</item>
+        </row>
+        <row>
+        	<item>
+            		<default binding="projectCoordinator.user.contact.email1"/>
+        	</item>
+        </row>
+        <row>
+           	<item>
+                	<default binding="projectCoordinator.user.contact.mobile"/>
+            	</item>
+        </row>
+        <row>
+        	<item>
+			<spacer />
+		</item>
 			<item showLabel="false">
-				<contentImage binding="projectCoordinator.user.contact.image" pixelWidth="200" pixelHeight="200" />
-			</item>
+			<contentImage binding="projectCoordinator.user.contact.image" pixelWidth="200" pixelHeight="200" />
+		</item>
         </row>
         <row>
         	<item colspan="2">
-				<spacer />
-			</item>
+			<spacer />
+		</item>
         </row>
     </form>
 </view>
@@ -1894,10 +1894,10 @@ You may stop continue reading for 10 to 20 minute in order to try to complete it
 ### Todo Edit View
 In the previous section we already finish the `project edit view`. We will go to create out final view for `Todo Edit view`.
 
-`Todo Edit view` may have interface like below:
+`Todo Edit view` will have an interface like below:
 ![](doc_img_src/todoeditview.png)
 
-It included 2 parts:
+It includes 2 parts:
 1. General Information
 2. Process
 
