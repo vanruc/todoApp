@@ -1088,7 +1088,7 @@ So to create our Staff `edit view`, we will go through the following steps:
 
 It will run and create an `edit` view for us automatically.
 
-Now, Take a look in your `Staff` package, you will see a `views` package was created. Expand the `view` package and we will see the `generatedEdit.xml` file.
+Now, take a look in your `Staff` package, you will see a `views` package was created. Expand the `views` package and we will see the `generatedEdit.xml` file.
 ![](doc_img_src/staffGeneratedEditXml.png)
 
 Now we will need to rename the xml file to `edit.xml`.
@@ -1098,14 +1098,14 @@ A-ha, now we will add something to the edit view for testing purposes.
 I will add "This is my edit view" to the view for testing, like below:
 ![](doc_img_src/thisIsMyEditView.png)
 
-***Note that: After generating each view, you will need to re-deploy your application for the changes to take affect. After re-deploying any change on the view, except for condition, we do not need to Run Configuration and re-deploy Application. Just change and refresh your browser, it will take effect immediately.***
+***Note that: After generating each view, you will need to re-deploy your application for the changes to take affect. After re-deploying any change on the view, except for condition, we do not need to Run Configuration and re-deploy application. Just change and refresh your browser, it will take effect immediately.***
 
 After refreshing the browser we will see the text we have added to `edit view` like below:
 ![](doc_img_src/thisIsMyEditViewResult.png)
 
 Ta-da!!! It works like a charm!!!
 #### Enhance edit view
-In the previous step we generated an edit view by using the `Generate Edit View` function. Now we will enhance our `edit view` to make it more visually appealing.
+In the previous step we generated an `edit view` by using the `Generate Edit View` function. Now we will enhance our `edit view` to make it more visually appealing.
 
 As of now, Staff attributes show one by one from top to bottom. We will enhance the view by:
 1. Getting and showing more contact information: Name, Email, Mobile Number, and Contact Image.
@@ -1115,7 +1115,7 @@ We will plan to split our view into 2 parts: `left` and `right`. We will show `S
 
 To do that, we will need to understand about Skyve Containers - https://skyvers.github.io/skyve-dev-guide/views/#containers
 
-After reading through the Skyve Containers, you may have already guessed how to split our view into 2 parts: left and right.
+After reading through the Skyve Containers document, you may have already guessed how to split our view into 2 parts.
 
 Yes, `hbox` container will help us on this.
 
@@ -1133,7 +1133,7 @@ I will explain further:
 And after the above definition, we will have the resultant screen below.
 ![](doc_img_src/staff%20leftandrightside.png).
 
-Now we will put Contact Image on the right hand side and all Staff Data to the left hand side.
+Now we will move the Contact Image on the right hand side and all Staff Data to the left hand side.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -1226,12 +1226,12 @@ Now we will put Contact Image on the right hand side and all Staff Data to the l
     <newParameters/>
 </view>
 ```
-After we're finished with the above definition, we will have a view like this.
+After we're finished with the above definition, we will have a view like this:
 ![](doc_img_src/staffeditview1.png)
 
-It look better than before right? However there are still some improvements to be made here.
+It looks better than before right? However there are still some improvements to be made here.
 
-We want to get contact info(Name, Email, Phone Number) from `Contacts` to show here.
+We also want to get contact info(Name, Email, Phone Number) from `Contacts` to show here.
 
 To do that, right after Social Title, we add the below rows:
 ```xml
@@ -1384,16 +1384,16 @@ So for this case, I will have 3 forms, one for `Contact Info`, one for `Personal
     <newParameters/>
 </view>
 ```
-After finishing the above definition, I have a view like below:
+After finishing the above definition, we have a view like below:
 ![](doc_img_src/staffeditview3.png)
 
-Hmm, looks like the right part is too empty when we only have the staff image. So we will move the `BIO` to the right part to see how it looks.
+Hmm, looks like the right side is too empty when we only have the staff image. So we will move the `BIO` to the right hand side to see how it looks.
 
 I guess you know how to do already right?
-So after we move BIO from `Personal Info` to the right part. We will have the view below:
+So after we move BIO from `Personal Info` to the right hand side section. We will have the view below:
 ![](doc_img_src/staffeditview4.png)
 
-We can say that we have already made a good view for Staff. However, I also want to introduce `View Components` to you.
+We can say that we have already made a nice view for Staff. However, I also want to introduce `View Components` to you.
 
 So, what is `View Components`?
 
@@ -1450,7 +1450,7 @@ In the Staff > views package, create new `_contactInfo.xml` file with below cont
 ```
 
 ##### Personal Info Component
-In the Staff > views package, create new `_personalInfo.xml` file with below content:
+In the Staff -> views package, create new `_personalInfo.xml` file with below content:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -1483,7 +1483,7 @@ In the Staff > views package, create new `_personalInfo.xml` file with below con
 ```
 
 ##### Work Info Component
-In the Staff > views package, create new `_workInfo.xml` file with below content:
+In the Staff -> views package, create new `_workInfo.xml` file with below content:
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <view xmlns="http://www.skyve.org/xml/view" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="_workInfo" title="Staff Work Info" xsi:schemaLocation="http://www.skyve.org/xml/view ../../../../schemas/view.xsd">
@@ -1514,7 +1514,7 @@ In the Staff > views package, create new `_workInfo.xml` file with below content
 </view>
 ```
 ##### Photo and Bio Component
-In the Staff > views package, create new `_photoBio.xml` file with below content:
+In the Staff -> views package, create new `_photoBio.xml` file with below content:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -1535,12 +1535,11 @@ In the Staff > views package, create new `_photoBio.xml` file with below content
 			<item>
 				<spacer />
 			</item>
-            <item showLabel="false">
-                <textArea  binding="bio"></textArea>
-            </item>
-        </row>
+            	<item showLabel="false">
+                	<textArea  binding="bio"></textArea>
+           	 </item>
+        	</row>
 	</form>
-	
 </view>
 ```
 ##### Combine together
@@ -1577,7 +1576,7 @@ After re-deployment and re-login to the system. We will have the same view as ou
 
 In the next section we will reuse our view component to create a different layout for desktop screens.
 ##### Create edit view for desktop
-Desktop provides a good end user experience, and there are some features which are only available on desktop but not available on other devices such as tablet, or mobile.
+Desktop provides a good end user experience, and there are some features which are only available on desktop but not on other devices such as tablet, or mobile.
 
 To demonstrate for desktop view, we will:
 1. Create view for desktop
@@ -1585,12 +1584,12 @@ To demonstrate for desktop view, we will:
 3. Add Staff location which use `Geometry` data.
 
 ###### Create edit view
-- Create a new package named `desktop` inside the `views` package of Staff Document.
+- Create a new package named `desktop` inside the `views` package of the Staff Document.
 - Copy `edit.xml` file from `views` package to `views.desktop` package.
 - Re-deploy the application to take effect.
 
 ###### Change the layout for desktop view
-We will change the layout of desktop view to make left and right part to have same width.
+We will change the layout of desktop view to make left and right sections have same width.
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <view xmlns="http://www.skyve.org/xml/view" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="edit" title="Staff" xsi:schemaLocation="http://www.skyve.org/xml/view ../../../../schemas/view.xsd">
@@ -1627,17 +1626,17 @@ Go to our `Staff`, then we will see different from `desktop` and our normal view
 ###### Add Staff location which uses `Geometry` data
 Skyve provides a Google maps API by default, however it is your responsibility to consider usage, licencing and billing implications when used in your application. Refer to [Google](https://cloud.google.com/maps-platform/terms/) terms to find out more.
 
-Skyve applications can take advantage of other map APIs (for example Leaflet, OpenStreetMap etc) however these APIs are not included in the open-source Skyve distribution. For assistance, contact us at skyve.org to discuss detailed steps for other integration options.
+Skyve applications can take advantage of other map APIs (for example; Leaflet, OpenStreetMap .etc) however these APIs are not included in the open-source Skyve distribution. For assistance, contact us at skyve.org to discuss detailed steps for other integration options.
 
 In this section we will use `Geometry` with Google Maps. So you will need to have a `Google Map API V3 key`. You can follow this link https://developers.google.com/maps/documentation/javascript/get-api-key to get one.
 
-After you have the key, you will need to set it in the APIs section of `todoApp.json`, hopefully you still remember it.
+After you have the key, you will need to set it in the APIs section of `todoApp.json` (hopefully you still remember it)
 
 In the `Servers` window, right click on your Wildfly server and choose `Show in`, then select `File Browser`.
 
 ![](doc_img_src/wfshowinbrowser.png)
 
-Search for the `todoApp.json` file and open it in your code editor.
+Locate the `todoApp.json` file and open it in your code editor.
 
 Look for 'API Settings', and set your `googleMapsV3Key` with the `key` you have.
 
@@ -1653,7 +1652,7 @@ Now, we will add `Staff Location` to our `Staff Document`.
 
 Add this definition right after the BIO definition.
 
-After adding the `Staff Location` attribute, we must Run `Generate Domain`.
+After adding the `Staff Location` attribute, we must run `Generate Domain`.
 
 Once, the `Generate Domain` command runs successfully, we will go to amend our views.
 
