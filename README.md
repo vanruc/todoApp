@@ -1891,7 +1891,7 @@ You may choose to stop reading through this tutorial for 10 to 20 minute in orde
 </view>
 ```
 ### Todo Edit View
-In the previous section we already finish the `project edit view`. We will go to create out final view for `Todo Edit view`.
+In the previous section we finished the `Project Edit view`. We will now create our final view for `Todo Edit view`.
 
 `Todo Edit view` will have an interface like below:
 ![](doc_img_src/todoeditview.png)
@@ -1900,9 +1900,9 @@ It includes 2 parts:
 1. General Information
 2. Process
 
-You can scroll up a bit to read the guildline about how to create `Project edit view` and apply to create `Todo edit view`.
+You can scroll up a bit to read the guideline on how to create `Project Edit view` and apply to create `Todo edit view`.
 
-Stop reading for awhile and finish your `Todo edit view` before compare with my definition below.
+We suggest you stop reading for a while and attempt your `Todo Edit view` before comparing with the definition below.
 
 #### General Information Component
 
@@ -2011,22 +2011,22 @@ Stop reading for awhile and finish your `Todo edit view` before compare with my 
     <newParameters/>
 </view>
 ```
-We've already finish our views. In the next section we will cover some advance concept like condition, action and event handler. To apply these concept our Application will be more logical, reach to production grade of an application.
+We've now finished our views. In the next section we will cover some advanced concepts such as condition, action and event handler. To apply these concepts, our Application will become more logical, aiming for a high production grade of an application.
 
-## Advance Enhancements
-In this section we will go to update our `Todo` application to make it more powerfull and close to the production grade of Application.
+## Advanced Enhancements
+In this section we will update our `Todo` application to make it more powerful and closer to the production grade of an application.
 
 In this section we wil go through and apply some concept like `condition`, `filter`, `action` and we also will touch to the `bizlet and extension class` - `Bizlet` is a class related to a document which extends default bean behaviours.
 
 
 ### Staff
 
-Firstly we will go to enhance the `Staff` document first, to see how we can apply above concepts to our document.
+Firstly we will enhance the `Staff` document, to see how we can apply the above concepts to our document.
 
 1. Add `My Staff Information` menu item to `Project Member`
 2. Only allow `Staff Manager` to select `User`.
-3. When Staff Manager select User from dropdown box, it will auto update contact information and contact image.
-4. `User` dropbox should not show user which associate with another `Staff`
+3. When Staff Manager selects User from dropdown box, it will automatically update contact information and contact image.
+4. `User` dropbox should not show user which associates with another `Staff`
 5. Only allow `Staff Manager` to update `Work Info` data
 6. Allow `Project Member` to update `Contact Info` and `Personal Info` only.
 
