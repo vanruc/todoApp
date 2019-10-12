@@ -2016,7 +2016,7 @@ We've now finished our views. In the next section we will cover some advanced co
 ## Advanced Enhancements
 In this section we will update our `Todo` application to make it more powerful and closer to the production grade of an application.
 
-In this section we wil go through and apply some concept like `condition`, `filter`, `action` and we also will touch to the `bizlet and extension class` - `Bizlet` is a class related to a document which extends default bean behaviours.
+We will go through and apply some concepts such as `condition`, `filter`, and `action` and we also will touch on the `bizlet and extension class` - `Bizlet`, which is a class related to a document which extends default bean behaviours.
 
 
 ### Staff
@@ -2032,19 +2032,19 @@ Firstly we will enhance the `Staff` document, to see how we can apply the above 
 
 ### Add `My Staff Information` menu item.
 I will login to the application by using a `Project Member` user account.
-I can easily know which user under `Project Member` group by open `Admin > Security Admin > Groups` and open `Project Member` group.
+I can find which users are under the `Project Member` group by logging into the application through an admin account and opening `Admin > Security Admin > Groups` and then opening the `Project Member` group.
 
 ![](doc_img_src/projectmembergroup.png)
 
-There are `Users in Group` tab, it showes all users under this group.
+There is a `Users in Group` tab which shows all users included in this group.
 
-So I will login with one of these users account.
+So I will re-login with one of these users accounts.
 
 ![](doc_img_src/projectmemberlogin.png)
 
-Please take a look at `Todo Module`. I dont want `Project Member` to see detail of `Project` because there are `Project Owner` information what we should not let `Project Memember User` to know.
+Please take a look at `Todo Module`. We don't want people in `Project Member` to see the details of `Project` because there is `Project Owner` information that should not be visible to a `Project Member User`.
 
-Open `todo.xml` and looking for `menu` definition section.
+Open `todo.xml` and locate the `menu` definition section.
 
 ```xml
 <menu>
@@ -2062,7 +2062,7 @@ Open `todo.xml` and looking for `menu` definition section.
 </menu>
 ```
 
-We will remove role `ProjectMember` from `Project`
+We will remove the role `ProjectMember` from `Project`
 
 ```xml
 <menu>
@@ -2079,7 +2079,7 @@ We will remove role `ProjectMember` from `Project`
 </menu>
 ```
 
-I also go to create `My Staff Information` for `Project Member` show they can see and update their information from here.
+We also create `My Staff Information` for `Project Member` so they can see and update their information from here.
 ```xml
 <menu>
 	<list document="Staff" name="Staff">
@@ -2098,7 +2098,7 @@ I also go to create `My Staff Information` for `Project Member` show they can se
 </menu>
 ```
 
-Let say we want to allow `Project Member` to create or update their Staff Information, however their Staff Information was created by Staff Manager before. So in this case we will need to allow `Project Member` to `Create`,`Read`,`Update` Staff document on Customer scope. But we will restrict to show their own staff record only.
+Lets say we want to allow a `Project Member` to create or update their Staff Information, however their Staff Information was created by Staff Manager previously. So in this case we will need to allow `Project Member` to `Create`,`Read`,`Update` Staff document on Customer scope. But we will restrict to show their own staff record only. To do this, we replace the previous role definition of `Project Member` with the below code
 
 ```xml
 <role name="ProjectMember">
@@ -2110,21 +2110,21 @@ Let say we want to allow `Project Member` to create or update their Staff Inform
 </role>
 ```
 
-After done above tasks, we will need to Run `Generate Domain` and `Redeploy` our application.
+After completing the above tasks, we will need to run `Generate Domain` and `Re-deploy` our application.
 
 Now, we will login as a `Project Member` to see the change.
 
 ![](doc_img_src/mystaffinfomenu.png)
 
-However it not done yet, when you click to the menu link, it will show a new blank `Staff` document.
+However, it is not quite finished yet, when you click the menu link, it will show a new blank `Staff` document.
 
 ![](doc_img_src/staffeditview9.png)
 
-We will have to change a little bit here. When load `My Staff Information` we will check if any `Staff` associate with current user or not, if yes then we will load it.
+We will have to change a little bit here to load in the correct user data. When loading `My Staff Information`, we will check whether any `Staff` are associated with the current user or not, if there is we will load it.
 
-To do above requirement we will need to create a `bizLet` for `Staff` document and override the `newInstance` method.
+To do the above we will need to create a `bizLet` for the `Staff` document and override the `newInstance` method.
 
-To learn more about `bizLet` you can read at https://skyvers.github.io/skyve-dev-guide/bizlets/
+To learn more about `bizLet` you can have a read at https://skyvers.github.io/skyve-dev-guide/bizlets/
 
 Now let me to show you how we can create `StaffBizLet` to customize the document as we want.
 
