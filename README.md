@@ -2098,7 +2098,7 @@ We also create `My Staff Information` for `Project Member` so they can see and u
 </menu>
 ```
 
-Lets say we want to allow a `Project Member` to create or update their Staff Information, however their Staff Information was created by Staff Manager previously. So in this case we will need to allow `Project Member` to `Create`,`Read`,`Update` Staff document on Customer scope. But we will restrict to show their own staff record only. To do this, we replace the previous role definition of `Project Member` with the below code
+Lets say we want to allow a `Project Member` to create or update their Staff Information, however their Staff Information was created by a `Staff Manager` previously. So in this case we will need to allow `Project Member` to `Create`,`Read`,`Update` their Staff document on Customer scope. But we will restrict to show their own staff record only. To do this, we replace the previous role definition of `Project Member` with the below code
 
 ```xml
 <role name="ProjectMember">
@@ -2122,36 +2122,36 @@ However, it is not quite finished yet, when you click the menu link, it will sho
 
 We will have to change a little bit here to load in the correct user data. When loading `My Staff Information`, we will check whether any `Staff` are associated with the current user or not, if there is we will load it.
 
-To do the above we will need to create a `bizLet` for the `Staff` document and override the `newInstance` method.
+To do the above we will need to create a `Bizlet` for the `Staff` document and override the `newInstance` method.
 
-To learn more about `bizLet` you can have a read at https://skyvers.github.io/skyve-dev-guide/bizlets/
+To learn more about `Bizlet`, you can have a read at https://skyvers.github.io/skyve-dev-guide/bizlets/
 
-Now let me to show you how we can create `StaffBizLet` to customize the document as we want.
+Now, let me to show you how we can create `StaffBizlet` to customize the document as we want.
 
-Right Click to the `Staff` package and select `New` then Select `Class` in the sub-menu.
+Right-click to the `Staff` package and select `New`, then select `Class` in the sub-menu.
 
 The new Class window will appear like below:
 
 ![](doc_img_src/create_staffbizlet.png)
 
 - Name: set class name to StaffBizlet
-- Superclass: click to Browser to and select BizLet<Staff> as Superclass.
+- Superclass: click on Browse, and select BizLet<Staff> as Superclass.
 
 Then click Finish.
 
-The `StaffBizlet` class was created, however we will need some change here.
+The `StaffBizlet` class was created, however we will need to make some changes here.
 
 ![](doc_img_src/staffbizlet_1.png)
 
-We will fix these 2 issues by using Eclip Quick Fix suggestion.
+We will fix these two issues by using Eclipse Quick Fix suggestion.
 
 ![](doc_img_src/staffbizlet_2.png)
 
 ![](doc_img_src/staffbizlet_3.png)
 
-All right, we've fixed above 2 issues.
+Alright, after following the Quick Fix suggestions we've fixed the above two issues.
 
-Next, we will override `newInstance` method to read `Staff information` if it already created before.
+Next, we will override the `newInstance` method to read `Staff information` if it has already been created.
 
 ![](doc_img_src/staffbizlet_4.png)
 ![](doc_img_src/staffbizlet_5.png)
@@ -2177,7 +2177,7 @@ public Staff newInstance(Staff bean) throws Exception {
 	return staff;
 }
 ```
-Save the `StaffBizlet` class and run `Generate Domain` command then Redeploy Application to your server.
+Save the `StaffBizlet` class and run `Generate Domain` command, then re-deploy your application to your server.
 
 Once done, login to application as a `Project Member` and click to `My Staff Information` link, now we can see the data loaded properly.
 
