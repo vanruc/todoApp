@@ -2170,7 +2170,7 @@ public Staff newInstance(Staff bean) throws Exception {
 	
 	// in case of staff is null, we will return an empty bean with User and Contact Information
 	if (staff == null) {
-		bean.setUser(ModulesUtil.currentAdminUser());
+		bean.setUser((UserExtension) ModulesUtil.currentAdminUser());
 		return bean;
 	}
 	// else return staff
@@ -2179,17 +2179,17 @@ public Staff newInstance(Staff bean) throws Exception {
 ```
 Save the `StaffBizlet` class and run `Generate Domain` command, then re-deploy your application to your server.
 
-Once done, login to application as a `Project Member` and click to `My Staff Information` link, now we can see the data loaded properly.
+Once done, login to your application as a `Project Member` and click on the `My Staff Information` link, now we can see the data loaded properly.
 
 ![](doc_img_src/staffbizlet_6.png)
 
 ### Only allow Staff Manager to select User
-As you can see, when we login to the application as a `Project` member I also can see the `User` select box. This is not good practice in production applicatio. So in this section we will enhance our application to make sure this `User` select box is visible for `Staff Manager` only.
+As you can see, when we login to the application as a `Project` member I also can see the `User` select box. This is not good practice in production application. So in this section we will enhance our application to make sure this `User` select box is visible for `Staff Manager` only.
 ![](doc_img_src/staff_info_1.png)
 
 To archive our purpose, we will work with `condition`.
 
-huh, what is the Document Condition?
+Huh, what is the document condition?
 
 Quick answer is as below:
 
@@ -2199,11 +2199,11 @@ Quick answer is as below:
 
 Sound right for us right?
 
-So how we can apply this to our case.
+So how we can apply this to our case?
 
-Let we define it first.
+Let us define it first.
 
-Let open `Staff.xml` file, scroll down to very bottom. Right after attributes definition we will add conditions definition like below:
+Lets open `Staff.xml` file, scroll down to very bottom. Right after attributes definition we will add conditions definition like below:
 
 ```xml
 <conditions>
@@ -2212,7 +2212,7 @@ Let open `Staff.xml` file, scroll down to very bottom. Right after attributes de
 	</condition>
 </conditions>
 ```
-This condition will check if loged in user's role is Staff Manager or not.
+This condition will check if the logged in user's role is Staff Manager or not.
 
 Then apply it to `Staff` view.
 
@@ -2224,8 +2224,8 @@ Open `_contactInfo.xml` and change `user` binding like below:
 	</item>
 </row>
 ```
-Once done, save the file, run `Generate Domain` command and re-deploy your application to apply the condition.
+Once done, save the file, run the `Generate Domain` command and re-deploy your application to apply the condition.
 
-Now when we loged in as a `Project Member` the `User` dropdowbox will disappear.
+Now when we are logged in as a `Project Member` the `User` dropdownbox will disappear.
 
 ![](doc_img_src/staff_info_2.png)
