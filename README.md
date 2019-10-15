@@ -1,18 +1,18 @@
 # Todo Application Tutorial
-Let's learn by example.
+Let's learn from example.
 
 Throughout this tutorial, we will walk you through creating an advanced Todo Application by using the awesome Enterprise Application Framework - [Skyve](https://skyve.org/).
 
-This Todo Application will assign and manage tasks needed to be done for our project. We also try to put some effort in to create a Report by using Jaspersoft BI tools which is embedded in the Skyve Framework.
+This Todo application will assign and manage tasks needed to be done for our project. We also try to put some effort in to create a report by using Jaspersoft BI tools which is embedded in the Skyve Framework.
 
-In this project, we will try to cover as much of the Skyve Development Process and its concepts as possible.
+In this project, we will try to cover as much of the Skyve development process and its concepts as possible.
 
-***This tutorial assumes familiarity with Web technology and architecture, Java EE concepts, the Java language and the use of common development tools like Eclipse.***
+***This tutorial assumes familiarity with web technology and architecture, Java EE concepts, the Java language and the use of common development tools like Eclipse.***
 
 ## Getting started
-Before continuing with our tutorial, there are some pages you may want to visit
+Before continuing with our tutorial, there are some pages you may want to visit:
 
-* [What is Skyve?](https://skyve.org/what-is-skyve) - Will help answer what [Skyve](https://skyve.org) is, and how it will be useful in your Enterprise Application Development.
+* [What is Skyve?](https://skyve.org/what-is-skyve) - Will answer what [Skyve](https://skyve.org) is, and how it will be useful in your Enterprise Application Development.
 
 * [Getting Started](https://skyve.org/getting-started) - Will help give you some ideas on how to start with our [Skyve](https://skyve.org) Framework.
 
