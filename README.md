@@ -20,7 +20,7 @@ Before continuing with our tutorial, there are some pages you may want to visit:
 
 * [Join Us On Slack](https://join.slack.com/t/skyveframework/shared_invite/enQtNDMwNTcyNzE0NzI2LWNjMTBlMTMzNTA4YzBlMzFhYzE0ZmRhOWIzMWViODY4ZTE1N2QzYWM1MTdlMTliNDIyYTBkOWZhZDAxOGQyYjQ) - If you get stuck, feel free to ask the team some questions on the Skyve Slack server.
 
-Now, moving on to the next stage to learn how to create an application with [Skyve Framework](https://skyve.org) .
+Now, moving on to the next stage to learn how to create an application with [Skyve Framework](https://skyve.org).
 ## Create TodoApp Project
 To create a new [Skyve](https://skyve.org) Project, you can go to the [Getting Started](https://skyve.org/getting-started) page, then scroll down to the **Skyve For Developers**  section, and click the **Create** button.
 ![](doc_img_src/create%20skyve%20project.png)
@@ -42,19 +42,19 @@ Now, check your email inbox to find your Project Download Link. Download the pro
 ## Import TodoApp Project
 Now we will import the project to Eclipse.
 
-Once in Eclipse, right-click in the Project Explorer window, and choose **Import**
+Once in Eclipse, right-click in the Project Explorer window, and choose **Import**.
 ![](doc_img_src/ImportingMavenProjectEclipse1Guide.PNG)
 
-Click the Maven dropdown box and select Existing Maven Projects
-Then click the **Next** button
+Click the Maven dropdown box and select Existing Maven Projects.
+Then click the **Next** button.
 
 ![](doc_img_src/ImportingMavenProjectEclipse2Guide.PNG)
 
-The next step is to browse for your root project folder ([Skyve Project](https://skyve.org) (which you extracted in the last section of this guide), and select it
+The next step is to browse for your root project folder ([Skyve Project](https://skyve.org) (which you extracted in the last section of this guide), and select it.
 
 ![](doc_img_src/ImportingMavenProjectEclipse3Guide.PNG)
 
-Finally, click the **Finish** button
+Finally, click the **Finish** button.
 
 ![](doc_img_src/ImportingMavenProjectEclipse4Guide.PNG)
 
@@ -62,29 +62,29 @@ Wait for the Eclipse Import Wizard to finish the importing process and re-index 
 Now we can continue to the next page to install and configure [WildFly](https://wildfly.org/) Server to run our application.
 ## Install and Configure WildFly Server
 To run our **TodoApp** we will need to install and configure for [WildFly](https://wildfly.org) Server.
-Skyve works well on WildFly version 13+ (tested and runs smoothly on **WildFly 17** - count to date of Tutorial).
+Skyve works well on WildFly version 13+ (tested and runs smoothly on **WildFly 17** - as of last revision of this tutorial).
 ### Installing WildFly Server
 *You can skip this step if WildFly Server is already installed on your system.*
 
 Before installing WildFly Server, make sure **JBoss Tools** is installed on your system.
 
-To install JBoss Tools, click on Help, then click Eclipse Marketplace
+To install JBoss Tools, click on Help, then click Eclipse Marketplace.
 
 ![](doc_img_src/InstallingJBossEclipse1Guide.PNG)
 
-In the searchbar, type 'jboss' and search
+In the searchbar, enter 'jboss' then search.
 
-Select the JBoss Tools version that the search returns, and click Install
+Select the JBoss Tools version that the search returns, and click Install.
 
 ![](doc_img_src/InstallingJBossEclipse2Guide.PNG)
 
-To check if JBoss Tools is installed properly, click on Help, then click Eclipse Marketplace
+To check if JBoss Tools is installed properly, click on Help, then click Eclipse Marketplace.
 
 ![](doc_img_src/FindingJBossEclipse1Guide.PNG)
 
-Click Installed
+Click Installed.
 
-If the JBoss Tools plugin is present, you are ready to continue
+If the JBoss Tools plugin is present, you are ready to continue.
 
 ![](doc_img_src/FindingJBossEclipse2Guide.PNG)
 
@@ -93,7 +93,7 @@ After **JBoss Tools** was installed properly, follow these steps to install Wild
 
 ![](doc_img_src/InstallingWildflyEclipse1Guide.PNG)
 
-2. Select WildFly 15 and click Next
+2. Select the WildFly version you wish to work with and click Next
 
 ![](doc_img_src/InstallingWildflyEclipse2Guide.PNG)
 
@@ -118,7 +118,7 @@ After **JBoss Tools** was installed properly, follow these steps to install Wild
 ![](doc_img_src/InstallingWildflyEclipse7Guide.PNG)
 
 8. Finally, select the path for where you wish your download and install locations to be found, then click Finish to complete the
-installation.
+installation
 
 ![](doc_img_src/InstallingWildflyEclipse8Guide.PNG)
 
@@ -130,9 +130,9 @@ installation.
 
 It is easier to start your Skyve Application with H2 Database as it does not require any extra configurations. However, in this tutorial I want to place you on the real world of Enterprise Application Development by using MySQL Database.
 
-You can check if MySQL installed on your system, if not you can go to [MySQL Download](https://dev.mysql.com/downloads/mysql/), choose the right version for your system, and install MySQL on your system.
+You can check if MySQL installed on your system, if it is not you can go to [MySQL Download](https://dev.mysql.com/downloads/mysql/), choose the right version for your system, and install MySQL on your system.
 
-You may also need a SQL Client to work with your data, [MySQL Workbench](https://www.mysql.com/products/workbench/) is perfect for it, however you may use any tools which you are familiar with.
+You may also need a SQL Client to work with your data, [MySQL Workbench](https://www.mysql.com/products/workbench/) is perfect for it, however you may use any other tools which you are familiar with.
 
 Once MySQL is ready on your system, let us configure WildFly datasource to support MySQL Engine.
 
@@ -143,12 +143,12 @@ At this moment, JDBC 8 connector is not supported. So we will go with the previo
 
 ![](doc_img_src/jdbc%20previouse%20GA%20version.png)
 
-Select the Operating System that you are creating your toDoApp on
+Select the Operating System that you are creating your toDoApp on.
 ![](doc_img_src/ConfigureWildFlyForMySQL1Guide.PNG)
 
 Download a suitable version for your Operating System. In this tutorial I am using Windows Operating System, so I go to download **Platform Independent (Architecture Independent), ZIP Archive**
 
-2. Deploy MySQL JDBC Driver.
+2. Deploy MySQL JDBC Driver
 Navigate to the directory ***$WILDFLYHOME/modules/system/layers/base/com***
 ***($WILDFLYHOME - the Root Folder, which you selected when you install WildFly Server - For example: D:\JavaPrograms\EclipseWorkSpace\wildfly-16.0.0.Final)***
 
@@ -177,19 +177,19 @@ Replace [VERSION] with your JDBC Connector Version.
 ### Creating an xml file
 (If you already know how to create an xml file, continue on to Step 6 of Configuring Wildfly datasource to support MySQL)
 
-To create an xml file, click on File, then select New, and click Other
+To create an xml file, click on File, then select New, and click Other.
 ![](doc_img_src/ConfigureWildFlyForMySQL2Guide.PNG)
 
-Scroll down and click the XML dropdown box, then select XML File, then click Next
+Scroll down and click the XML dropdown box, then select XML File, then click Next.
 ![](doc_img_src/ConfigureWildFlyForMySQL3Guide.PNG)
 
-Select RemoteSystemsTempFiles, then rename the file to 'module.xml', and click Next
+Select RemoteSystemsTempFiles, then rename the file to 'module.xml', and click Next.
 ![](doc_img_src/ConfigureWildFlyForMySQL4Guide.PNG)
 
-Check the box to Create XML file from an XML template, and again, click Next
+Check the box to Create XML file from an XML template, and again, click Next.
 ![](doc_img_src/ConfigureWildFlyForMySQL5Guide.PNG)
 
-Finally, click Finish
+Finally, click Finish.
 
 ![](doc_img_src/ConfigureWildFlyForMySQL6Guide.PNG)
 
@@ -240,15 +240,15 @@ And define MySQL driver here.
 
 
 So far we have done the initial configuration step.
-Next, we will go to deploy our TodoApp to WildFly Server, then configure our Database for TodoApp and run it for the first time.
+Next, we will go to deploy our TodoApp to our WildFly Server, then configure our database for TodoApp and run it for the first time.
 
 ## Deploy and Configure Skyve Project
 ### Deploy Skyve Project
 Its easy to deploy [Skyve](https://skyve.org) to your WildFly Server.
 1. Open WildFly deployments folder.
-Right click on the Server and click on Show In, then click on File Browser.
+Right click on the server and click on Show In, then click on File Browser.
 ![](doc_img_src/DeployingSkyveProject1Guide.PNG)
-2. Expand TodoApp Project, you will see the deployments folder.
+2. Expand the TodoApp Project, you will see the deployments folder.
 Copy todoApp.json and todoApp-ds.xml from the todoApp deployments folder to the WildFly deployments folder that you opened in the previous step.
 ![](doc_img_src/DeployingSkyveProject2Guide.PNG)
 3. Add TodoApp project to Wildfly Server by right-clicking on your server, and clicking Add and Remove.
