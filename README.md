@@ -1,9 +1,9 @@
-# Todo Application Tutorial
+# todo Application Tutorial
 Let's learn from example.
 
-Throughout this tutorial, we will walk you through creating an advanced Todo Application by using the awesome Enterprise Application Framework - [Skyve](https://skyve.org/).
+Throughout this tutorial, we will walk you through creating an advanced todo Application by using the awesome Enterprise Application Framework - [Skyve](https://skyve.org/).
 
-This Todo application will assign and manage tasks needed to be done for our project. We also try to put some effort in to create a report by using Jaspersoft BI tools which is embedded in the Skyve Framework.
+This todo application will assign and manage tasks needed to be done for our project. We also try to put some effort in to create a report by using Jaspersoft BI tools which is embedded in the Skyve Framework.
 
 In this project, we will try to cover as much of the Skyve development process and its concepts as possible.
 
@@ -21,7 +21,7 @@ Before continuing with our tutorial, there are some pages you may want to visit:
 * [Join Us On Slack](https://join.slack.com/t/skyveframework/shared_invite/enQtNDMwNTcyNzE0NzI2LWNjMTBlMTMzNTA4YzBlMzFhYzE0ZmRhOWIzMWViODY4ZTE1N2QzYWM1MTdlMTliNDIyYTBkOWZhZDAxOGQyYjQ) - If you get stuck, feel free to ask the team some questions on the Skyve Slack server.
 
 Now, moving on to the next stage to learn how to create an application with [Skyve Framework](https://skyve.org).
-## Create TodoApp Project
+## Create todoApp Project
 To create a new [Skyve](https://skyve.org) Project, you can go to the [Getting Started](https://skyve.org/getting-started) page, then scroll down to the **Skyve For Developers**  section, and click the **Create** button.
 ![](doc_img_src/create%20skyve%20project.png)
 ***We recommend you watch the video guide first***
@@ -39,7 +39,7 @@ On the Skyve Project Creation page, fill in the below information:
 Finally, click the **Create Project** button.
 
 Now, check your email inbox to find your Project Download Link. Download the project and extract it to your workspace.
-## Import TodoApp Project
+## Import todoApp Project
 Now we will import the project to Eclipse.
 
 Once in Eclipse, right-click in the Project Explorer window, and choose **Import**.
@@ -232,28 +232,28 @@ And define MySQL driver here.
             <driver name="h2" module="com.h2database.h2">
                 <xa-datasource-class>org.h2.jdbcx.JdbcDataSource</xa-datasource-class>
             </driver>
-			<driver name="mysql" module="com.mysql"/>
+		<driver name="mysql" module="com.mysql"/>
         </drivers>
     </datasources>
 </subsystem>
 ```
 
 
-So far we have done the initial configuration step.
-Next, we will go to deploy our TodoApp to our WildFly Server, then configure our database for TodoApp and run it for the first time.
+So far we have completed the initial configuration step.
+Now we will deploy our todoApp to our WildFly Server, then configure our database for todoApp and run it for the first time.
 
 ## Deploy and Configure Skyve Project
 ### Deploy Skyve Project
-Its easy to deploy [Skyve](https://skyve.org) to your WildFly Server.
-1. Open WildFly deployments folder.
-Right click on the server and click on Show In, then click on File Browser.
+Its easy to deploy your [Skyve](https://skyve.org) project to your WildFly Server.
+1. Open WildFly deployments folder
+Right-click on the server and click on Show In, then click on File Browser
 ![](doc_img_src/DeployingSkyveProject1Guide.PNG)
-2. Expand the TodoApp Project, you will see the deployments folder.
+2. Expand the todoApp Project, you will see the deployments folder
 Copy todoApp.json and todoApp-ds.xml from the todoApp deployments folder to the WildFly deployments folder that you opened in the previous step.
 ![](doc_img_src/DeployingSkyveProject2Guide.PNG)
-3. Add TodoApp project to Wildfly Server by right-clicking on your server, and clicking Add and Remove.
+3. Add todoApp project to Wildfly Server by right-clicking on your server, and click Add and Remove
 ![](doc_img_src/DeployingSkyveProject3Guide.PNG)
-4. Select todoApp from Available, then click 'Add >', and lastly Click the Finish button.
+4. Select todoApp from Available, then click 'Add >', and lastly click the Finish button
 ![](doc_img_src/DeployingSkyveProject4Guide.PNG)
 
 ### Configure Skyve Project
@@ -265,7 +265,7 @@ Change the content settings
 Open your Eclipse Workspace folder and create a content folder called 'content'.
 ![](doc_img_src/workspace%20content%20folder.png)
 
-Open todoApp.json and looking for Content settings.
+Open todoApp.json and look for Content settings.
 ```json
 // Content settings
 	content: {
@@ -293,7 +293,7 @@ Change the directory path to your content folder. It will become something simil
 ```
 
 Next, we will need to change the Environment Settings.
-By default, [Skyve](https://skyve.org) was setting as production mode. So we will need to change to development mode.
+By default, [Skyve](https://skyve.org) is set in production mode. So we will need to change this to development mode.
 ```json
 // Environment settings
 	environment: {
@@ -316,7 +316,7 @@ By default, [Skyve](https://skyve.org) was setting as production mode. So we wil
 ```
 We will need to change the identifier to dev.
 
-One more concept we need to take note of; In todoApp.json, define your ***bootstrap user settings***, later we will use this user information to login to our todoApp.
+One more concept we need to take note of; in todoApp.json, define your ***bootstrap user settings***, later we will use this user information to login to our todoApp.
 ```json
 // bootstrap user settings - creates a user with all customer roles assigned, if the user does not already exist
 	bootstrap: {
@@ -327,7 +327,7 @@ One more concept we need to take note of; In todoApp.json, define your ***bootst
 	}
 ```
 
-We have done the basic configurations to make sure our project can run.
+We have now done the basic configurations needed to make sure our project can run.
 
 Now we will move on to MySQL Data Source configuration.
 
@@ -371,9 +371,9 @@ Then I will need to change the connection-url like below:
 </datasources>
 ```
 
-Another change needed to be applied is the security, you will need provide valid authentication to connect to your database.
+Another change that will need to be applied is the security, you will need provide valid authentication to connect to your database.
 
-For security reason, we strongly recommend you to create an account for each application, so each application is not affected by other applications if one of the connections was revealed. It is good practice to use strong password for your application. If it is hard for you to think up a strong password, you can use this web application to generate a strong, secure password https://passwordsgenerator.net/
+For security reasons, we strongly recommend you to create a separate account for each application, so each application is not affected by other applications if one of the connections was revealed. It is good practice to use strong password for your applications. If you would rather leave it to a random generator, you can use this web application to generate a strong, secure password:  https://passwordsgenerator.net/
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <datasources>
@@ -391,7 +391,7 @@ For security reason, we strongly recommend you to create an account for each app
 	</datasource>
 </datasources>
 ```
-## Run TodoApp
+## Run todoApp
 
 Before running your project, we will need to generate the domain class first.
 
@@ -404,13 +404,13 @@ Before running your project, we will need to generate the domain class first.
 * Wait for a few seconds (this may take longer to run for the first time), once the process is complete you will see the result in the Console Window like below;
 ![](doc_img_src/build%20success.png)
    
-3. In the Servers Window, right click on the server and click Start.
+3. In the Servers window, right-click on the server and click Start.
 ![](doc_img_src/RunToDoApp3Guide.PNG)
 
 4. When you see the below info in your Console Window, todoApp was deployed and is running on your localhost server.
 ![](doc_img_src/run%20properly.png)
 
-If not, you may try to check and debug by yourself or [Join Us On Slack](https://join.slack.com/t/skyveframework/shared_invite/enQtNDMwNTcyNzE0NzI2LWNjMTBlMTMzNTA4YzBlMzFhYzE0ZmRhOWIzMWViODY4ZTE1N2QzYWM1MTdlMTliNDIyYTBkOWZhZDAxOGQyYjQ) and ask any questions there. You will get support from the [Skyve](https://skyve.org) team or any community team member.
+If not, you may try to check and debug by yourself, or [Join Us On Slack](https://join.slack.com/t/skyveframework/shared_invite/enQtNDMwNTcyNzE0NzI2LWNjMTBlMTMzNTA4YzBlMzFhYzE0ZmRhOWIzMWViODY4ZTE1N2QzYWM1MTdlMTliNDIyYTBkOWZhZDAxOGQyYjQ) and ask any questions there. You will get support from the [Skyve](https://skyve.org) team or any community team member.
 
 5. Access TodoApp from Web Browser at [http://localhost:8080/todoApp](http://localhost:8080/todoApp)
 
@@ -422,23 +422,23 @@ User Name: setup
 
 Password: setup
 
-7. After you login successfully, you will see something like this.
+7. After you login successfully, you will see something like this
 
 ![](doc_img_src/login%20success.png)
 
-By default, Skyve opens with the Admin module, the Admin module holds quite a lot of useful functions which are ready for you to evaluate [Skyve Framework](https://skyve.org).
+By default, Skyve opens with the Admin module, the Admin module holds quite a few useful functions which are ready for you to evaluate [Skyve Framework](https://skyve.org).
 
 The user guide is available at https://skyvers.github.io/skyve-user-guide/. The user guide is for end users of Skyve applications and describes how to navigate around the user interface and make use of the built in functions that ship with Skyve.
 
-## Build TodoApp Module
+## Build todoApp Module
 Module concept and module components are defined at https://skyvers.github.io/skyve-dev-guide/modules/
 so in this tutorial so we will not repeat it here.
 
 ### Create 'todo' module
-To create the todo module, click the dropdowns in the photo below to access the src/main/java folder, then right-click and add a new package
+To create the todo module, click on the dropdowns following the photo below to access the src/main/java folder, then right-click and add a new package.
 ![](doc_img_src/BuildToDoAppModule1Guide.PNG)
 
-Rename the module to 'todo' and click Finish
+Rename the module to 'todo' and click Finish.
 ![](doc_img_src/BuildToDoAppModule2GuideV3.PNG)
 
 ### Create `todo.xml` file
@@ -460,11 +460,11 @@ Inside the `todo` package, create an xml file named `todo.xml`
 Skyve uses the term document to indicate the business-focused nature of application objects.
 
 In this tutorial we assume the app will have the below documents - objects involved 
-1. Staff - who will create, assign, and complete tasks.
-2. Projects - each project may contain multiple tasks, based on customer requirements.
+1. Staff - who will create, assign, and complete tasks
+2. Projects - each project may contain multiple tasks, based on customer requirements
 3. Todo - task needed to be done for each project
 
-So lets go define above documents inside our `todo.xml`
+So lets go define the above documents inside our `todo.xml`
 
 ```xml
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -483,17 +483,17 @@ So lets go define above documents inside our `todo.xml`
 	</documents>
 </module>
 ```
-In this example, we defined document `User`, and `Contact` as referent from the `admin` module because each user in our application will associate with one staff.
+In this example, we defined documents `User`, and `Contact` as referent from the `admin` module because each user in our application will associate with one staff.
 
 #### Roles
-Each role specifies the privilege levels for documents the role will access (and associated actions). The role name is the name displayed when assigning roles to user security groups in the admin.
+Each role specifies the privilege levels for documents that the role will access (and associated actions). The role name is the name displayed when assigning roles to user security groups in the admin.
 
 For each document, the privilege level is specified in terms of C (Create) R (Read) U (Update) D (Delete) and the document scope access level, either G (Global), C (Customer), D (Data Group) or U (User). The underscore character (_) means no permission is granted.
 
 In our `Todo App`, we will define below roles:
 1. Staff Manager - who are able to manage Staff
 2. Project Manager - to grant to Project Managers who are able to create projects & tasks
-3. Project Member - to grant to Project Team Memebers who are not able to create projects or tasks, but will work on tasks to finish projects
+3. Project Member - to grant to Project Team Members who are not able to create projects or tasks, but will work on said tasks to finish projects
 ```xml
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <module name="todo" title="Todo Module" xmlns="http://www.skyve.org/xml/module" xsi:schemaLocation="http://www.skyve.org/xml/module ../../schemas/module.xsd"
@@ -525,7 +525,7 @@ In our `Todo App`, we will define below roles:
 			</privileges>
 		</role>
 		<role name="ProjectMember">
-			<description>Project Member - who are not able to create project, tasks but will work with tasks to finish projects.</description>
+			<description>Project Member - who are not able to create projects, tasks but will work with tasks to finish projects.</description>
 			<privileges>
 				<document permission="_RU_C" name="Project" />
 				<document permission="_RU_C" name="Todo" />
@@ -626,11 +626,11 @@ To define the `Staff` document we will need to create a `Staff.xml` file under t
 	<pluralAlias>Staffs</pluralAlias>
 	<iconStyleClass>fa fa-users</iconStyleClass>
 ```
-- `name` : document name.
-- `persistent` : name of document's database table.
-- `singularAlias`: Singular Alias
-- `pluralAlias`: Plural Alias
-- `iconStyleClass`: document icon on the menu. [Skyve](https://skyve.org) uses `fontawesome` as an icons resource. You can look for any icon by following this link https://fontawesome.com/icons. Please take note about `fontawesome` version to find correct icons.
+- `name` : document name
+- `persistent` : name of document's database table
+- `singularAlias`: Singular alias
+- `pluralAlias`: Plural alias
+- `iconStyleClass`: document icon on the menu. [Skyve](https://skyve.org) uses `fontawesome` as an icons resource. You can look for any icon by following this link https://fontawesome.com/icons. Please take note on `fontawesome` version to find correct icons.
 
 In some cases, may you need to define your own custom icons. [Skyve](https://skyve.org) support 16 and 32 pixel icons and you can refer to them through the `admin` -> `contact` document.
 
@@ -650,7 +650,7 @@ bizKey was defined like below:
 	<bizKey expression="{user.contact.name}"/>
 ```
 ##### Attributes
-Each document normally has multiple attributes, which can be of different data types, and how it renders in the view can also be different. Please refer to this link https://skyvers.github.io/skyve-dev-guide/documents/#attributes to understand about attribute types.
+Each document normally has multiple attributes, which can be of different data types, and how it renders in the view can also be different. Please refer to this link https://skyvers.github.io/skyve-dev-guide/documents/#attributes to understand attribute types.
 
 In this Tutorial, the `Staff` document will have the attributes below:
 
