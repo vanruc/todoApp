@@ -410,9 +410,9 @@ Before running your project, we will need to generate the domain class first.
 4. When you see the below info in your Console Window, todoApp was deployed and is running on your localhost server.
 ![](doc_img_src/run%20properly.png)
 
-If not, you may try to check and debug by yourself, or [Join Us On Slack](https://join.slack.com/t/skyveframework/shared_invite/enQtNDMwNTcyNzE0NzI2LWNjMTBlMTMzNTA4YzBlMzFhYzE0ZmRhOWIzMWViODY4ZTE1N2QzYWM1MTdlMTliNDIyYTBkOWZhZDAxOGQyYjQ) and ask any questions there. You will get support from the [Skyve](https://skyve.org) team or any community team member.
+If not, you may try to debug by yourself to find the source of the problem, or [Join Us On Slack](https://join.slack.com/t/skyveframework/shared_invite/enQtNDMwNTcyNzE0NzI2LWNjMTBlMTMzNTA4YzBlMzFhYzE0ZmRhOWIzMWViODY4ZTE1N2QzYWM1MTdlMTliNDIyYTBkOWZhZDAxOGQyYjQ) and ask any questions there. You will get support from the [Skyve](https://skyve.org) team or a community team member.
 
-5. Access TodoApp from Web Browser at [http://localhost:8080/todoApp](http://localhost:8080/todoApp)
+5. Access todoApp from Web Browser at [http://localhost:8080/todoApp](http://localhost:8080/todoApp)
 
 ![](doc_img_src/run%20todo%20app%20on%20browser.png)
 
@@ -422,7 +422,7 @@ User Name: setup
 
 Password: setup
 
-7. After you login successfully, you will see something like this
+7. After you login successfully, you will see something similar to this
 
 ![](doc_img_src/login%20success.png)
 
@@ -432,7 +432,7 @@ The user guide is available at https://skyvers.github.io/skyve-user-guide/. The 
 
 ## Build todoApp Module
 Module concept and module components are defined at https://skyvers.github.io/skyve-dev-guide/modules/
-so in this tutorial so we will not repeat it here.
+so we will not repeat it in this tutorial.
 
 ### Create 'todo' module
 To create the todo module, click on the dropdowns following the photo below to access the src/main/java folder, then right-click and add a new package.
@@ -599,7 +599,7 @@ Within the application file structure, each document is assigned a package. For 
 
 The `document` package includes declarations of actions, reports, views and the associated Bizlet file. The Bizlet file contains document-specific behaviours including overrides of default action behaviours and document bean lifecycle events (e.g. newInstance, preSave, etc.).
 
-In this tutorial we will define three Documents; Staff, Project and Todo(task).
+In this tutorial we will define three Documents; Staff, Project and todo (task).
 #### Staff Document
 Inside our `todo` module, create a new `Staff` package.
 
@@ -626,18 +626,18 @@ To define the `Staff` document we will need to create a `Staff.xml` file under t
 	<pluralAlias>Staffs</pluralAlias>
 	<iconStyleClass>fa fa-users</iconStyleClass>
 ```
-- `name` : document name
-- `persistent` : name of document's database table
+- `name` : Document name
+- `persistent` : Name of document's database table
 - `singularAlias`: Singular alias
 - `pluralAlias`: Plural alias
-- `iconStyleClass`: document icon on the menu. [Skyve](https://skyve.org) uses `fontawesome` as an icons resource. You can look for any icon by following this link https://fontawesome.com/icons. Please take note on `fontawesome` version to find correct icons.
+- `iconStyleClass`: Document icon on the menu. [Skyve](https://skyve.org) uses `fontawesome` as an icons resource. You can look for any icon by following this link https://fontawesome.com/icons. Please take note of the `fontawesome` version to find correct icons.
 
 In some cases, may you need to define your own custom icons. [Skyve](https://skyve.org) support 16 and 32 pixel icons and you can refer to them through the `admin` -> `contact` document.
 
 ##### bizKey
 To enable the application to display references simply, each document must define a business key (bizKey) definition (similar to a Java toString() method for the document). The bizKey is the default representation of the entire document instance.
 
-bizKey was defined like below:
+bizKey is defined like below:
 ```xml
 <document name="Staff"
 				xmlns="http://www.skyve.org/xml/document"
@@ -650,9 +650,9 @@ bizKey was defined like below:
 	<bizKey expression="{user.contact.name}"/>
 ```
 ##### Attributes
-Each document normally has multiple attributes, which can be of different data types, and how it renders in the view can also be different. Please refer to this link https://skyvers.github.io/skyve-dev-guide/documents/#attributes to understand attribute types.
+Each document normally has multiple attributes which can be of different data types, and how it renders in the view can also be different. Please refer to this link https://skyvers.github.io/skyve-dev-guide/documents/#attributes to understand attribute types.
 
-In this Tutorial, the `Staff` document will have the attributes below:
+In this tutorial, the `Staff` document will have the attributes below:
 
 | Attribute name | Data Type - length | Description                   |
 |----------------|--------------------|-------------------------------|
@@ -670,7 +670,8 @@ In this Tutorial, the `Staff` document will have the attributes below:
 
 
 
-To define above attributes, follow this definition:
+To define the above attributes, follow this definition:
+
 ```xml
 <attributes>
 	<association name="user" type="composition" required="true">
@@ -733,13 +734,9 @@ To define above attributes, follow this definition:
 	
 </attributes>
 ```
-And don't forget to close off the .xml file with 
-```xml
-</module>
-```
 
 #### Project document
-After you are done with the Staff document, you will be familiar with document definition. So creating a `Project document` should be easy game for you.
+After you are finished creating the `Staff` document, you should be familiar with document definition. Creating a `Project` document should be easy game for you.
 
 Please go ahead and create the Project document with below attributes:
 
@@ -801,7 +798,7 @@ Please go ahead and create the Project document with below attributes:
 </document>
 ```
 #### Todo Document
-Next, we will go to create the `Todo` document. This document will present the tasks in a project which staff are to do.
+Next, we will go to create the `Todo` document. This document will present the tasks in a project for staff  to do.
 
 In this tutorial, `Todo` document will have the following attributes:
 
@@ -810,7 +807,7 @@ In this tutorial, `Todo` document will have the following attributes:
 | taskID           | String - 20        | Task ID Number                     |
 | priorityLevel    | Enum               | Priority Level of the task         |
 | project          | Association - Project            | Project that the task belongs to       |
-| createdBy        | Association - Staff              | Staff, who create the task         |
+| createdBy        | Association - Staff              | The staff that created the task         |
 | recordedDateTime | DateTime           | When task was recorded            |
 | startDate        | DateTime           | When task was started              |
 | targetDate       | DateTime           | When task was expected to be complete |
@@ -897,25 +894,26 @@ In this tutorial, `Todo` document will have the following attributes:
 
 Now, just one final step before generating our domain!
 
-In your customerName.xml file, customerName will be whatever you set your Customer Name as when you first built your project at the [Skyve Project Creator](https://foundry.skyve.org/foundry/project.xhtml).
+You will need to locate your customerName.xml file, customerName will be whatever you set your Customer Name as when you first built your project in the [Skyve Project Creator](https://foundry.skyve.org/foundry/project.xhtml).
 
-In the case of this tutorial, the Customer Name is 'tutorial'
+In the case of this tutorial, the Customer Name is 'tutorial'.
 
-Once you have located your customerName.xml file, you'll need to include your todo module in your project
+Once you have located your customerName.xml file, you'll need to include your todo module in your project.
 
 ![](doc_img_src/ConfigureCustomerxXML1Guide.PNG)
 
-We are now done with our documents definition. Next we will need to generate domain classes from our defined documents.
+Definitions of our documents is now complete. Next we will need to generate domain classes from our defined documents.
+
 ### Generate domain
 To work with our defined documents we must run the `generate domain` command.
 
 Because we have already run `generate domain` previously, this time it will be faster.
 
-Click to the button right after `Run as button`
-![](doc_img_src/right%20run%20as%20button.png)
+Click to the button to the right of the `Run as` button.
+![](doc_img_src/GenerateDomain1Guide.PNG)
 
-Then choose `todoApp - Generate Domain`
-![](doc_img_src/generate%20todo%20domain.png)
+Then choose `todoApp - Generate Domain`.
+![](doc_img_src/GenerateDomain2Guide.PNG)
 
 ### Start server and have a look at the Todo Module
 After `Generate Domain` runs successfully, we will start the server to see our `Todo App` result.
@@ -925,19 +923,19 @@ After the server runs successfully, open your web browser and access the address
 To access the `Todo` module links you will need to set `roles` for user.
 For example, I go to set full `roles` for my `setup` user.
 
-1. Go to the `User` link on `Security Admin`, then click setup user.
+1. Go to the `User` link on `Security Admin`, then click setup user
 ![](doc_img_src/user-setup.png)
 
-2. Open the `Roles` tab and click the `Add` button.
+2. Open the `Roles` tab and click the `Add` button
 ![](doc_img_src/role%20add.png)
 
-3. Scroll down to the very bottom, you will see our `todo` roles. Choose which role you want to assign to user. In this case I assign all related `todo` roles for my `setup` user. We need to select roles one by one then click the `Zoom Out` button and click `Add` button and repeat until all `roles` are assigned properly.
+3. Scroll down to the very bottom, you will see our `todo` roles. Choose which role you want to assign to a user. In this case I assign all related `todo` roles for my `setup` user. We need to select roles one by one then click the `Zoom Out` button and click `Add` button and repeat until all `roles` are assigned properly
 ![](doc_img_src/todo%20roles.png)
 
-4. Once done with `roles` setup, click `Save` to apply your changes.
+4. Once done with `roles` setup, click `Save` to apply your changes
 ![](doc_img_src/saveroles.png)
 
-After finishing with `roles` setup, you will need to `re-login` to see the effect.
+After finishing the `roles` setup, you will need to re-login to see the effect.
 
 **Ta-da!! Surprise!!**
 
@@ -947,7 +945,7 @@ Now on the left menu we see our `todo` module and its links.
 
 >***To take note:***
 
-> When you go to set up `roles` for `user`, you worked with a very important concept in [Skyve](https://skyve.org) which we call `Zoom`. To get more detail about this concept, please send two minutes to read from this link https://skyvers.github.io/skyve-dev-guide/concepts/#zoom
+> When you set up `roles` for a `user`, you worked with a very important concept in [Skyve](https://skyve.org) which we call `Zoom`. To get more details about this concept, please spend two minutes to read from this link https://skyvers.github.io/skyve-dev-guide/concepts/#zoom
 
 # Enhancements
 ## List View
@@ -964,7 +962,7 @@ To learn more about queries, please follow this link https://skyvers.github.io/s
 ### Staff List
 ![](doc_img_src/staff%20list.png)
 
-Lets see our `Staff` list. Currently, Staff list shows all the information which we defined in the document's attributes section. However, since the `Staff` document is related to `Contact` document, we expect to show some contact information in the `Staff` list too. Let's say we will show `Staff Image`, `Staff Name`, `Staff Mobile Phone Number`, and we also will hide some information from Staff list, for example `Issued Date`, `Expired Date`, `BIO`.
+Lets see our `Staff` list. Currently, our `Staff` list shows all the information which we defined in the document's attributes section. However, since the `Staff` document is related to `Contact` document, we expect to show some contact information in the `Staff` list too. Let's say we will show `Staff Image`, `Staff Name`, `Staff Mobile Phone Number`, and we also will hide some information from Staff list, for example `Issued Date`, `Expired Date`, `BIO`.
 
 Because we did not define the query for `Staff document` yet, it is showing all columns by default. So we have to open `todo.xml` file to declare the query for `Staff`.
 
@@ -1005,13 +1003,13 @@ To apply the change, stop the `WildFly` server and run the `Generate Domain` com
 
 Ta-da!!! Amazing!!!
 
-This is the result after our changes, looks nice right!
+This is the result after our changes, looks nice right?!
 ![](doc_img_src/stafflist%20after%20done.png)
 
 ### Project List
 ![](doc_img_src/project%20list.png)
 
-As you can see our Project list needs some enhancement too. We will go on to show `Project Owner`, `Project Manager` and `Project Coordinator` as well as hide `Project Description` from our `Project List`.
+As you can see our Project list needs some enhancement too. We will alter it to show `Project Owner`, `Project Manager` and `Project Coordinator` as well as hide the `Project Description` from our `Project List`.
 
 You may spend few minutes to complete it by yourself, then compare with my declaration.
 
@@ -1036,9 +1034,9 @@ You may spend few minutes to complete it by yourself, then compare with my decla
 ### Todo List 
 ![](doc_img_src/todolist.png)
 
-As you can see our `Todo List` is not showing `Created By` and `Assign To` columns yet, and we also do not want to show `Actual Start Date` and `Actual Finish Date` columns.
+As you can see our `Todo List` is not showing `Created By` and `Assign To` columns yet, and we also do not want to display the `Actual Start Date` and `Actual Finish Date` columns.
 
-You can absolutely complete it by yourself!
+Give it a try! You can absolutely complete it by yourself!
 
 Once you are done with your query declaration, you can compare with my query below:
 
@@ -1086,7 +1084,7 @@ So to create our Staff `edit view`, we will go through the following steps:
 3. Take a look on the `Console` window. It will ask you for `module name` and `document name`. I will input `todo` as the `module name` and `Staff` as the `document name`.
 ![](doc_img_src/entertodoandstaff.png)
 
-It will run and create an `edit` view for us automatically.
+It will run and create an `edit view` for us automatically.
 
 Now, take a look in your `Staff` package, you will see a `views` package was created. Expand the `views` package and we will see the `generatedEdit.xml` file.
 ![](doc_img_src/staffGeneratedEditXml.png)
@@ -1108,10 +1106,10 @@ Ta-da!!! It works like a charm!!!
 In the previous step we generated an `edit view` by using the `Generate Edit View` function. Now we will enhance our `edit view` to make it more visually appealing.
 
 As of now, Staff attributes show one by one from top to bottom. We will enhance the view by:
-1. Getting and showing more contact information: Name, Email, Mobile Number, and Contact Image.
+1. Retrieving and showing more contact information: Name, Email, Mobile Number, and Contact Image.
 2. Group related information together: Contact Info, Personal Info, Work Info.
 
-We will plan to split our view into 2 parts: `left` and `right`. We will show `Staff information` on the left part. The `Staff Image` will be shown on the right part.
+We will plan to split our view into 2 parts: `left` and `right`. We will show `Staff information` on the left side and the `Staff Image` will be shown on the right part.
 
 To do that, we will need to understand about Skyve Containers - https://skyvers.github.io/skyve-dev-guide/views/#containers
 
