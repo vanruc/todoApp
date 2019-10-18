@@ -1390,7 +1390,7 @@ Hmm, looks like the right side is too empty when we only have the staff image. S
 
 I guess you know how to do it already right?
 
-So after we move BIO from `Personal Info` to the right hand side section. We will have the view below:
+So after we move bio from `Personal Info` to the right hand side section. We will have the view below:
 ![](doc_img_src/staffeditview4.png)
 
 We can say that we have already made a nice view for Staff. However, I also want to introduce `View Components` to you.
@@ -1581,7 +1581,7 @@ Desktop provides a good end user experience, and there are some features which a
 To demonstrate for desktop view, we will:
 1. Create view for desktop
 2. Change the layout to make left and right parts the same width
-3. Add Staff location which use `Geometry` data.
+3. Add Staff location which uses `Geometry` data.
 
 ###### Create edit view
 - Create a new package named `desktop` inside the `views` package of the Staff Document.
@@ -1589,7 +1589,7 @@ To demonstrate for desktop view, we will:
 - Re-deploy the application to take effect.
 
 ###### Change the layout for desktop view
-We will change the layout of desktop view to make left and right sections have same width.
+We will change the layout of desktop view to make left and right sections have the same width.
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <view xmlns="http://www.skyve.org/xml/view" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="edit" title="Staff" xsi:schemaLocation="http://www.skyve.org/xml/view ../../../../schemas/view.xsd">
@@ -1615,11 +1615,10 @@ We will change the layout of desktop view to make left and right sections have s
 ```
 
 Login to the application.
-Then switch to desktop screen by click to the `Switch` button on the top right corner. 
+Then switch to desktop view by click to the `Switch` button on the top right corner. 
 ![](doc_img_src/switch%20button.png)
 
-
-Go to our `Staff`, then we will see different from `desktop` and our normal view.
+Go to `Staff`, then we will see the difference between desktop view and our normal view.
 ![](doc_img_src/staffeditview6.png)
 
 
@@ -1630,7 +1629,7 @@ Skyve applications can take advantage of other map APIs (for example; Leaflet, O
 
 In this section we will use `Geometry` with Google Maps. So you will need to have a `Google Map API V3 key`. You can follow this link https://developers.google.com/maps/documentation/javascript/get-api-key to get one.
 
-After you have the key, you will need to set it in the APIs section of `todoApp.json` (hopefully you still remember it)
+After you have the key, you will need to set it in the APIs section of `todoApp.json` (hopefully you still remember your key ;) )
 
 In the `Servers` window, right click on your Wildfly server and choose `Show in`, then select `File Browser`.
 
@@ -1650,16 +1649,16 @@ Now, we will add `Staff Location` to our `Staff Document`.
 </geometry>
 ```
 
-Add this definition right after the BIO definition.
+Add this definition right after the bio definition.
 
 After adding the `Staff Location` attribute, we must run `Generate Domain`.
 
-Once, the `Generate Domain` command runs successfully, we will go to amend our views.
+Once, the `Generate Domain` command runs successfully, we will amend our views.
 
 `Geometry` is not yet supported on responsive mode yet, so in this view, we will show a text to instruct user to go to `desktop` mode to use `Geometry` feature.
 
 
-We will add Staff Location to `right side` of the screen.
+We will add Staff Location to the right side of the screen.
 
 `Staff Responsive View`.
 
@@ -1670,12 +1669,12 @@ We will add Staff Location to `right side` of the screen.
 	
 	<form>
         <column percentageWidth="20" responsiveWidth="1" />
-		<column />
+	<column />
         
         <row>
-        	<item>
-			<spacer />
-		</item>
+            <item>
+		<spacer />
+	    </item>
             <item showLabel="false">
                 <blurb>To set Staff Location, please switch to Desktop Mode</blurb>
             </item>
@@ -1695,7 +1694,7 @@ We will add Staff Location to `right side` of the screen.
 	
 	<form>
         <column percentageWidth="20" responsiveWidth="1" />
-		<column />     
+	<column />     
         
         <row>
             <item>
@@ -1712,9 +1711,9 @@ You can click to the right icon of `Staff Location` to set `Staff Location`.
 
 ### Project Edit View
 
-In the previous section you already explore and practice on how to create an `edit view` and customize it to meet project requirements. Now it should be easier for you to create an `edit view` for your `Project` document right?
+In the previous section you explore and practice how to create an `edit view` and customize it to meet project requirements. Now it should be easier for you to create an `edit view` for your `Project` document right?
 
-Let demonstrate that our `project edit view` may look like below:
+Lets demonstrate that our `project edit view` may look like below:
 
 ![](doc_img_src/projecteditview.png)
 
@@ -1723,14 +1722,14 @@ It includes 3 `components`:
 - Project Owner Info: to show project owner information.
 - Project Operator: to show project operator information.
 
-Here are some guidelines for you to finish this edit view by your self.
+Here are some guidelines to help you finish this edit view by your self.
 1. Run `Generate edit view` command to generate `Project edit view`
 2. Create `view components` for each section
 3. Combine `view components` together.
-4. Run `Generate Domain` command and Redeploy application.
+4. Run `Generate Domain` command and re-deploy the application.
 5. Adjust your view if required.
 
-You may choose to stop reading through this tutorial for 10 to 20 minute in order to try to complete it by yourself before and then after you done by your self you can compare it with our work.
+You may choose to stop reading through this tutorial for 10 to 20 minutes in order to try to complete it by yourself, and then after you are done you can compare it with our work.
 
 #### Project Edit View Solution
 ##### Project Info Component
@@ -1890,6 +1889,7 @@ You may choose to stop reading through this tutorial for 10 to 20 minute in orde
     <newParameters/>
 </view>
 ```
+
 ### Todo Edit View
 In the previous section we finished the `Project Edit view`. We will now create our final view for `Todo Edit view`.
 
@@ -1902,7 +1902,7 @@ It includes 2 parts:
 
 You can scroll up a bit to read the guideline on how to create `Project Edit view` and apply to create `Todo edit view`.
 
-We suggest you stop reading for a while and attempt your `Todo Edit view` before comparing with the definition below.
+We suggest you stop reading for a while and attempt your `Todo Edit view` before comparing with our definition below.
 
 #### General Information Component
 
@@ -1946,6 +1946,7 @@ We suggest you stop reading for a while and attempt your `Todo Edit view` before
     </form>
 </view>
 ```
+
 #### Process Component
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -1992,6 +1993,7 @@ We suggest you stop reading for a while and attempt your `Todo Edit view` before
     </form>
 </view>
 ```
+
 #### Combine components in edit view
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -2011,6 +2013,7 @@ We suggest you stop reading for a while and attempt your `Todo Edit view` before
     <newParameters/>
 </view>
 ```
+
 We've now finished our views. In the next section we will cover some advanced concepts such as condition, action and event handler. To apply these concepts, our Application will become more logical, aiming for a high production grade of an application.
 
 ## Advanced Enhancements
@@ -2021,7 +2024,7 @@ We will go through and apply some concepts such as `condition`, `filter`, and `a
 
 ### Staff
 
-Firstly we will enhance the `Staff` document, to see how we can apply the above concepts to our document.
+Firstly we will enhance the `Staff` document to see how we can apply the above concepts to our document.
 
 1. Add `My Staff Information` menu item to `Project Member`
 2. Only allow `Staff Manager` to select `User`.
@@ -2098,7 +2101,7 @@ We also create `My Staff Information` for `Project Member` so they can see and u
 </menu>
 ```
 
-Lets say we want to allow a `Project Member` to create or update their Staff Information, however their Staff Information was created by a `Staff Manager` previously. So in this case we will need to allow `Project Member` to `Create`,`Read`,`Update` their Staff document on Customer scope. But we will restrict to show their own staff record only. To do this, we replace the previous role definition of `Project Member` with the below code
+Lets say we want to allow a `Project Member` to create or update their Staff Information, however their Staff Information was created by a `Staff Manager` previously. So in this case we will need to allow `Project Member` to `Create`,`Read`,`Update` their Staff document on Customer scope. But we will restrict it to show their own staff record only. To do this, we replace the previous role definition of `Project Member` with the below code
 
 ```xml
 <role name="ProjectMember">
@@ -2110,7 +2113,7 @@ Lets say we want to allow a `Project Member` to create or update their Staff Inf
 </role>
 ```
 
-After completing the above tasks, we will need to run `Generate Domain` and `Re-deploy` our application.
+After completing the above tasks, we will need to run `Generate Domain` and re-deploy our application.
 
 Now, we will login as a `Project Member` to see the change.
 
@@ -2177,7 +2180,7 @@ public Staff newInstance(Staff bean) throws Exception {
 	return staff;
 }
 ```
-Save the `StaffBizlet` class and run `Generate Domain` command, then re-deploy your application to your server.
+Save the `StaffBizlet` class and run the `Generate Domain` command, then re-deploy your application to your server.
 
 Once done, login to your application as a `Project Member` and click on the `My Staff Information` link, now we can see the data loaded properly.
 
@@ -2212,6 +2215,7 @@ Lets open `Staff.xml` file, scroll down to very bottom. Right after attributes d
 	</condition>
 </conditions>
 ```
+
 This condition will check if the logged in user's role is Staff Manager or not.
 
 Then apply it to `Staff` view.
