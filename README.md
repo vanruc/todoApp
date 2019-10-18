@@ -1102,14 +1102,15 @@ After refreshing the browser we will see the text we have added to `edit view` l
 ![](doc_img_src/thisIsMyEditViewResult.png)
 
 Ta-da!!! It works like a charm!!!
+
 #### Enhance edit view
 In the previous step we generated an `edit view` by using the `Generate Edit View` function. Now we will enhance our `edit view` to make it more visually appealing.
 
-As of now, Staff attributes show one by one from top to bottom. We will enhance the view by:
+As of now, Staff attributes show one by one, from top to bottom. We will enhance the view by:
 1. Retrieving and showing more contact information: Name, Email, Mobile Number, and Contact Image.
 2. Group related information together: Contact Info, Personal Info, Work Info.
 
-We will plan to split our view into 2 parts: `left` and `right`. We will show `Staff information` on the left side and the `Staff Image` will be shown on the right part.
+We will plan to split our view into 2 sections: `left` and `right`. We will show `Staff information` on the left side and the `Staff Image` will be shown on the right part.
 
 To do that, we will need to understand about Skyve Containers - https://skyvers.github.io/skyve-dev-guide/views/#containers
 
@@ -1121,8 +1122,8 @@ We will try and test our `hbox` to see how it works.
 ![](doc_img_src/staff%20editview%20leftandside.png)
 
 I will explain further:
-- Line 3: We go to define a `hbox` container. `border=true` allows us show the border for our horizontal boxes.
-- Line 5: We go to define `vbox` to hold our Staff Data later. `vbox` has `responsiveWidth` and `perscentageWidth` to allow us to set width. `percentageWidth` can be set from 1 to 100, and will be used on `desktop` screens, while `responsiveWidth` can be set from 1 to 12 and will be used for responsive screens.
+- Line 3: We define a `hbox` container. `border=true` allows us show the border for our horizontal boxes.
+- Line 5: We define `vbox` to hold our Staff data later. `vbox` has `responsiveWidth` and `perscentageWidth` to allow us to set width. `percentageWidth` can be set from 1 to 100, and will be used on `desktop` screens, while `responsiveWidth` can be set from 1 to 12 and will be used for responsive screens.
 - Line 6: We define a form. Forms will be used to hold Data Fields.
 - Line 7 and line 8: we define `column`. To make it responsive we should not declare width for the last column.
 - Line 10: We define a `row`.
@@ -1231,7 +1232,7 @@ It looks better than before right? However there are still some improvements to 
 
 We also want to get contact info(Name, Email, Phone Number) from `Contacts` to show here.
 
-To do that, right after Social Title, we add the below rows:
+To do that, right after Social Title, we add the code below:
 ```xml
 <row>
     <item>
@@ -1257,9 +1258,9 @@ And we will get the result below:
 
 Next, we will group related information together to make it easier to manage.
 
-The easiest way is to use `border` and `borderTitle` attributes of the `Form` Container.
+The easiest way is to use the `border` and `borderTitle` attributes of the `Form` container.
 
-Note that: `Form` just plays a role as a container, which have rows and columns for us to place attributes, not as `HTML Form`. So feel free to have more than one form in your view. It will help you to manage the look of the view easier.
+Note that: `Form` just plays a role as a container, which have rows and columns for us to place attributes, not like a `HTML Form`. So feel free to have more than one form in your view. It will help you to manage the look of the view easier.
 
 So for this case, I will have 3 forms, one for `Contact Info`, one for `Personal Info`, and another one for `Work Info`.
 
@@ -1385,9 +1386,10 @@ So for this case, I will have 3 forms, one for `Contact Info`, one for `Personal
 After finishing the above definition, we have a view like below:
 ![](doc_img_src/staffeditview3.png)
 
-Hmm, looks like the right side is too empty when we only have the staff image. So we will move the `BIO` to the right hand side to see how it looks.
+Hmm, looks like the right side is too empty when we only have the staff image. So we will move the `bio` to the right hand side to see how it looks.
 
-I guess you know how to do already right?
+I guess you know how to do it already right?
+
 So after we move BIO from `Personal Info` to the right hand side section. We will have the view below:
 ![](doc_img_src/staffeditview4.png)
 
