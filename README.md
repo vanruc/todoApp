@@ -9,7 +9,7 @@ In this project, we will try to cover as much of the Skyve development process a
 
 ***This tutorial assumes familiarity with web technology and architecture, Java EE concepts, the Java language and the use of common development tools like Eclipse.***
 
-## Getting started
+## 1 - Getting started
 Before continuing with our tutorial, there are some pages you may want to visit:
 
 * [What is Skyve?](https://skyve.org/what-is-skyve) - Will answer what [Skyve](https://skyve.org) is, and how it will be useful in your Enterprise Application Development.
@@ -21,7 +21,7 @@ Before continuing with our tutorial, there are some pages you may want to visit:
 * [Join Us On Slack](https://join.slack.com/t/skyveframework/shared_invite/enQtNDMwNTcyNzE0NzI2LWNjMTBlMTMzNTA4YzBlMzFhYzE0ZmRhOWIzMWViODY4ZTE1N2QzYWM1MTdlMTliNDIyYTBkOWZhZDAxOGQyYjQ) - If you get stuck, feel free to ask the team some questions on the Skyve Slack server.
 
 Now, moving on to the next stage to learn how to create an application with [Skyve Framework](https://skyve.org).
-## Create todoApp Project
+## 2 - Create todoApp Project
 To create a new [Skyve](https://skyve.org) Project, you can go to the [Getting Started](https://skyve.org/getting-started) page, then scroll down to the **Skyve For Developers**  section, and click the **Create** button.
 ![](doc_img_src/create%20skyve%20project.png)
 ***We recommend you watch the video guide first***
@@ -39,7 +39,7 @@ On the Skyve Project Creation page, fill in the below information:
 Finally, click the **Create Project** button.
 
 Now, check your email inbox to find your Project Download Link. Download the project and extract it to your workspace.
-## Import todoApp Project
+## 3 - Import todoApp Project
 Now we will import the project to Eclipse.
 
 Once in Eclipse, right-click in the Project Explorer window, and choose **Import**.
@@ -60,10 +60,10 @@ Finally, click the **Finish** button.
 
 Wait for the Eclipse Import Wizard to finish the importing process and re-index your project.
 Now we can continue to the next page to install and configure [WildFly](https://wildfly.org/) Server to run our application.
-## Install and Configure WildFly Server
+## 4 - Install and Configure WildFly Server
 To run our **TodoApp** we will need to install and configure for [WildFly](https://wildfly.org) Server.
 Skyve works well on WildFly version 13+ (tested and runs smoothly on **WildFly 17** - as of last revision of this tutorial).
-### Installing WildFly Server
+### 4-1 - Installing WildFly Server
 *You can skip this step if WildFly Server is already installed on your system.*
 
 Before installing WildFly Server, make sure **JBoss Tools** is installed on your system.
@@ -126,7 +126,7 @@ installation
 
 ![](doc_img_src/wildfly%20download%20and%20install.png)
 
-### Configure Wildfly datasource to support MySQL
+### 4-2 - Configure Wildfly datasource to support MySQL
 
 It is easier to start your Skyve Application with H2 Database as it does not require any extra configurations. However, in this tutorial I want to place you on the real world of Enterprise Application Development by using MySQL Database.
 
@@ -174,7 +174,7 @@ Navigate to the directory ***$WILDFLYHOME/modules/system/layers/base/com***
 ```
 Replace [VERSION] with your JDBC Connector Version.
 
-### Creating an xml file
+### 4-3 - Creating an xml file
 (If you already know how to create an xml file, continue on to Step 6 of Configuring Wildfly datasource to support MySQL)
 
 To create an xml file, click on File, then select New, and click Other.
@@ -242,8 +242,8 @@ And define MySQL driver here.
 So far we have completed the initial configuration step.
 Now we will deploy our todoApp to our WildFly Server, then configure our database for todoApp and run it for the first time.
 
-## Deploy and Configure Skyve Project
-### Deploy Skyve Project
+## 5 - Deploy and Configure Skyve Project
+### 5-1 - Deploy Skyve Project
 Its easy to deploy your [Skyve](https://skyve.org) project to your WildFly Server.
 1. Open WildFly deployments folder
 Right-click on the server and click on Show In, then click on File Browser
@@ -256,7 +256,7 @@ Copy todoApp.json and todoApp-ds.xml from the todoApp deployments folder to the 
 4. Select todoApp from Available, then click 'Add >', and lastly click the Finish button
 ![](doc_img_src/DeployingSkyveProject4Guide.PNG)
 
-### Configure Skyve Project
+### 5-2 - Configure Skyve Project
 We will need to do some configuration to run our project.
 
 #### Configure todoApp.json
@@ -265,12 +265,12 @@ Change the content settings
 Open your Eclipse Workspace folder and create a content folder called 'content'.
 ![](doc_img_src/workspace%20content%20folder.png)
 
-Open todoApp.json and look for Content settings.
+Open todoApp.json that you previously moved into your Wildfly deployments folder and look for Content settings.
 ```json
 // Content settings
 	content: {
 		// directory path (note that if you are running on Windows do not use backslashes)
-		directory: "${SKYVE_CONTENT:/C:/_/skyve/skyve-ee/content/}",
+		directory: "${SKYVE_CONTENT:C:/_/skyve/skyve-ee/content/}",
 		// CRON Expression for CMS Garbage Collection job - run at 7 past the hour every hour
 		gcCron: "0 7 0/1 1/1 * ? *",
 		// Attachments stored on file system or inline
@@ -284,7 +284,7 @@ Change the directory path to your content folder. It will become something simil
 // Content settings
 	content: {
 		// directory path (note that if you are running on Windows do not use backslashes)
-		directory: "${SKYVE_CONTENT:/D:/JavaPrograms/EclipseWorkSpace/content/}",
+		directory: "${SKYVE_CONTENT:D:/JavaPrograms/EclipseWorkSpace/content/}",
 		// CRON Expression for CMS Garbage Collection job - run at 7 past the hour every hour
 		gcCron: "0 7 0/1 1/1 * ? *",
 		// Attachments stored on file system or inline
@@ -391,7 +391,7 @@ For security reasons, we strongly recommend you to create a separate account for
 	</datasource>
 </datasources>
 ```
-## Run todoApp
+## 6 - Run todoApp
 
 Before running your project, we will need to generate the domain class first.
 
@@ -430,18 +430,18 @@ By default, Skyve opens with the Admin module, the Admin module holds quite a fe
 
 The user guide is available at https://skyvers.github.io/skyve-user-guide/. The user guide is for end users of Skyve applications and describes how to navigate around the user interface and make use of the built in functions that ship with Skyve.
 
-## Build todoApp Module
+## 7 - Build todoApp Module
 Module concept and module components are defined at https://skyvers.github.io/skyve-dev-guide/modules/
 so we will not repeat it in this tutorial.
 
-### Create 'todo' module
+### 7-1 - Create 'todo' module
 To create the todo module, click on the dropdowns following the photo below to access the src/main/java folder, then right-click and add a new package.
 ![](doc_img_src/BuildToDoAppModule1Guide.PNG)
 
 Rename the module to 'todo' and click Finish.
 ![](doc_img_src/BuildToDoAppModule2GuideV3.PNG)
 
-### Create `todo.xml` file
+### 7-2 - Create `todo.xml` file
 Inside the `todo` package, create an xml file named `todo.xml`
 
 `todo.xml` file will have below components:
@@ -592,12 +592,14 @@ The application menu is declared in terms of groups and items. A menu group is a
 ```
 ![](doc_img_src/define%20menu.png)
 
-### Define Documents
+### 7-3 - Define Documents
 Skyve uses the term document to indicate the business-focused nature of application objects. You can find more details about Skyve Documents by following this link https://skyvers.github.io/skyve-dev-guide/documents/
 
 Within the application file structure, each document is assigned a package. For example the `Staff` package will be assigned to the `Staff` document, the `Project` package will be assigned to the `Project` document... etc.
 
 The `document` package includes declarations of actions, reports, views and the associated Bizlet file. The Bizlet file contains document-specific behaviours including overrides of default action behaviours and document bean lifecycle events (e.g. newInstance, preSave, etc.).
+
+More info on Bizlets can be found at the following Skyve Developer Guide link: https://skyvers.github.io/skyve-dev-guide/bizlets/
 
 In this tutorial we will define three Documents; Staff, Project and todo (task).
 #### Staff Document
@@ -904,7 +906,7 @@ Once you have located your customerName.xml file, you'll need to include your to
 
 Definitions of our documents is now complete. Next we will need to generate domain classes from our defined documents.
 
-### Generate domain
+### 7-4 - Generate domain
 To work with our defined documents we must run the `generate domain` command.
 
 Because we have already run `generate domain` previously, this time it will be faster.
@@ -915,7 +917,7 @@ Click to the button to the right of the `Run as` button.
 Then choose `todoApp - Generate Domain`.
 ![](doc_img_src/GenerateDomain2Guide.PNG)
 
-### Start server and have a look at the Todo Module
+### 7-5 - Start server and have a look at the Todo Module
 After `Generate Domain` runs successfully, we will start the server to see our `Todo App` result.
 
 After the server runs successfully, open your web browser and access the address [https://localhost:8080/todoApp](https://localhost:8080/todoApp) and log-in with your `setup` user info.
@@ -948,7 +950,7 @@ Now on the left menu we see our `todo` module and its links.
 > When you set up `roles` for a `user`, you worked with a very important concept in [Skyve](https://skyve.org) which we call `Zoom`. To get more details about this concept, please spend two minutes to read from this link https://skyvers.github.io/skyve-dev-guide/concepts/#zoom
 
 # Enhancements
-## List View
+## 8 - List View
 Most applications present data in both list and detail views. Skyve assumes this fact and provides rich features for each type of view.
 
 Typically, users of applications begin with a list view of all document instances and then select a document instance to edit. This pattern of behavior is assumed in Skyve.
@@ -959,7 +961,7 @@ List views are based on queries which generally include only key document attrib
 
 To learn more about queries, please follow this link https://skyvers.github.io/skyve-dev-guide/modules/#queries
 
-### Staff List
+### 8-1 - Staff List
 ![](doc_img_src/staff%20list.png)
 
 Lets see our `Staff` list. Currently, our `Staff` list shows all the information which we defined in the document's attributes section. However, since the `Staff` document is related to `Contact` document, we expect to show some contact information in the `Staff` list too. Let's say we will show `Staff Image`, `Staff Name`, `Staff Mobile Phone Number`, and we also will hide some information from Staff list, for example `Issued Date`, `Expired Date`, `BIO`.
@@ -1006,7 +1008,7 @@ Ta-da!!! Amazing!!!
 This is the result after our changes, looks nice right?!
 ![](doc_img_src/stafflist%20after%20done.png)
 
-### Project List
+### 8-2 - Project List
 ![](doc_img_src/project%20list.png)
 
 As you can see our Project list needs some enhancement too. We will alter it to show `Project Owner`, `Project Manager` and `Project Coordinator` as well as hide the `Project Description` from our `Project List`.
@@ -1031,7 +1033,7 @@ You may spend few minutes to complete it by yourself, then compare with my decla
 
 ![](doc_img_src/project%20list%20after%20done.png)
 
-### Todo List 
+### 8-3 - Todo List 
 ![](doc_img_src/todolist.png)
 
 As you can see our `Todo List` is not showing `Created By` and `Assign To` columns yet, and we also do not want to display the `Actual Start Date` and `Actual Finish Date` columns.
@@ -1065,10 +1067,10 @@ And this is the `Todo List` which we have
 
 We have already completed `List Main` for our `Todo` module. We will now cover ***Views, widgets and layout*** in the next section
 
-## Views, widgets and layout
+## 9 - Views, widgets and layout
 In this section we will override the default detail view which is generated by Skyve.
 
-### Staff Edit View
+### 9-1 - Staff Edit View
 Skyve provides us with a very useful function to create default `edit view` based on our document attributes and attributes type, the default widget will be applied for each attribute type.
 
 So to create our Staff `edit view`, we will go through the following steps:
@@ -1709,7 +1711,7 @@ We will add Staff Location to the right side of the screen.
 
 You can click to the right icon of `Staff Location` to set `Staff Location`.
 
-### Project Edit View
+### 9-2 -  Project Edit View
 
 In the previous section you explore and practice how to create an `edit view` and customize it to meet project requirements. Now it should be easier for you to create an `edit view` for your `Project` document right?
 
@@ -1890,7 +1892,7 @@ You may choose to stop reading through this tutorial for 10 to 20 minutes in ord
 </view>
 ```
 
-### Todo Edit View
+### 9-3 - Todo Edit View
 In the previous section we finished the `Project Edit view`. We will now create our final view for `Todo Edit view`.
 
 `Todo Edit view` will have an interface like below:
@@ -2016,13 +2018,13 @@ We suggest you stop reading for a while and attempt your `Todo Edit view` before
 
 We've now finished our views. In the next section we will cover some advanced concepts such as condition, action and event handler. To apply these concepts, our Application will become more logical, aiming for a high production grade of an application.
 
-## Advanced Enhancements
+## 10 - Advanced Enhancements
 In this section we will update our `Todo` application to make it more powerful and closer to the production grade of an application.
 
 We will go through and apply some concepts such as `condition`, `filter`, and `action` and we also will touch on the `bizlet and extension class` - `Bizlet`, which is a class related to a document which extends default bean behaviours.
 
 
-### Staff
+### 10-1 - Staff
 
 Firstly we will enhance the `Staff` document to see how we can apply the above concepts to our document.
 
@@ -2033,7 +2035,7 @@ Firstly we will enhance the `Staff` document to see how we can apply the above c
 5. Only allow `Staff Manager` to update `Work Info` data
 6. Allow `Project Member` to update `Contact Info` and `Personal Info` only.
 
-### Add `My Staff Information` menu item.
+### 10-2 - Add `My Staff Information` menu item.
 I will login to the application by using a `Project Member` user account.
 I can find which users are under the `Project Member` group by logging into the application through an admin account and opening `Admin > Security Admin > Groups` and then opening the `Project Member` group.
 
@@ -2186,7 +2188,7 @@ Once done, login to your application as a `Project Member` and click on the `My 
 
 ![](doc_img_src/staffbizlet_6.png)
 
-### Only allow Staff Manager to select User
+### 10-3 - Only allow Staff Manager to select Users
 As you can see, when we login to the application as a `Project` member I also can see the `User` select box. This is not good practice in production application. So in this section we will enhance our application to make sure this `User` select box is visible for `Staff Manager` only.
 ![](doc_img_src/staff_info_1.png)
 
