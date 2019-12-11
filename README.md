@@ -2148,7 +2148,7 @@ The `StaffBizlet` class was created, however we will need to make some changes h
 
 ![](doc_img_src/staffbizlet_1.png)
 
-We will fix these two issues by using Eclipse Quick Fix suggestion.
+We will fix these issues by using Eclipse Quick Fix suggestions (multiple class imports will be needed).
 
 ![](doc_img_src/staffbizlet_2.png)
 
