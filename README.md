@@ -2018,6 +2018,60 @@ We suggest you stop reading for a while and attempt your `Todo Edit view` before
 
 We've now finished our views. In the next section we will cover some advanced concepts such as condition, action and event handler. To apply these concepts, our Application will become more logical, aiming for a high production grade of an application.
 
+### 9-4 Displaying user information after selecting who to assign a todo process to
+
+In the todo document, when selecting which user to assign the task to, we may want to see some of the information about the user we have selected.
+This can be achieved through further usage of conditions. In particular, we can have a condition to determine the visibility of some specified attributes on the screen. 
+To begin with, we define the condition in the `Todo.xml`. Similarly to the before example, we want to add the conditions definition after the attributes definitions. We will define this condition as follows:
+
+```xml
+<conditions>
+	<condition name="assigned">
+		<expression>assignTo != null</expression>
+	</condition>
+</conditions>
+```
+
+This condition will check if a user has been selected for the assignTo attribute.
+Now we need to change the assignTo binding such that it will update the attributes on the selection of the user. This is done as follows in the `_process.xml`:
+
+```xml
+<row>
+       <item>
+		<lookupDescription binding="assignTo" descriptionBinding="bizKey">
+               		<onPickedHandlers>
+               			<rerender clientValidation="false" />
+               		</onPickedHandlers>
+                </lookupDescription>
+       </item>
+</row>
+```
+
+Next, we need to define which elements of the user's information we want to show by editing the `_process.xml` further. To do this, we need to add bindings for the attributes to be displayed within the todo view below the previous section. In this case we will display the name, email and mobile number of the user that is selected like below:
+
+```xml
+<row>
+        <item>
+       		<textField binding="assignTo.name" visible="assigned" editable="false"/>
+       	</item>
+</row>
+<row>
+       	<item>
+      		<textField binding="assignTo.email1" visible="assigned" editable="false"/>
+       	</item>
+</row>
+<row>
+       	<item>
+       		<textField binding="assignTo.mobile" visible="assigned" editable="false"/>
+       	</item>
+</row>
+```
+
+Now, when we select a user to assign the task to in the todo document, it will display the name, email and mobile number of the corresponding user selected as shown in the photo below
+
+![](doc_img_src/ShowMore.PNG)
+
+
 ## 10 - Advanced Enhancements
 In this section we will update our `Todo` application to make it more powerful and closer to the production grade of an application.
 
