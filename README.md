@@ -21,7 +21,8 @@ Before continuing with our tutorial, there are some pages you may want to visit:
 * [Join Us On Slack](https://join.slack.com/t/skyveframework/shared_invite/enQtNDMwNTcyNzE0NzI2LWNjMTBlMTMzNTA4YzBlMzFhYzE0ZmRhOWIzMWViODY4ZTE1N2QzYWM1MTdlMTliNDIyYTBkOWZhZDAxOGQyYjQ) - If you get stuck, feel free to ask the team some questions on the Skyve Slack server.
 
 Now, moving on to the next stage to learn how to create an application with [Skyve Framework](https://skyve.org).
-## 2 - Create todoApp Project
+## 2 - Create 
+App Project
 To create a new [Skyve](https://skyve.org) Project, you can go to the [Getting Started](https://skyve.org/getting-started) page, then scroll down to the **Skyve For Developers**  section, and click the **Create** button.
 ![](doc_img_src/create%20skyve%20project.png)
 ***We recommend you watch the video guide first***
@@ -61,7 +62,7 @@ Finally, click the **Finish** button.
 Wait for the Eclipse Import Wizard to finish the importing process and re-index your project.
 Now we can continue to the next page to install and configure [WildFly](https://wildfly.org/) Server to run our application.
 ## 4 - Install and Configure WildFly Server
-To run our **TodoApp** we will need to install and configure for [WildFly](https://wildfly.org) Server.
+To run our **todoApp** we will need to install and configure for [WildFly](https://wildfly.org) Server.
 Skyve works well on WildFly version 13+ (tested and runs smoothly on **WildFly 17** - as of last revision of this tutorial).
 ### 4-1 - Installing WildFly Server
 *You can skip this step if WildFly Server is already installed on your system.*
