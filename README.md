@@ -33,7 +33,7 @@ On the Skyve Project Creation page, fill in the below information:
 * ***Email address***: A valid email address that you will be using to receive the download link from [Skyve](https://skyve.org)
 * ***Project Name***: Your project name
 * ***Customer Name***: Your customer name
-* ***Database Dialect***: Select your Database Engine
+* ***Database Dialect***: Select your Database Engine (H2 is suggested for ease, though there is a guide further on for setting up MySQL) 
 * ***Skyve Script***: This field is optional - we will refer to Skyve Script later in this course
 ![](doc_img_src/create%20skyve%20form.png)
 
@@ -144,7 +144,7 @@ At this moment, JDBC 8 connector is not supported. So we will go with the previo
 
 ![](doc_img_src/jdbc%20previouse%20GA%20version.png)
 
-Select the Operating System that you are creating your toDoApp on.
+Select the Operating System that you are creating your todoApp on.
 ![](doc_img_src/ConfigureWildFlyForMySQL1Guide.PNG)
 
 Download a suitable version for your Operating System. In this tutorial I am using Windows Operating System, so I go to download **Platform Independent (Architecture Independent), ZIP Archive**
