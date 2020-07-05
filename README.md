@@ -677,7 +677,7 @@ To define the above attributes, follow this definition:
 
 ```xml
 <attributes>
-	<association name="user" type="composition" required="true">
+	<association name="user" type="aggregation" required="true">
 		<displayName>User</displayName>
 		<documentName>User</documentName>
 	</association>
@@ -778,7 +778,7 @@ Please go ahead and create the Project document with below attributes:
 			<displayName>Project Description</displayName>
 			<description>Project Description</description>
 		</memo>
-		<association type="composition" name="projectOwner" required="true">
+		<association type="aggregation" name="projectOwner" required="true">
 			<displayName>Project Owner</displayName>
 			<documentName>Contact</documentName>
 		</association>
@@ -788,11 +788,11 @@ Please go ahead and create the Project document with below attributes:
 		<date name="endDate" required="true">
 			<displayName>End Date</displayName>
 		</date>
-		<association type="composition" name="projectManager" required="true">
+		<association type="aggregation" name="projectManager" required="true">
 			<displayName>Project Manager</displayName>
 			<documentName>Staff</documentName>
 		</association>
-		<association type="composition" name="projectCoordinator" required="true">
+		<association type="aggregation" name="projectCoordinator" required="true">
 			<displayName>Project Coordinator</displayName>
 			<documentName>Staff</documentName>
 		</association>		
@@ -846,11 +846,11 @@ In this tutorial, `Todo` document will have the following attributes:
 				<value code="low" name="low" description="Low Priority"/>
 			</values>
 		</enum>
-		<association type="composition" name="project" required="true">
+		<association type="aggregation" name="project" required="true">
 			<displayName>Project</displayName>
 			<documentName>Project</documentName>
 		</association>
-		<association type="composition" name="createdBy" required="true">
+		<association type="aggregation" name="createdBy" required="true">
 			<displayName>Created By</displayName>
 			<documentName>Staff</documentName>
 		</association>
@@ -887,7 +887,7 @@ In this tutorial, `Todo` document will have the following attributes:
 				<value code="completed" name="completed" description="Completed"/>
 			</values>
 		</enum>
-		<association type="composition" name="assignTo" required="true">
+		<association type="aggregation" name="assignTo" required="true">
 			<displayName>Assign To</displayName>
 			<documentName>Staff</documentName>
 		</association>
